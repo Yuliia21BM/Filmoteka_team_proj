@@ -1,11 +1,5 @@
-
 import axios from 'axios';
-
-const API_KEY = '8b3f9f93b217543bb23268b1f13b0854';
-
-const BASE_URL = 'https://api.themoviedb.org/3';
-
-
+import { API_KEY, BASE_URL} from '../js/config'
 
 // ------------Пошук по назві фільму-----------------
 async function searchMovieForId(text, page = 1) {
@@ -20,7 +14,7 @@ async function searchMovieForId(text, page = 1) {
 }
 
 // --------------------Популярні фільми----------------------
-async function getPopularFilm(page) {
+async function getPopularFilm(page = 1) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`
@@ -46,10 +40,10 @@ async function searchMovieForId(id) {
 }
 
 // ------------------------ Пошук по жанру фільму------------------------------
-async function searchGenresFilms() {
+async function searchGenresFilms(name) {
   try {
     const fetchAPI = await axios.get(
-      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US&name=${name}`
     );
     return fetchAPI.data;
   } catch (error) {
