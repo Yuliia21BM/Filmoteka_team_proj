@@ -1,21 +1,21 @@
 {
-  "name": "filmoteka_team_proj",
+  "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
   "homepage": "https://Yuliia21BM.github.io/Filmoteka_team_proj",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /Filmoteka_team_proj/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yuliia21BM/Filmoteka_team_proj.git"
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Yuliia21BM/Filmoteka_team_proj/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
