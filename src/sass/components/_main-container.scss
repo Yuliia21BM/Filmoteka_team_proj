@@ -1,0 +1,13 @@
+.container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include tablet {
+        max-width: 768x;
+    }
+
+    @include desktop {
+        max-width: 1200px;
+    }
+}
