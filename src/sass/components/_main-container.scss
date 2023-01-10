@@ -1,0 +1,86 @@
+// .container {
+//     width: 100%;
+//     max-width: 320px;
+//     margin: 0 auto;
+
+//     @include tablet {
+//         max-width: 768x;
+//     }
+
+//     @include desktop {
+//         max-width: 1200px;
+//     }
+// }
+
+
+.main-section {
+    padding-top: 20px;
+    padding-bottom: 20x;
+    min-height: calc(100vh - 362px);
+
+}
+
+.main-section__allcards {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+margin-bottom: 40px;
+border-radius: 5px;
+
+@include tablet {
+    gap: 32px;
+    padding-left: 32px;
+    padding-right: 32px
+}
+
+}
+
+
+.main-section__image {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 8px;
+    
+    @include tablet {
+        width: 336px;
+        padding-left: 0px;
+        padding-right: 0px
+    }
+}
+
+//  .main-section__name {
+
+//  }
+
+.main-section__card-title {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* or 133% */
+text-transform: uppercase;
+color: var ($primary-text-color);
+padding-left: 20px;
+
+@include tablet {
+    padding-left: 0;
+}
+}
+
+
+.main-section__description {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* or 133% */
+text-transform: uppercase;
+padding-left: 20px; 
+
+@include tablet {
+padding-left: 0;
+}
+}
