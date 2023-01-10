@@ -30,7 +30,7 @@
         background-image: url(/src/images/mob-background-home-2x.jpg);
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1279px) {
+    @include tablet and (max-width: 1199px) {
         background-image: url(/src/images/tab-background-home-1x.jpg);
 
         @media screen and (min-device-pixel-ratio: 2),
@@ -40,7 +40,7 @@
         }
     }
 
-    @media screen and (min-width: 1280px) {
+    @include desktop {
         background-image: url(/src/images/desk-background-home-1x.jpg);
 
         @media screen and (min-device-pixel-ratio: 2),
@@ -160,11 +160,11 @@
     margin: 0 auto 22px;
     justify-content: center;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
         width: 336px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include desktop {
         width: 394px;
     }
 }
@@ -186,11 +186,11 @@
     // transition-duration: 0.25s;
     // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
         width: 336px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include desktop {
         width: 394px;
     }
 }
@@ -254,11 +254,11 @@
     font-weight: 400;
     color: red;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
         width: 398px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include desktop {
         width: 398px;
     }
 }
