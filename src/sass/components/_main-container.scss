@@ -10,41 +10,28 @@
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
-margin-bottom: 40px;
-border-radius: 5px;
+justify-content: center;
 
-@include tablet {
-    gap: 32px;
-    padding-left: 32px;
-    padding-right: 32px
 }
 
-@include desktop {
-    gap: 16px;
-    padding-left: 32px;
-    padding-right: 32px;
-    justify-content: center;
-}
+.main-section__card {
+    width: 100%;
+   
 
+    @include tablet {
+        flex-basis: calc((100% - 30px) /2);
+    }
+
+    @include desktop {
+        flex-basis: calc((100% - 60px) /3);
+
+    }
 }
 
 
 .main-section__image {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 8px;
-    
-    @include tablet {
-        width: 336px;
-        padding-left: 0px;
-        padding-right: 0px
-    }
 
-    @include desktop {
-        width: 395px;
-
-    }
 }
 
 //  .main-section__name {
