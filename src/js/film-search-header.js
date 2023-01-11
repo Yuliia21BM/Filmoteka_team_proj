@@ -1,4 +1,4 @@
-import { searchMovieForName } from '../js/fetchApi';
+import { searchMovieByName } from '../js/fetchApi';
 
 
 const input = document.querySelector('.search__input');
@@ -21,7 +21,7 @@ async function onFormSubmit(e) {
         else error.textContent = '';
 
     try {
-        const response = await searchMovieForName(value);
+        const response = await searchMovieByName(value);
         const getMovie = response.results;
         console.log(getMovie);
 
