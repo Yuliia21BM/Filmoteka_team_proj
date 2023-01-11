@@ -1,0 +1,65 @@
+.header-lib {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-image: url(/src/images/header-lib-mob.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(/src/images/header-lib-mob-x2.jpg);
+  }
+
+  @include tablet {
+    background-image: url(/src/images/header-lib-tab.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-lib-tab-x2.jpg);
+    }
+  }
+
+  @include desktop {
+    background-image: url(/src/images/header-lib.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-lib-x2.jpg);
+    }
+  }
+}
+
+.header-lib__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.header-lib__home {
+  padding-top: 40px;
+  padding-bottom: 48px;
+
+  padding-left: 35px;
+  padding-right: 35px;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 75px;
+  }
+}
+
+.header-lib__btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.header-lib__btn {
+  width: 130px;
+  height: 45px;
+
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
