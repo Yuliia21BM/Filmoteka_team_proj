@@ -1,7 +1,4 @@
-// import axios from 'axios';
-import searchMovieForName from '../js/fetchApi';
-// import API_KEY from './config';
-// import BASE_URL from './config';
+import { searchMovieForName } from '../js/fetchApi';
 
 
 const input = document.querySelector('.search__input');
@@ -10,27 +7,46 @@ const searchForm = document.querySelector('.search');
 const error = document.querySelector('.warning-notification');
 
 
-btn.addEventListener('click', e => {
-    const query = input.value;
-    console.log(query);
-})
+searchForm.addEventListener('submit', onFormSubmit);
 
+async function onFormSubmit(e) {
+  e.preventDefault();
+  const value = e.currentTarget.searchQuery.value.trim();
+    console.log(value);
 
-function getFilmByName(evt) {
-    evt.preventDefault();
-
-    try {
-        const searchFilms = input.value.trim();
-        searchMovieForName.query = searchFilms;
-        if (searchMovieForName.query === '') {
+    if (value === '') {
             return (error.textContent =
                 'No matches found for your query. Enter the correct movie name.');
         }
         else error.textContent = '';
+
+    try {
+        const response = await searchMovieForName(value);
+        const getMovie = response.results;
+        console.log(getMovie);
+
+        if (getMovie.length === 0) {
+        return (error.textContent = `No matches found for your query. Enter the correct movie name.`);
     }
-    
+    else error.textContent = '';
+    }
+        
     catch (error) {
         console.log(error);
     }
-}
+    };
+
+
+
+// функція makingMarkup
+
+// renderCollection(getMovie); - функція рендеру карток - ?
+
+//   localStorage
+
+
+
+// ... функція createPagination
+
+
 
