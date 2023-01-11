@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_KEY, BASE_URL} from '../js/config'
 
 // ------------Пошук по назві фільму-----------------
-async function searchMovieForId(text, page = 1) {
+async function searchMovieForName(text, page = 1) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${text}&page=${page}`
@@ -65,7 +65,7 @@ async function searchTrailerForId(id) {
 }
 
 export {
-  searchMovieForId,
+  searchMovieForName,
   getPopularFilm,
   searchMovieForId,
   searchGenresFilms,
