@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 // selecting required element
 const element = document.querySelector(".pagination ul");
 let totalPages = 20;
