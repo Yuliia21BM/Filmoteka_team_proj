@@ -1,0 +1,83 @@
+$color_1: #20B2AA;
+$color_2: #fff;
+$font-family_1: 'Poppins', sans-serif;
+
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $font-family_1;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #20B2AA;
+	min-height: 100vh;
+	padding: 10px;
+}
+.pagination {
+	ul {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		background: #fff;
+		padding: 8px;
+		border-radius: 50px;
+		box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+		li {
+			color: $color_1;
+			list-style: none;
+			line-height: 45px;
+			text-align: center;
+			font-size: 18px;
+			font-weight: 500;
+			cursor: pointer;
+			user-select: none;
+			transition: all 0.3s ease;
+			&:first-child {
+				&:hover {
+					color: $color_2;
+					background: #ff6b08;;
+				}
+			}
+			&:last-child {
+				&:hover {
+					color: $color_2;
+					background: #ff6b08;;
+				}
+			}
+		}
+		li.numb {
+			list-style: none;
+			height: 45px;
+			width: 45px;
+			margin: 0 3px;
+			line-height: 45px;
+			border-radius: 50%;
+			&:hover {
+				color: $color_2;
+				background: $accent;
+			}
+		}
+		li.numb.first {
+			margin: 0px 3px 0 -5px;
+		}
+		li.numb.last {
+			margin: 0px -5px 0 3px;
+		}
+		li.dots {
+			font-size: 22px;
+			cursor: default;
+		}
+		li.btn {
+			padding: 0 20px;
+			border-radius: 50px;
+		}
+	}
+	li.active {
+		color: $color_2;
+		background: transparent;
+	}
+}
