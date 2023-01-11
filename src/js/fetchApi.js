@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_KEY, BASE_URL } from '../js/config';
 
 // ------------Пошук по назві фільму-----------------
-async function searchMovieByName(text, page = 1) {
+async function searchMovieForName(text, page = 1) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${text}&page=${page}`
@@ -28,7 +28,7 @@ async function getPopularFilm(page = 1) {
 }
 
 // -----------------Пошук по id-----------------------
-async function searchMovieById(id) {
+async function searchMovieForId(id) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
@@ -53,7 +53,7 @@ async function searchGenresFilms(name) {
 
 // --------------------трейлер фільму--------------------
 
-async function searchTrailerById(id) {
+async function searchTrailerForId(id) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`
@@ -78,9 +78,9 @@ async function searchUpcomimgFilms() {
 }
 
 export {
-  searchMovieByName,
+  searchMovieForName,
   getPopularFilm,
-  searchMovieById,
+  searchMovieForId,
   searchGenresFilms,
   searchTrailerById,
   searchUpcomimgFilms,
