@@ -1,4 +1,5 @@
 import './js/config';
+import './js/upcoming-films';
 import './js/all-info-API';
 import './js/authentication-modal';
 import './js/authorization-modal';

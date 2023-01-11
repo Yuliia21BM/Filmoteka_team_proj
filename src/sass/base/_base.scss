@@ -13,7 +13,7 @@ body {
   outline: 2px solid red;
 
   @include mobile {
-    width: 320px;
+    width: 480px;
   }
   @include tablet {
     padding-left: 32px;
