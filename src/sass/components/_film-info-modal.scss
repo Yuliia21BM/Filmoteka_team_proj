@@ -1,14 +1,24 @@
 .film-modal{
-    width: 806px;
-    height: 558px;
+    width: 280px;
     background-color: #fff;
 }
 
 .film-modal__poster{
     margin-right: 68px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 240px;
+}
+
+.film-modal__title{
+    margin-bottom: 20px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 0.86;
+    text-transform: uppercase;
 }
 
 .film-modal__wrapper{
-    display: flex;
-    padding: 40px 72px 40px 36px;
+    padding: 48px 20px 40px;
 }

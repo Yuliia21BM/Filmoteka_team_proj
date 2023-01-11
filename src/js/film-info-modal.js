@@ -16,7 +16,7 @@ filmCardSection.addEventListener('click', (e) => {
         const createFilmModalMarkup = basicLightbox.create(`
         <div class="film-modal">
             <div class="film-modal__wrapper">
-                <img class="film-modal__poster" src="${POSTER_URL + movieInfo.poster_path}" alt="Movie ${movieInfo.title} poster" width=264/>
+                <img class="film-modal__poster" src="${POSTER_URL + movieInfo.poster_path}" alt="Movie ${movieInfo.title} poster" />
                 <div>
                     <h2 class="film-modal__title">${movieInfo.title}</h2>
                     <ul class="film-modal__info-list">
