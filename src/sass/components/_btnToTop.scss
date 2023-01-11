@@ -1,0 +1,46 @@
+.btnToTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  rgba(211, 138, 22, 0.649);
+    // background-color:  transparent;
+    border-radius: 50%;
+    border: none;
+
+    width: 65px;
+    height: 65px;
+    bottom: 5%;
+    right: 5%;
+    
+    position: fixed;
+    opacity: 0.8;
+    z-index: 10;
+
+    cursor: pointer;
+    
+
+    @media screen and (max-width: 767px) {
+        width: 65px;
+        height: 65px;
+        right: 15%;
+    }
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+            }
+}
+
+.transitionBtn {
+     transition: 500ms;
+ }
+
+.btnToTop__icon {
+    fill: rgba(60, 22, 184, 0.911);
+}
+
+// .is-hidden-btnToTop {
+//     opacity: 0;
+//     pointer-events: 0;
+//     visibility: hidden;
+// }
