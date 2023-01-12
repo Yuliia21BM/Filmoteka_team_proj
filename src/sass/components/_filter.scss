@@ -1,0 +1,43 @@
+.genres {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $accent;
+    text-shadow: 1px 1px 2px black;
+    font-size: 30;
+
+}
+
+.genres-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 10px;
+}
+
+.genres-button {
+    min-width: 130px;
+    height: 45px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: $primary-text-color;
+    background-color: transparent;
+
+    border: 1px solid $primary-text-color;
+    border-radius: 5px;
+
+    transition: color ($animation-time $animation-cubic),
+        border-color ($animation-time $animation-cubic);
+
+    &:hover,
+    &:focus {
+        color: $primary-bg-color;
+        border-color: $hover;
+        background-color: $hover;
+    }
+}
