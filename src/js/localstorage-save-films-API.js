@@ -1,12 +1,13 @@
-const watchBtn = document.querySelector('[data-action="watch"]');
-const queueBtn = document.querySelector('[data-action="queue"]');
-
-watchBtn.addEventListener('click', addWatch);
-queueBtn.addEventListener('click', addQueue);
-
 function localStorageFunction(movieData) {
+ 
   const isLibraryPage = location.pathname.includes('library');
   const cartItem = document.querySelector(`[data-id="${movieData.id}"]`);
+
+  const watchBtn = document.querySelector('[data-action="watch"]');
+  const queueBtn = document.querySelector('[data-action="queue"]');
+
+  watchBtn.addEventListener('click', addWatch);
+  queueBtn.addEventListener('click', addQueue);
 
   function addWatch() {
     if (movieData) {
@@ -49,3 +50,4 @@ function localStorageFunction(movieData) {
     isLocalStorageEmpty('queue');
   }
 }
+
