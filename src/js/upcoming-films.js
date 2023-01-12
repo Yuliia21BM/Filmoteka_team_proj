@@ -36,6 +36,7 @@ async function getUpcomingFilms() {
   try {
     const { results } = await searchUpcomimgFilms();
     if (!results || results === []) return;
+    console.log(results);
 
     const markup = results
       .map(film => {
@@ -51,9 +52,8 @@ async function getUpcomingFilms() {
           class="upcoming-img"
           loading="lazy"
         />
-        <p class="upcoming-card-title">${
-          film.title ? film.title : 'Not known'
-        }</p>
+        <p class="upcoming-card-title">Release date <br/>
+${film.release_date ? film.release_date : 'Not known'}</p>
       </li>`;
       })
       .join('');
