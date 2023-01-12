@@ -1,3 +1,6 @@
+import { startPage } from '../index.js';
+
+
 const btn1Ref = document.querySelector('[data-index="1"]');
 const btn2Ref = document.querySelector('[data-index="2"]');
 const btn3Ref = document.querySelector('[data-index="3"]');
@@ -101,26 +104,28 @@ function onPaginationClick(event) {
       lastPageRef.hidden = false;
     }
 
-    gallery.innerHTML = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    //     gallery.innerHTML = '';
+    //     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (inputRef.value !== '') {
-      movieSearcher(inputRef.value, currentPage);
-    } else {
-      startPage();
+    //     if (inputRef.value !== '') {
+    //       movieSearcher(inputRef.value, currentPage);
+    //     } else {
+    //       startPage();
+    //     }
+    //   }
+    // }
+
+    let pageSize = 9;
+
+    function defineResultsPerPage() {
+      if (window.innerWidth >= 1024) {
+        pageSize = 9;
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        pageSize = 8;
+      } else if (window.innerWidth < 768) {
+        pageSize = 4;
+      }
+      return pageSize;
     }
   }
-}
-
-let pageSize = 9;
-
-function defineResultsPerPage() {
-  if (window.innerWidth >= 1024) {
-    pageSize = 9;
-  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-    pageSize = 8;
-  } else if (window.innerWidth < 768) {
-    pageSize = 4;
-  }
-  return pageSize;
 }
