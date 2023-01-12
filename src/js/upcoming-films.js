@@ -17,7 +17,7 @@ const swiper = new Swiper('.swiper', {
   },
   speed: 1500,
   autoplay: {
-    delay: 2000,
+    delay: 3000,
   },
   breakpoints: {
     768: {
@@ -32,21 +32,28 @@ const swiper = new Swiper('.swiper', {
 });
 
 async function getUpcomingFilms() {
+  const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   try {
     const { results } = await searchUpcomimgFilms();
     if (!results || results === []) return;
 
-    // const markup = `
-    // <li class="upcoming-card swiper-slide">
-    //     <img
-    //       src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
-    //       alt="Avatar: The Way of Water"
-    //       class="upcoming-img"
-    //       loading="lazy"
-    //     />
-    //     <p class="upcoming-card-title">Avatar. The Way of Water 1</p>
-    //   </li>
-    // `;
+    const markup = results
+      .map(film => {
+        return `
+      <li class="upcoming-card swiper-slide">
+        <img
+          src="${POSTER_URL + film.poster_path}"
+          alt="${film.title}"
+          class="upcoming-img"
+          loading="lazy"
+        />
+        <p class="upcoming-card-title">${film.title}</p>
+      </li>`;
+      })
+      .join('');
+
+    upcomingListRef.innerHTML = '';
+    upcomingListRef.insertAdjacentHTML('afterbegin', markup);
   } catch (err) {
     console.log(err);
   }
