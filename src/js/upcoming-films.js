@@ -1,4 +1,7 @@
 import { searchUpcomimgFilms } from './fetchApi';
+import { openModal } from './film-info-modal';
+
+const upcomingListRef = document.querySelector('.swiper-wrapper');
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -30,39 +33,26 @@ const swiper = new Swiper('.swiper', {
 
 async function getUpcomingFilms() {
   try {
-    const data = await searchUpcomimgFilms();
-    console.log(data);
+    const { results } = await searchUpcomimgFilms();
+    if (!results || results === []) return;
+
+    // const markup = `
+    // <li class="upcoming-card swiper-slide">
+    //     <img
+    //       src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+    //       alt="Avatar: The Way of Water"
+    //       class="upcoming-img"
+    //       loading="lazy"
+    //     />
+    //     <p class="upcoming-card-title">Avatar. The Way of Water 1</p>
+    //   </li>
+    // `;
   } catch (err) {
     console.log(err);
   }
 }
 getUpcomingFilms();
 
-// var swiper = new Swiper('.mySwiper', {
-//   slidesPerView: 1,
-//   spaceBetween: 10,
-//   // pagination: {
-//   //   el: '.swiper-pagination',
-//   //   clickable: true,
-//   // },
-
-//   loop: true,
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 4,
-//       spaceBetween: 40,
-//     },
-//     1024: {
-//       slidesPerView: 5,
-//       spaceBetween: 50,
-//     },
-//   },
-// });
+upcomingListRef.addEventListener('click', e => {
+  openModal(e, 'upcoming-card');
+});

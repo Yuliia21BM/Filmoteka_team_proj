@@ -8,7 +8,7 @@ filmCardSection.addEventListener('click', e => {
 });
 
 export function openModal(e, childClass) {
-  if (e.target.parentNode.className !== childClass) {
+  if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
 
