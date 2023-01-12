@@ -2,13 +2,14 @@
     padding-top: 20px;
     padding-bottom: 20x;
 
+
 }
 
 .main-section__allcards {
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
-justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 
 @include tablet {
 justify-content: flex-start;
@@ -17,17 +18,20 @@ justify-content: flex-start;
 }
 
 .main-section__card {
-    width: 100%;
-   
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  border-bottom: 5px;
 
-    @include tablet {
-        flex-basis: calc((100% - 30px) /2);
-    }
+  @include tablet {
+    flex-basis: calc((100% - 30px) /2);
+  }
 
     @include desktop {
         flex-basis: calc((100% - 90px) /4);
 
-    }
+
+  }
 }
 
 
@@ -37,6 +41,7 @@ justify-content: flex-start;
     border-radius: 5px;
     margin-bottom: 8px;
 
+
 }
 
 //  .main-section__name {
@@ -44,7 +49,6 @@ justify-content: flex-start;
 //  }
 
 .main-section__card-title {
-font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
@@ -55,13 +59,13 @@ color: var ($primary-text-color);
 padding-left: 0px;
 
 @include tablet {
+
     padding-left: 0;
-}
+  }
 }
 
 
 .main-section__description {
-font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
