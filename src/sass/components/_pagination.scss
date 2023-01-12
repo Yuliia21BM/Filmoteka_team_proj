@@ -4,13 +4,14 @@
     justify-content: center;
    padding-top: 60px;
 
-    // @media screen and (min-width: $mobile) and (max-width: $to-tablet) {
-    //     padding: 40px 0;
-    // }
-
-    // @media screen and (min-width: $tablet) {
-    //     padding: 50px 0 60px 0;
-    // }
+    @media screen and (min-width: 480px) and (max-width: 768px) {
+            padding: 40px 0;
+        }
+    
+        @media screen and (min-width: 768px) {
+            padding: 50px 0 60px 0;
+            
+        }
 }
 
 .pagination-button:not(:last-child),

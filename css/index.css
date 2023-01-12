@@ -471,6 +471,16 @@ body {
           justify-content: center;
   padding-top: 60px;
 }
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .pagination-container {
+    padding: 40px 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .pagination-container {
+    padding: 50px 0 60px 0;
+  }
+}
 
 .pagination-button:not(:last-child),
 .dots {
@@ -510,9 +520,9 @@ body {
 .arrow-left,
 .arrow-right {
   width: 40px;
-  height: 10px;
+  height: 40px;
   border-radius: 5px;
-  background-color: rgba(16, 15, 16, 0);
+  background-color: #F7F7F7;
   -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
           transform: matrix(-1, 0, 0, 1, 0, 0);
   stroke: #000;
