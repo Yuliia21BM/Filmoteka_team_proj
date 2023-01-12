@@ -13,3 +13,4 @@ import './js/youtube-info-API';
 import './js/trailer-modal';
 import './js/team-modal';
 import './js/filter'
+import './js/BtnScrollToTop';
