@@ -12,10 +12,10 @@
     width: 60px;
     height: 60px;
     bottom: 5%;
-    right: 5%;
+    right: 20%;
     
     position: fixed;
-    // opacity: 0.8;
+    opacity: 0.8;
     z-index: 10;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,12 +25,22 @@
     @media screen and (max-width: 767px) {
         width: 50px;
         height: 50px;
+        right: 10%;
+    }
+    @media screen and (min-width: 768px) {
+        width: 50px;
+        height: 50px;
+        right: 10%;
+    }
+    @media screen and (min-width: 1000px) and (max-width: 1279px) {
+        width: 50px;
+        height: 50px;
         right: 15%;
     }
 
 &:hover,
 &:focus {
-    // opacity: 1;
+    opacity: 1;
     border: 1px solid #fddadae4;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.8);
   }
@@ -64,8 +74,8 @@
   
 }
 
-// .is-hidden-btnToTop {
-//     opacity: 0;
-//     pointer-events: 0;
-//     visibility: hidden;
-// }
+.hidden-btnToTop {
+    opacity: 0;
+    pointer-events: 0;
+    visibility: hidden;
+}
