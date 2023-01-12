@@ -1,4 +1,3 @@
-
 function localStorageFunction(movieData) {
  
   const isLibraryPage = location.pathname.includes('library');
@@ -51,5 +50,4 @@ function localStorageFunction(movieData) {
     isLocalStorageEmpty('queue');
   }
 }
-
 
