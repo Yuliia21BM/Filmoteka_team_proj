@@ -36,7 +36,6 @@ async function getUpcomingFilms() {
   try {
     const { results } = await searchUpcomimgFilms();
     if (!results || results === []) return;
-    console.log(results);
 
     const markup = results
       .map(film => {
