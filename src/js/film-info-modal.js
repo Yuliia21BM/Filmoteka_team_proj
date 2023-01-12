@@ -26,7 +26,6 @@ filmCardSection.addEventListener('click', (e) => {
         <div class="film-modal">
             <div class="film-modal__wrapper">
                 <img class="film-modal__poster" src="${POSTER_URL + movieInfo.poster_path}" alt="Movie ${movieInfo.title} poster" />
-                <div>
                     <h2 class="film-modal__title">${movieInfo.title}</h2>
                     <ul class="film-modal__info-list">
                         <li class="film-modal__info-item">
@@ -48,7 +47,10 @@ filmCardSection.addEventListener('click', (e) => {
                     </ul>
                     <h3 class="film-modal__title-about">About</h3>
                     <p class="film-modal__text-about">${movieInfo.overview}</p>
-                </div>
+                <div class="film-modal__add-btns-wrapper">
+                <button class="film-modal__add-btns" type="button">Add to Watched</button>
+                <button class="film-modal__add-btns film-modal__add-btns--seconadry-btn" type="button">Add to queue</button>
+            </div>
             </div>
         </div>`, basicLightboxOptions);
         

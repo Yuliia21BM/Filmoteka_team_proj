@@ -3,16 +3,12 @@
     height: 90vh;
     background-color: #fff;
     overflow-y: auto;
+    padding: 48px 20px 40px;
 
     &__poster{
-        margin-right: 68px;
         margin-bottom: 20px;
         border-radius: 5px;
         width: 240px;
-    }
-
-    &__wrapper{
-        padding: 48px 20px 40px;
     }
 
     &__title{
@@ -63,12 +59,40 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.66;
+
+        margin-bottom: 20px;
+    }
+
+    &__add-btns-wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__add-btns{
+        background-color: #FF6B01;
+        border-radius: 5px;
+        border: 0;
+        width: 110px;
+        min-height: 44px;
+        padding: 5px;
+    
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #fff;
+        text-transform: uppercase;
+
+        &--seconadry-btn{
+            color: #000;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid #000000;
+        }
     }
 }
 
-.hide-scroll{
-    overflow: hidden;
-}
+
+
 
 
 
