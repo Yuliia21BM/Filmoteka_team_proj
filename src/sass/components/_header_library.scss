@@ -1,0 +1,103 @@
+.header-lib {
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url(/src/images/header-lib-mob.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(/src/images/header-lib-mob-x2.jpg);
+  }
+
+  @include tablet {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-image: url(/src/images/header-lib-tab.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-lib-tab-x2.jpg);
+    }
+  }
+
+  @include desktop {
+    background-image: url(/src/images/header-lib.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-lib-x2.jpg);
+    }
+  }
+}
+
+.header-lib__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.header-lib__btn-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @include tablet {
+    gap: 30px;
+  }
+
+  @include desktop {
+    gap: 15px;
+  }
+}
+
+.header-lib__btn {
+  min-width: 130px;
+  height: 45px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  color: $primary-bg-color;
+  background-color: transparent;
+
+  border: 1px solid $primary-bg-color;
+  border-radius: 5px;
+
+  transition: color ($animation-time $animation-cubic),
+    border-color ($animation-time $animation-cubic);
+
+  &:hover,
+  &:focus {
+    color: $hover;
+    border-color: $hover;
+  }
+
+  @include tablet {
+    min-width: 150px;
+  }
+}
+
+.header-lib__btn--current {
+  color: $primary-bg-color;
+  background-color: $accent;
+  border-color: $accent;
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-color;
+    cursor: default;
+  }
+}

@@ -1,0 +1,78 @@
+.film-modal{
+    width: 280px;
+    height: 90vh;
+    background-color: #fff;
+    overflow-y: auto;
+
+    &__poster{
+        margin-right: 68px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        width: 240px;
+    }
+
+    &__wrapper{
+        padding: 48px 20px 40px;
+    }
+
+    &__title{
+        margin-bottom: 20px;
+    
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.15;
+        text-transform: uppercase;
+    }
+
+    &__info-list{
+        margin-bottom: 20px;
+    }
+
+    &__info-item{
+        display: flex;
+        margin-bottom: 8px;
+    }
+
+    &__info-title{
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #8C8C8C;
+    }
+
+    &__info-text{
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        text-transform: uppercase;
+
+        margin-left: auto;   
+        width: 50%;
+    }
+
+    &__title-about{
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        text-transform: uppercase;
+
+        margin-bottom: 8px;
+    }
+
+    &__text-about{
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.66;
+    }
+}
+
+.hide-scroll{
+    overflow: hidden;
+}
+
+
+
+
+
+
+
