@@ -1,51 +1,40 @@
 <header class="header">
-  <div class="header__home">
-    <div class="header__container">
-      <a class="link" href="./index.html">
-        <svg class="contact__icon" width="24" , height="24">
-          <use href="/src/images/svg/symbol-defs.svg#icon-film"></use>
-        </svg>
-        <span class="logo">Filmoteka</span>
-      </a>
-      <nav class="navigation">
-        <ul class="navigation__menu list">
-          <li class="header-btn">
-            <button type="button" class="authorization-btn">
-              <svg class="register__icon icon" width="20" height="20">
-                <use href="/src/images/svg/symbol-defs.svg#icon-user"></use>
-              </svg>
+    <div class=" header__home">
+        <div class="header__container">
+            <a class="link" href="./index.html">
+                <svg class="contact__icon" width="24", height="24">
+                    <use href="/src/images/svg/symbol-defs.svg#icon-film"></use>
+                </svg>
+                <span class="logo">Filmoteka</span>
+            </a>
+            <nav class="navigation">
+                <ul class="navigation__menu list">
+                    <li class="header-btn">
+                        <button type="button" class="authorization-btn">
+                            <svg class="register__icon icon" width="20" height="20">
+                                <use href="/src/images/svg/symbol-defs.svg#icon-user"></use>
+                            </svg>
+                        </button>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a class="navigation__link current link" href="/src/index.html">Home</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link link" href="/src/library.html"> 
+                            My Library</a>
+                </ul>
+            </nav>
+        </div>
+        <form id="search-form" class="search">
+            <input class="search__input" id="inputValue" name="searchQuery" placeholder="Movie search" />
+            <button class="search__button" id="search" type="submit" title="Let's find!">
+                <svg class="search__button-icon" width="12" height="12">
+                    <use href="/src/images/svg/symbol-defs.svg#icon-search"></use>
+                </svg>
             </button>
-          </li>
-
-          <li class="navigation__item">
-            <a class="navigation__link current link" href="/src/index.html"
-              >Home</a
-            >
-          </li>
-          <li class="navigation__item">
-            <a class="navigation__link link" href="/src/library.html">
-              My Library</a
-            >
-
-            <!-- ./partials/header-library.html -->
-          </li>
-        </ul>
-      </nav>
+            <p class="warning-notification"></p>
+            <!-- <ul class="search-form__list"></ul> -->
+        </form>
     </div>
-    <form id="search-form" class="search">
-      <input class="search__input" id="inputValue" placeholder="Movie search" />
-      <button
-        class="search__button"
-        id="search"
-        type="submit"
-        title="Let's find!"
-      >
-        <svg class="search__button-icon" width="12" height="12">
-          <use href="/src/images/svg/symbol-defs.svg#icon-search"></use>
-        </svg>
-      </button>
-      <!-- <p class="warning-notification"></p>
-            <ul class="search-form__list"></ul> -->
-    </form>
-  </div>
 </header>
