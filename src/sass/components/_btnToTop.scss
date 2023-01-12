@@ -1,42 +1,67 @@
 .btnToTop {
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  rgba(211, 138, 22, 0.649);
-    // background-color:  transparent;
-    border-radius: 50%;
-    border: none;
+    background-color:  #E80B0F;
+   
+    border-radius: 20px;
+    border: 3px solid transparent;
+  
 
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     bottom: 5%;
     right: 5%;
     
     position: fixed;
-    opacity: 0.8;
+    // opacity: 0.8;
     z-index: 10;
 
-    cursor: pointer;
-    
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+    cursor: pointer;
+  
     @media screen and (max-width: 767px) {
-        width: 65px;
-        height: 65px;
+        width: 50px;
+        height: 50px;
         right: 15%;
     }
 
-            &:hover,
-            &:focus {
-                opacity: 1;
-            }
+&:hover,
+&:focus {
+    // opacity: 1;
+    border: 1px solid #fddadae4;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.8);
+  }
+   animation: changefill 1.5s forwards infinite ease-out 0.5s;
 }
 
+@keyframes changefill {
+    0% {
+        background-color:#fddadae4;
+    }
+    50% {
+        background-color: #ffa9aae9;
+    }
+    100% {
+        background-color: #fddadaec;
+    }
+  }
 .transitionBtn {
      transition: 500ms;
  }
 
 .btnToTop__icon {
-    fill: rgba(60, 22, 184, 0.911);
+    width: 50px;
+    height: 50px;
+    fill: #780B1E;
+
+    &:hover,
+    &:focus {
+        fill: #2D1E26;
+  }
+  
 }
 
 // .is-hidden-btnToTop {
