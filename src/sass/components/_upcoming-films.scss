@@ -1,18 +1,22 @@
 .upcoming-title {
   text-align: center;
-  margin-bottom: 20px;
-  color: $accent;
+  padding: 10px;
+  color: $bg-footer;
   text-shadow: 1px 1px 2px black;
-  font-size: 20;
+  font-size: 24;
+  background-color: #181f25;
 }
 
 .swiper {
   width: 100%;
-  height: 300px;
-  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .swiper-slide {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
   flex-basis: calc((100% - 30px) / 2);
 
   @include tablet {
@@ -22,4 +26,46 @@
   @include desktop {
     flex-basis: calc((100% - 120px) / 5);
   }
+
+  &:hover .upcoming-card-title {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.upcoming-img {
+  width: 100%;
+  height: 100%;
+}
+
+.upcoming-card-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 5px;
+  padding-bottom: 10px;
+  transform: translateY(+100%);
+  opacity: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 20;
+  color: $primary-bg-color;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: transform $animation-time $animation-cubic,
+    opacity $animation-time $animation-cubic;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: $hover;
+}
+
+.swiper-button-next {
+
+  text-shadow: 5px 5px 8px #150905;
+}
+
+.swiper-button-prev {
+  
+  text-shadow: -5px 5px 8px #150905;
 }

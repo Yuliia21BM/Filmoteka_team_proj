@@ -1,4 +1,7 @@
 import { searchUpcomimgFilms } from './fetchApi';
+import { openModal } from './film-info-modal';
+
+const upcomingListRef = document.querySelector('.swiper-wrapper');
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -14,7 +17,7 @@ const swiper = new Swiper('.swiper', {
   },
   speed: 1500,
   autoplay: {
-    delay: 2000,
+    delay: 3000,
   },
   breakpoints: {
     768: {
@@ -29,40 +32,39 @@ const swiper = new Swiper('.swiper', {
 });
 
 async function getUpcomingFilms() {
+  const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   try {
-    const data = await searchUpcomimgFilms();
-    console.log(data);
+    const { results } = await searchUpcomimgFilms();
+    if (!results || results === []) return;
+
+    const markup = results
+      .map(film => {
+        return `
+      <li class="upcoming-card swiper-slide">
+        <img
+          src="${
+            film.poster_path
+              ? POSTER_URL + film.poster_path
+              : '../images/default-poster.jpg'
+          }"
+          alt="${film.title ? film.title : 'Not known'}"
+          class="upcoming-img"
+          loading="lazy"
+        />
+        <p class="upcoming-card-title">Release date <br/>
+${film.release_date ? film.release_date : 'Not known'}</p>
+      </li>`;
+      })
+      .join('');
+
+    upcomingListRef.innerHTML = '';
+    upcomingListRef.insertAdjacentHTML('afterbegin', markup);
   } catch (err) {
     console.log(err);
   }
 }
 getUpcomingFilms();
 
-// var swiper = new Swiper('.mySwiper', {
-//   slidesPerView: 1,
-//   spaceBetween: 10,
-//   // pagination: {
-//   //   el: '.swiper-pagination',
-//   //   clickable: true,
-//   // },
-
-//   loop: true,
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 4,
-//       spaceBetween: 40,
-//     },
-//     1024: {
-//       slidesPerView: 5,
-//       spaceBetween: 50,
-//     },
-//   },
-// });
+upcomingListRef.addEventListener('click', e => {
+  openModal(e, 'upcoming-card');
+});
