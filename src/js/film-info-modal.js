@@ -11,10 +11,14 @@ export function openModal(e, childClass) {
   if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
+  
+  const filmId = e.target.parentNode.dataset.filmId;
 
-  searchMovieById(55).then(movieInfo => {
+  searchMovieById(filmId).then(movieInfo => {
     const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
+    
     const getGener = movieInfo.genres.map(gener => gener.name).join(', ');
+
     const basicLightboxOptions = {
       onShow: () => {
         document.body.classList.add('hide-scroll');

@@ -40,7 +40,7 @@ async function getUpcomingFilms() {
     const markup = results
       .map(film => {
         return `
-      <li class="upcoming-card swiper-slide">
+      <li class="upcoming-card swiper-slide" data-film-id="${film.id}">
         <img
           src="${
             film.poster_path
