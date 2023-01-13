@@ -6,7 +6,6 @@ import './js/authorization-modal';
 import './js/film-info-modal';
 import './js/firebase-author-authen-API';
 import './js/pagination';
-import './js/popular-film-API';
 import './js/youtube-info-API';
 import './js/trailer-modal';
 import './js/team-modal';
