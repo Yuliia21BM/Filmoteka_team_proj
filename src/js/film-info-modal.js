@@ -3,6 +3,10 @@ import { searchMovieById } from './fetchApi';
 const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
 
+let iconCross = document.createElement('img');
+iconCross.src = new URL('/src/images/svg/close-modal-film-icon.svg', import.meta.url);
+console.log(iconCross);
+
 filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
@@ -32,11 +36,7 @@ export function openModal(e, childClass) {
     const createFilmModalMarkup = basicLightbox.create(
       `
         <div class="film-modal">
-            <button class="film-modal__close-btn" type="button">
-               <svg class="film-modal__close-btn-icon" width="30" height="30">
-                <use href="/src/images/svg/symbol-defs.svg#icon-close-modal-film-icon"></use>
-               </svg>
-            </button>
+            <button class="film-modal__close-btn" type="button"></button>
                 <img class="film-modal__poster" src="${POSTER_URL + movieInfo.poster_path}" alt="Movie ${movieInfo.title} poster" />
                 <div class="film-modal__wrapper">
                   <div class="film-modal__info-wrapper">
@@ -72,5 +72,8 @@ export function openModal(e, childClass) {
     );
 
     createFilmModalMarkup.show();
+
+
+    document.querySelector('.film-modal__close-btn').appendChild(iconCross)
   });
 }
