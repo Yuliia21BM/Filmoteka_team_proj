@@ -20,10 +20,10 @@
         align-items: center;
         border: 0;
         border-radius: 50%;
-        background-color: #fff;
+        background-color: transparent;
 
         &:hover{
-            box-shadow: 0px 2px 1px #FF6B01;
+            box-shadow: 0px 3px 3px;
             transition: box-shadow $animation-time $animation-cubic;
         }
     }
@@ -114,8 +114,25 @@
         justify-content: space-between;
     }
 
+    &__trailer-btn{
+        background-color: transparent;
+        border-radius: 5px;
+        border: 0;
+        width: 110px;
+        min-height: 13px;
+        padding: 5px;
+    
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #000;
+        text-transform: uppercase;
+        color: #000;
+        border: 1px solid #000000;
+    }
+
     &__add-btns {
-        background-color: #FF6B01;
+        background-color: transparent;
         border-radius: 5px;
         border: 0;
         width: 110px;
@@ -125,12 +142,11 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: #fff;
+        color: #000;
         text-transform: uppercase;
 
         &--seconadry-btn {
-            color: #000;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: transparent;
             border: 1px solid #000000;
         }
     }
@@ -213,20 +229,26 @@
 ////////////////////////// BTN WATCH TRALER ////////////////////
 
 
-  .fourth {
-    // background: $yellow;
-    
-    background: {
-      image: linear-gradient(45deg,#fff 50%, transparent 50%);
-      position: 100%;
-      size: 400%;
-    }
-    transition: background 300ms ease-in-out;
-    border: 1px solid #FF6B01;
-    
-    &:hover {
-      color: #000;
-      background-position: 0;
-      border: 1px solid #000000;
-    }
-  }
+ .accent-btn {
+     border-color: #FF6B01;
+     color: #fff;
+     box-shadow: 0 0 40px 40px #FF6B01 inset, 0 0 0 0 #FF6B01;
+     transition: all $animation-time ease-in-out;
+
+     &:hover {
+        color: #000;
+         box-shadow: 0 0 10px 0 #FF6B01 inset, 0 0 10px 4px #FF6B01;
+     }
+ }
+
+ .second-btn {
+     transition: box-shadow $animation-time ease-in-out, color $animation-time ease-in-out;
+
+     &:hover {
+         box-shadow: 0 0 40px 40px #FF6B01 inset;
+         border: 0;
+         color: #fff;
+     }
+ }
+
+ 
