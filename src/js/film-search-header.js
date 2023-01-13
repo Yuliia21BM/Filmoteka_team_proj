@@ -1,4 +1,5 @@
 import { searchMovieByName } from '../js/fetchApi';
+import { renderFilmCards } from '../js/render-card';
 
 
 const input = document.querySelector('.search__input');
@@ -28,7 +29,10 @@ async function onFormSubmit(e) {
         if (getMovie.length === 0) {
         return (error.textContent = `No matches found for your query. Enter the correct movie name.`);
     }
-    else error.textContent = '';
+    else { error.textContent = '' };
+
+    renderFilmCards(getMovie);
+
     }
         
     catch (error) {
