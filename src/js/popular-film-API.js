@@ -49,7 +49,7 @@ function createElementsMovies(movies) {
         } else {
           genreFilm =  allGenres.get(genre_ids[0])+', '+allGenres.get(genre_ids[1])+', Other';
         }
-            return `<div class="main-section__card">
+            return `<div class="main-section__card" data-film-id="${id}">
         <img src="${posterFilm}" alt="${title}" class="main-section__image" loading="lazy">
     
 					<h2 class="main-section__card-title">${title}</h2>
