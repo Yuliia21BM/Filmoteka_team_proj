@@ -76,11 +76,16 @@ export function openModal(e, childClass) {
                             <h3 class="film-modal__info-title">Genre</h3>
                             <p class="film-modal__info-text">${getGener}</p>
                         </li>
+                        <li class="film-modal__info-item">
+                            <h3 class="film-modal__info-title">Trailer</h3>
+                            <p class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${
+                              movieInfo.id
+                            }">Watch trailer<span class="triangle-right"></span></button></p>
+                        </li>
                     </ul>
                     <h3 class="film-modal__title-about">About</h3>
                     <p class="film-modal__text-about">${movieInfo.overview}</p>
-                    </div>
-                    <button class="film-modal__trailer-btn second-btn" type="button">Watch trailer</button>
+                    </div>  
                 <div class="film-modal__add-btns-wrapper">
                   <button class="film-modal__add-btns btn-add-watched accent-btn trailer-btn" type="button" data-id="${
                     movieInfo.id
