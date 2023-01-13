@@ -1,4 +1,5 @@
 import { searchMovieById } from './fetchApi';
+import { getGanre } from './render-card';
 
 export async function addWatch(e) {
   const id = e.currentTarget.dataset.id;
@@ -44,19 +45,6 @@ async function getCardsData(id) {
     return filmData;
   } catch (err) {
     throw err;
-  }
-}
-
-function getGanre(arr) {
-  const genre = arr
-    .map(gener => gener.name)
-    .join(', ')
-    .split(',');
-  console.log(genre);
-  if (genre.length > 3) {
-    return `${String(genre.slice(1))}, Other`;
-  } else {
-    return genre;
   }
 }
 
