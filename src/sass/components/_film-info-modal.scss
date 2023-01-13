@@ -121,8 +121,10 @@
         background-color: #000;
         border-radius: 5px;
         border: 0;
+
         color: #fff;
         text-transform: uppercase;
+        font-size: 10px;
 
         &:hover{
             background-color: #FF6B01;
@@ -190,6 +192,10 @@
         &__add-btns{
             width: 125px;
         }
+
+        &__trailer-btn{
+            font-size: 12px;
+        }
     }
 
     @include desktop{
@@ -234,9 +240,15 @@
 .triangle-right {
     margin-left: 5px;
     display: inline-block;
-    border-top: 6px solid transparent;
-    border-left: 12px solid #fff    ;
-    border-bottom: 6px solid transparent;
+    border-top: 3px solid transparent;
+    border-left: 6px solid #fff    ;
+    border-bottom: 3px solid transparent;
+
+    @include tablet{
+        border-top: 4px solid transparent;
+        border-left: 10px solid #fff    ;
+        border-bottom: 4px solid transparent;
+    }
 }
 
 
