@@ -1,12 +1,6 @@
 import { searchMovieById } from './fetchApi';
 
-// const watchBtn = document.querySelector('[data-action="watch"]');
-// const queueBtn = document.querySelector('[data-action="queue"]');
-
-// watchBtn.addEventListener('click', addWatch);
-// queueBtn.addEventListener('click', addQueue);
-
-async function addWatch(e) {
+export async function addWatch(e) {
   const id = e.currentTarget.dataset.id;
 
   try {
@@ -18,7 +12,7 @@ async function addWatch(e) {
   }
 }
 
-async function addQueue(e) {
+export async function addQueue(e) {
   const id = e.currentTarget.dataset.id;
 
   try {
@@ -29,8 +23,6 @@ async function addQueue(e) {
     console.log(err);
   }
 }
-addWatch();
-function addQueue(e) {}
 
 async function getCardsData(id) {
   try {
