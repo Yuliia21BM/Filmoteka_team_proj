@@ -23,7 +23,8 @@
         background-color: #fff;
 
         &:hover{
-            box-shadow: 0px 1px 1px #FF6B01;
+            box-shadow: 0px 2px 1px #FF6B01;
+            transition: box-shadow $animation-time $animation-cubic;
         }
     }
 
@@ -35,7 +36,6 @@
 
     &__title {
         margin-bottom: 20px;
-
         font-weight: 500;
         font-size: 20px;
         line-height: 1.15;
@@ -142,6 +142,8 @@
         padding: 40px 72px 40px 36px;
         
         &__wrapper{
+            display: flex;
+            flex-direction: column;
             margin-left: 66px;
         }
 
@@ -179,12 +181,21 @@
         }
 
         &__title {
+            padding-right: 30px;
             font-size: 30px;
             line-height: 1.16;
         }
 
+        &__info-text{
+            padding-right: 30px;
+        }
+
         &__wrapper {
             margin-left: 16px;
+        }
+
+        &__add-btns{
+            width: 136px;
         }
 
         &__add-btns-wrapper {
@@ -195,3 +206,27 @@
         }
     }
 }
+
+
+
+
+////////////////////////// BTN WATCH TRALER ////////////////////
+
+
+  .fourth {
+    // background: $yellow;
+    
+    background: {
+      image: linear-gradient(45deg,#fff 50%, transparent 50%);
+      position: 100%;
+      size: 400%;
+    }
+    transition: background 300ms ease-in-out;
+    border: 1px solid #FF6B01;
+    
+    &:hover {
+      color: #000;
+      background-position: 0;
+      border: 1px solid #000000;
+    }
+  }
