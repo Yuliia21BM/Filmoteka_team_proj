@@ -10,4 +10,3 @@ import './js/youtube-info-API';
 import './js/trailer-modal';
 import './js/team-modal';
 import './js/BtnScrollToTop';
-import './js/library-queue-list';
