@@ -1,56 +1,83 @@
-.film-modal{
+.film-modal {
+    position: relative;
     width: 280px;
     height: 90vh;
     background-color: #fff;
     overflow-y: auto;
+    padding: 48px 20px 40px;
 
-    &__poster{
-        margin-right: 68px;
+    &__close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 8px;
+        margin-right: 8px;
+
+        &-icon{
+            fill: #000;
+        }
+    }
+
+    &__poster {
         margin-bottom: 20px;
         border-radius: 5px;
         width: 240px;
     }
 
-    &__wrapper{
-        padding: 48px 20px 40px;
-    }
-
-    &__title{
+    &__title {
         margin-bottom: 20px;
-    
+
         font-weight: 500;
         font-size: 20px;
         line-height: 1.15;
         text-transform: uppercase;
     }
 
-    &__info-list{
+    &__info-list {
         margin-bottom: 20px;
     }
 
-    &__info-item{
+    &__info-item {
         display: flex;
         margin-bottom: 8px;
     }
 
-    &__info-title{
+    &__info-title {
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
         color: #8C8C8C;
     }
 
-    &__info-text{
+    &__info-text {
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
         text-transform: uppercase;
 
-        margin-left: auto;   
+        margin-left: auto;
         width: 50%;
     }
 
-    &__title-about{
+    &__info-text--vote{
+        padding: 1px 4px;
+        background-color: #FF6B01;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    &__info-text--vote-count{
+        background-color: #F7F7F7;
+        color: #000;
+    }
+
+    &__info-text--slash{
+        font-size: 12px;
+        line-height: 1.33;
+        color: #8C8C8C;
+    }
+
+    &__title-about {
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
@@ -59,20 +86,103 @@
         margin-bottom: 8px;
     }
 
-    &__text-about{
+    &__text-about {
+        overflow: auto;
+        max-height: 240px;
+
         font-weight: 500;
         font-size: 12px;
         line-height: 1.66;
     }
+    
+    &__info-wrapper{
+        margin-bottom: 20px;
+    }
+
+    &__add-btns-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__add-btns {
+        background-color: #FF6B01;
+        border-radius: 5px;
+        border: 0;
+        width: 110px;
+        min-height: 44px;
+        padding: 5px;
+
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #fff;
+        text-transform: uppercase;
+
+        &--seconadry-btn {
+            color: #000;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid #000000;
+        }
+    }
+
+    @include tablet{
+        display: flex;
+        width: 704px;
+        height: inherit;
+        padding: 40px 72px 40px 36px;
+        
+        &__wrapper{
+            margin-left: 66px;
+        }
+
+
+        &__info-text{
+            width: 60%;
+        }
+
+        &__text-about{
+            max-height: 264px;
+        }
+
+        &__poster {
+            margin-bottom: 0px;
+            width: 264px;
+            max-height: 373px;
+        }
+
+        &__add-btns-wrapper{
+            margin-top: auto;
+        }
+
+        &__add-btns{
+            width: 125px;
+        }
+    }
+
+    @include desktop{
+        width: 806px;
+        padding: 40px 12px;
+
+        &__poster {
+            width: 375px;
+            max-height: 478px;
+        }
+
+        &__title {
+            font-size: 30px;
+            line-height: 1.16;
+        }
+
+        &__wrapper {
+            margin-left: 16px;
+        }
+
+        &__add-btns-wrapper {
+            display: flex;
+            justify-content:flex-start;
+            margin-left: 8px;
+            gap: 15px;
+        }
+    }
 }
-
-.hide-scroll{
-    overflow: hidden;
-}
-
-
-
-
-
-
-

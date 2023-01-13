@@ -1,15 +1,14 @@
 .main-section {
     padding-top: 20px;
-    padding-bottom: 20x;
-
+    padding-bottom: 20px;
 
 }
 
 .main-section__allcards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
 
 @include tablet {
 justify-content: flex-start;
@@ -18,20 +17,18 @@ justify-content: flex-start;
 }
 
 .main-section__card {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 5px;
-  border-bottom: 5px;
+    width: 100%;
+    cursor: pointer;
+   
 
-  @include tablet {
-    flex-basis: calc((100% - 30px) /2);
-  }
+    @include tablet {
+        flex-basis: calc((100% - 30px) / 2);
+    }
 
     @include desktop {
-        flex-basis: calc((100% - 90px) /4);
+        flex-basis: calc((100% - 90px) / 4);
 
-
-  }
+    }
 }
 
 
@@ -41,41 +38,92 @@ justify-content: flex-start;
     border-radius: 5px;
     margin-bottom: 8px;
 
-
 }
 
-//  .main-section__name {
-
-//  }
 
 .main-section__card-title {
+font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
-font-size: 12px;
+font-size:12px;
 line-height: 16px;
-/* or 133% */
 text-transform: uppercase;
-color: var ($primary-text-color);
+color: #000;
 padding-left: 0px;
+display: block;
 
 @include tablet {
-
     padding-left: 0;
-  }
+}
+
+@include desktop {
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+}
 }
 
 
 .main-section__description {
+font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 16px;
-/* or 133% */
 text-transform: uppercase;
 padding-left: 0px; 
+color: #ff6b08;
 
 @include tablet {
 padding-left: 0;
 }
+
+@include desktop {
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+}
 }
 
+
+.main-section__card-rating {
+    width: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background-color: #ff6b08;
+    border-radius: 5px;
+    margin-left: 8px;
+    padding: 1px 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.16;
+    display: flex;
+    justify-content: center;
+
+    @include desktop {
+        width: 40px;
+        font-size: 14px;
+    }
+
+}
+
+
+.main-section__cards
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include tablet {
+        justify-content: flex-start;
+    }
+
+    @include desktop {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0px;
+    }
+
+}

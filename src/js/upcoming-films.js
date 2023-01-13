@@ -42,12 +42,17 @@ async function getUpcomingFilms() {
         return `
       <li class="upcoming-card swiper-slide">
         <img
-          src="${POSTER_URL + film.poster_path}"
-          alt="${film.title}"
+          src="${
+            film.poster_path
+              ? POSTER_URL + film.poster_path
+              : '../images/default-poster.jpg'
+          }"
+          alt="${film.title ? film.title : 'Not known'}"
           class="upcoming-img"
           loading="lazy"
         />
-        <p class="upcoming-card-title">${film.title}</p>
+        <p class="upcoming-card-title">Release date <br/>
+${film.release_date ? film.release_date : 'Not known'}</p>
       </li>`;
       })
       .join('');
