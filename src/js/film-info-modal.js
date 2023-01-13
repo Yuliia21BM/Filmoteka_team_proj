@@ -5,7 +5,6 @@ const filmCardSection = document.querySelector('.main-section__allcards');
 
 let iconCross = document.createElement('img');
 iconCross.src = new URL('/src/images/svg/close-modal-film-icon.svg', import.meta.url);
-console.log(iconCross);
 
 filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
@@ -30,6 +29,7 @@ export function openModal(e, childClass) {
 
       onClose: () => {
         document.body.classList.remove('hide-scroll');
+        closeBtn.removeEventListener('click', () => createFilmModalMarkup.close());
       },
     };
 
@@ -44,7 +44,7 @@ export function openModal(e, childClass) {
                     <ul class="film-modal__info-list">
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Vote/Votes</h3>
-                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${movieInfo.vote_average}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${movieInfo.vote_count}</p></span>
+                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${(movieInfo.vote_average).toFixed(1)}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${movieInfo.vote_count}</p></span>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Popularity</h3>
@@ -63,8 +63,8 @@ export function openModal(e, childClass) {
                     <p class="film-modal__text-about">${movieInfo.overview}</p>
                     </div>
                 <div class="film-modal__add-btns-wrapper">
-                  <button class="film-modal__add-btns" type="button">Add to Watched</button>
-                  <button class="film-modal__add-btns film-modal__add-btns--seconadry-btn" type="button">Add to queue</button>
+                  <button class="film-modal__add-btns" type="button" data-action="watch">Add to Watched</button>
+                  <button class="film-modal__add-btns film-modal__add-btns--seconadry-btn" type="button" data-action="queue">Add to queue</button>
                 </div>
                 </div>
         </div>`,
@@ -74,6 +74,8 @@ export function openModal(e, childClass) {
     createFilmModalMarkup.show();
 
 
-    document.querySelector('.film-modal__close-btn').appendChild(iconCross)
+    const closeBtn = document.querySelector('.film-modal__close-btn');
+    closeBtn.appendChild(iconCross);
+    closeBtn.addEventListener('click', () => createFilmModalMarkup.close());
   });
 }
