@@ -57,7 +57,6 @@ function createElementsMovie(data) {
 const allGenres = new Map();
 
 searchGenres().then(res => {
-  console.log(res);
   return res.genres.map(({ id, name }) => {
     allGenres.set(id, name);
   });
