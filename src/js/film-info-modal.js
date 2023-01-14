@@ -6,8 +6,6 @@ const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
 
 
-
-
 filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
@@ -79,10 +77,10 @@ export function openModal(e, childClass) {
                     <p class="film-modal__text-about">${overview}</p>
                     </div>  
                 <div class="film-modal__add-btns-wrapper">
-                  <button class="film-modal__add-btns btn-add-watched accent-btn trailer-btn" type="button" data-id="${
+                  <button class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${
                     filmId
                   }">Add to Watched</button>
-                  <button class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn second-btn" type="button" data-id="${
+                  <button class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn hover-modal-btn" type="button" data-id="${
                     filmId
                   }">Add to queue</button>
                 </div>
