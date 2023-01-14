@@ -266,3 +266,20 @@
   display: flex;
   margin-right: 2px;
 }
+
+.film-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrong-box {
+  margin: auto;
+}
+
+.not-found-text {
+  color: #ff6b08;
+    justify-content: space-around;
+    display: flex;
+    font-size: 40px;
+}

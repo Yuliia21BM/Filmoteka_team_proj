@@ -12,7 +12,14 @@ defaultPoster.src = new URL(
   import.meta.url
 );
 
+let notFoundFilm = document.createElement('img');
+notFoundFilm.src = new URL(
+  '/src/images/not-found-gif.gif',
+  import.meta.url
+);
+
 export {
     iconCross,
-    defaultPoster,
+  defaultPoster,
+    notFoundFilm,
 };
