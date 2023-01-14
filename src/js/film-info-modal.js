@@ -50,13 +50,11 @@ export function openModal(e, childClass) {
                     <ul class="film-modal__info-list">
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Vote/Votes</h3>
-                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${vote_average.toFixed(
-                              1
-                            )}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${vote_count}</p></span>
+                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${vote_average.toFixed(1)}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${vote_count}</p></span>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Popularity</h3>
-                            <p class="film-modal__info-text">${popularity}</p>
+                            <p class="film-modal__info-text">${popularity.toFixed(1)}</p>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Original Title</h3>
