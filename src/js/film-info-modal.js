@@ -79,7 +79,7 @@ export function openModal(e, childClass) {
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Trailer</h3>
-                            <p class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${
+                            <p id="trailerBtns-wrapper" class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${
                               movieInfo.id
                             }">Watch trailer<span class="triangle-right"></span></button></p>
                         </li>
@@ -102,7 +102,7 @@ export function openModal(e, childClass) {
 
     createFilmModalMarkup.show();
 
-    buildTrailerBtns(movieId, createFilmModalMarkup);
+    buildTrailerBtns(movieInfo.id, createFilmModalMarkup);
 
     if (createFilmModalMarkup.visible()) {
       const watchBtn = document.querySelector('button.btn-add-watched');

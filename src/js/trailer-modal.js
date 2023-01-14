@@ -55,6 +55,7 @@ export async function buildTrailerBtns(movieId, createFilmModalMarkup) {
   const trailerButtons = trailers.results.map((item, key) => {
     const button = document.createElement('button');
     button.innerText = `trailer ${key + 1}`;
+    button.classList.add('film-modal__trailer-btn');
     button.addEventListener('click', () =>
       showTrailerModal(item.key, createFilmModalMarkup)
     );
