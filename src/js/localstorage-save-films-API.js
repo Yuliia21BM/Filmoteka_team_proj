@@ -1,5 +1,4 @@
 import { searchMovieById } from './fetchApi';
-import { getGanre } from './render-card';
 
 export async function addWatch(e) {
   const id = e.currentTarget.dataset.id;
@@ -40,11 +39,23 @@ async function getCardsData(id) {
       }`,
       genre: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
       rating: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
-      date: `${data.release_date ? data.release_date.slice(0, 5) : 'n/a'}`,
+      date: `${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}`,
     };
     return filmData;
   } catch (err) {
     throw err;
+  }
+}
+
+function getGanre(arr) {
+  const genre = arr
+    .map(gener => gener.name)
+    .join(', ')
+    .split(',');
+  if (genre.length > 3) {
+    return `${genre.slice(1)}, Other`;
+  } else {
+    return genre;
   }
 }
 
