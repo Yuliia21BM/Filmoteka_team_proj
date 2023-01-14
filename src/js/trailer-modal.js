@@ -41,13 +41,13 @@ export function showTrailerModal(trailerId, filmModal) {
   closeModalBtn.addEventListener('click', trailerModel.close);
 }
 
-export async function buildTrailerBtns(movieId, createFilmModalMarkup) {
-  const trailers = await searchTrailerById(movieId);
+export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
+  const trailers = await searchTrailerById(filmId);
 
   console.log(trailers);
   const container = document.querySelector(`#trailerBtns-wrapper`);
 
-  console.log(container, movieId);
+  console.log(container, filmId);
 
   if (trailers.results.length === 0) {
     container.innerHTML = 'No trailers are found';
