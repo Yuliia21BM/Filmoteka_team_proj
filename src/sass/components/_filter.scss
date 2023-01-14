@@ -9,23 +9,25 @@
 
 .genres-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
 .genres-button {
-    min-width: 100px;
+padding: 10px;
     height: 35px;
-    flex-wrap: wrap;
-
+display: flex;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
+    align-items: center;
     text-align: center;
+    justify-content: center;
 
     color: $primary-text-color;
     background-color: transparent;
