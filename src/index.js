@@ -1,5 +1,6 @@
 // JS спільний !!!!!!!!!!!!!!!!!!!!!!
 import './js/config';
+import './js/fetchApi';
 import './js/all-info-API';
 import './js/authentication-modal';
 import './js/authorization-modal';

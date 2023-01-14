@@ -71,11 +71,24 @@ async function searchUpcomimgFilms() {
     const fetchAPI = await axios.get(
       `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
     );
+    console.log(fetchAPI.data);
     return fetchAPI.data;
   } catch (error) {
     console.error('Something is wrong with the search' + error);
   }
 }
+
+// async function searchGenres() {
+//   try {
+//     const fetchAPI = await axios.get(
+//       `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+//     );
+//     console.log('searchGenres');
+//     return fetchAPI.data;
+//   } catch (error) {
+//     console.error('Something is wrong with the search' + error);
+//   }
+// }
 
 export {
   searchMovieByName,
@@ -84,4 +97,5 @@ export {
   searchGenresFilms,
   searchTrailerById,
   searchUpcomimgFilms,
+  searchGenres,
 };
