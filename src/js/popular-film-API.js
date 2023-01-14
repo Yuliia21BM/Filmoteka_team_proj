@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_KEY, BASE_URL} from '../js/config'
 
 import { getPopularFilm } from '../js/fetchApi';
-
+import * as pagination  from './pagination';
 let currentPage = 1;
 const mainContainerEl = document.querySelector('.main-section__allcards');
 const logoEl = document.querySelector('.link');
@@ -27,12 +27,7 @@ getGenreFilm().then(res => {
  });
   
 
-getPopularFilm(currentPage).then(({ page, results, total_pages, total_results }) => {
-    const elementsMovie = createElementsMovies(results);   
-  
-    mainContainerEl.innerHTML = elementsMovie;
-   
-})
+
 
 function createElementsMovies(movies) {
     //console.log(movies);
@@ -65,3 +60,19 @@ function createElementsMovies(movies) {
     
   
 }
+
+
+
+
+const _getPopularFilm = () => {
+ getPopularFilm(pagination.getCurrentPage()).then(({ page, results, total_pages, total_results }) => {
+    const elementsMovie = createElementsMovies(results);   
+  
+    mainContainerEl.innerHTML = elementsMovie;
+   
+})
+; }
+
+_getPopularFilm()
+
+pagination.subscribeOnPageChange( _getPopularFilm );
