@@ -22,7 +22,7 @@ export function openModal(e, childClass) {
     
     const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
 
-    const getGener = genres.map(gener => gener.name).join(', ');
+    const getGener = genres ? genres.map(gener => gener.name).join(', ') : 'Unknown';
 
     const basicLightboxOptions = {
       onShow: () => {
@@ -43,22 +43,22 @@ export function openModal(e, childClass) {
       `
         <div class="film-modal">
                 <button class="film-modal__close-btn" type="button"></button>
-                <div class="film-modal__poster-wrapper"><img class="film-modal__poster" src="${poster_path ? POSTER_URL + poster_path : ''}" alt="Movie ${title} poster" /></div>
+                <div class="film-modal__poster-wrapper"><img class="film-modal__poster" src="${poster_path ? POSTER_URL + poster_path : ''}" alt="Movie ${title ? title : "Unknown title"} poster" /></div>
                 <div class="film-modal__wrapper">
                   <div class="film-modal__info-wrapper">
-                    <h2 class="film-modal__title">${title}</h2>
+                    <h2 class="film-modal__title">${title ? title : "Unknown title"}</h2>
                     <ul class="film-modal__info-list">
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Vote/Votes</h3>
-                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${vote_average.toFixed(1)}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${vote_count}</p></span>
+                            <p class="film-modal__info-text"><span class="film-modal__info-text--vote">${vote_average ? vote_average.toFixed(1) : '--'}</span>  <span class="film-modal__info-text--slash">/</span> <span class="film-modal__info-text--vote film-modal__info-text--vote-count">${vote_count ? vote_count : '--'}</p></span>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Popularity</h3>
-                            <p class="film-modal__info-text">${popularity.toFixed(1)}</p>
+                            <p class="film-modal__info-text">${popularity ? popularity.toFixed(1) : '--'}</p>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Original Title</h3>
-                            <p class="film-modal__info-text">${original_title}</p>
+                            <p class="film-modal__info-text">${original_title ? original_title : 'Unknown'}</p>
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Genre</h3>
@@ -66,13 +66,11 @@ export function openModal(e, childClass) {
                         </li>
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Trailer</h3>
-                            <p class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${
-                              filmId
-                            }">Watch trailer<span class="triangle-right"></span></button></p>
+                            <p class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${filmId}">Watch trailer<span class="triangle-right"></span></button></p>
                         </li>
                     </ul>
                     <h3 class="film-modal__title-about">About</h3>
-                    <p class="film-modal__text-about">${overview}</p>
+                    <p class="film-modal__text-about">${overview ? overview : 'No description'}</p>
                     </div>  
                 <div class="film-modal__add-btns-wrapper">
                   <button class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${

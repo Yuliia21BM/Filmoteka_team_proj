@@ -40,7 +40,7 @@ function createElementsMovie(data) {
     data.title ? data.title : 'Unknown'
   }" class="main-section__image" loading="lazy">
     <div>
-					<h2 class="main-section__card-title">${data.title ? data.title : 'Unknown'}</h2>
+					<h2 class="main-section__card-title">${data.title ? data.title : 'Unknown title'}</h2>
                     <div class="main-section__cards">
 					<p class="main-section__description">${
             data.genre_ids ? genreFilm : 'Unknown'
