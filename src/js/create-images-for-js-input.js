@@ -12,8 +12,6 @@ defaultPoster.src = new URL(
   import.meta.url
 );
 
-console.log(defaultPoster);
-
 export {
     iconCross,
     defaultPoster,
