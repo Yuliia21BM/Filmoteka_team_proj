@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY, BASE_URL} from '../js/config'
+import { API_KEY, BASE_URL } from '../js/config';
 
 // ------------Пошук по назві фільму-----------------
 async function searchMovieByName(text, page = 1) {
@@ -20,7 +20,7 @@ async function getPopularFilm(page = 1) {
       `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await fetchAPI.data;
-    
+
     return fetchAPI.data;
   } catch (error) {
     console.error('Something is wrong with the search' + error);
@@ -39,11 +39,23 @@ async function searchMovieById(id) {
   }
 }
 
-// ------------------------ Пошук по жанру фільму------------------------------
+// ------------------------ Пошук по назві жанру фільму------------------------
 async function searchGenresFilms(name) {
   try {
     const fetchAPI = await axios.get(
       `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US&name=${name}`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// ------------------------ запит на жанри фільму ------------------------------
+async function searchGenres() {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     return fetchAPI.data;
   } catch (error) {
@@ -64,10 +76,26 @@ async function searchTrailerById(id) {
   }
 }
 
+// -------------------- Фільми, які скоро вийдуть-------------
+
+async function searchUpcomimgFilms() {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    console.log(fetchAPI.data);
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
 export {
   searchMovieByName,
   getPopularFilm,
   searchMovieById,
   searchGenresFilms,
   searchTrailerById,
+  searchGenres,
+  searchUpcomimgFilms,
 };
