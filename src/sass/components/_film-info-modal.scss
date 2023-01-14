@@ -33,7 +33,7 @@
     &__poster {
         margin-bottom: 20px;
         border-radius: 5px;
-        width: 240px;
+        max-width: 240px;
     }
 
     &__title {
@@ -139,7 +139,7 @@
     }
 
     &__add-btns {
-        background-color: transparent;
+        background-color: #FF6B01;
         border-radius: 5px;
         border: 0;
         width: 110px;
@@ -149,10 +149,11 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: #000;
+        color: #fff;
         text-transform: uppercase;
 
         &--seconadry-btn {
+            color: #000;
             background-color: transparent;
             border: 1px solid #000000;
         }
@@ -181,7 +182,7 @@
 
         &__poster {
             margin-bottom: 0px;
-            width: 264px;
+            max-width: 264px;
             max-height: 373px;
         }
 
@@ -203,7 +204,7 @@
         padding: 40px 12px;
 
         &__poster {
-            width: 375px;
+            max-width: 375px;
             max-height: 478px;
         }
 
@@ -255,25 +256,13 @@
 ////////////////////////// BTN WATCH TRALER ////////////////////
 
 
- .accent-btn {
-     border-color: #FF6B01;
-     color: #fff;
-     box-shadow: 0 0 40px 40px #FF6B01 inset, 0 0 0 0 #FF6B01;
+ .hover-modal-btn {
+
      transition: all $animation-time ease-in-out;
 
      &:hover {
-        color: #000;
+        border-color: #FF6B01;
          box-shadow: 0 0 10px 0 #FF6B01 inset, 0 0 10px 4px #FF6B01;
-     }
- }
-
- .second-btn {
-     transition: box-shadow $animation-time ease-in-out, color $animation-time ease-in-out;
-
-     &:hover {
-         box-shadow: 0 0 40px 40px #FF6B01 inset;
-         border: 0;
-         color: #fff;
      }
  }
 
