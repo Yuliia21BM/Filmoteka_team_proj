@@ -1,6 +1,7 @@
 
 import { searchGenres } from './fetchApi';
-const mainContainerEl = document.querySelector('.main-section__allcards');
+import { refs } from './refs';
+
 
 export async function renderFilmCards(elem) {
   const allCards = elem
@@ -9,13 +10,17 @@ export async function renderFilmCards(elem) {
     })
     .join('');
 
-  mainContainerEl.innerHTML = '';
-  mainContainerEl.insertAdjacentHTML('beforeend', allCards);
+  refs.mainContainerEl.innerHTML = '';
+  refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
 }
 
 function createElementsMovie(data) {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   let genreFilm = '';
+  let img = document.createElement('img');
+ 
+  img.src = new URL('../images/default-poster.jpg', import.meta.url)
+
   if (data.genre_ids.length <= 2) {
     genreFilm = data.genre_ids.map(genre => allGenres.get(genre)).join(', ');
   } else {
@@ -30,7 +35,7 @@ function createElementsMovie(data) {
         <img src="${
           data.poster_path
             ? POSTER_URL + data.poster_path
-            : '../images/default-poster.jpg'
+            : img.src 
         }" alt="${
     data.title ? data.title : 'Unknown'
   }" class="main-section__image" loading="lazy">
