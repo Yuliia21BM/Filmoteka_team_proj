@@ -20,12 +20,11 @@ export function showTrailerModal(trailerId, filmModal) {
   const trailerModel = basicLightbox.create(`
   <div id="trailer-modal" data-modal>
   <button class="film-modal__close-btn" type="button" data-modal-close>
-   <img src="${svgCloseIcon}" />
+   <img class="cross-button__icon" src="${svgCloseIcon}" />
   </button>
   <iframe
     id="trailer-iframe"
-    width="560"
-    height="315"
+   
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -1,15 +1,14 @@
 #trailer-modal {
   position: relative;
-  width: 280px;
-  height: 90vh;
+  width: 100%;
+  height: auto;
   background-color: #fff;
   overflow-y: auto;
-  padding: 48px 20px 40px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 
-  .modal__close {
+  .film-modal__close-btn {
     position: absolute;
     top: 0;
     right: 0;
@@ -29,17 +28,30 @@
       transition: box-shadow $animation-time $animation-cubic;
     }
   }
-  #trailer-iframe {
-  }
+
   @include tablet {
     display: flex;
     width: 704px;
     height: inherit;
-    padding: 40px 72px 40px 36px;
   }
 
   @include desktop {
     width: 806px;
-    padding: 40px 12px;
+  }
+}
+
+.cross-button__icon {
+  filter: invert(100%);
+}
+
+#trailer-iframe {
+  width: 100%;
+  min-height: 400px;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 100%;
   }
 }
