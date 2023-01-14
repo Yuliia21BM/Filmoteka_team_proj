@@ -30,8 +30,8 @@ const movie = [
     release_date: 2008,
   },
 ];
-localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
-// localStorage.removeItem(QUEUE_LIST);
+// localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
+localStorage.removeItem(QUEUE_LIST);
 // ☝Це mockup data, поки немає функціоналу додавання в localStorage ==============================
 
 // STARTS HERE <=============<<<<
@@ -42,53 +42,77 @@ const clearMarkup = el => {
 
 /** ПЕРЕВІРИТИ, ЧОМУ НЕ ВИДНО GIF?👇*/
 const renderNoMoviesMarkup = () => {
+  let img = document.createElement('img');
+  img.src = new URL('../images/travolta_no_data.gif', import.meta.url);
+  img.alt = 'Travolta from Pulp Fiction is searching for something';
+  //   mainSectionCards.prepend(img);
+  console.log('img:', img);
+
+  //   mainSectionCards.insertAdjacentHTML(
+  //     'afterbegin',
+  //     `<div class="no-movies-wrap">
+  //                 ${img.outerHTML}
+  //                 <p>No movies in the list yet</p>
+  //             </div>`
+  //   );
+
   mainSectionCards.innerHTML = `<div class="no-movies-wrap">
-        <img src="./images/travolta_no_data.gif" width="320" alt="Travolta from Pulp Fiction is searching for something">
-        <p>No movies in the list yet</p>
-    </div>`;
+                ${img.outerHTML}
+                <p>No movies in the list yet</p>
+            </div>`;
+
+  //   mainSectionCards.innerHTML = `<div class="no-movies-wrap">
+  //         <img src="./images/travolta_no_data.gif" width="320" alt="Travolta from Pulp Fiction is searching for something">
+  //         <p>No movies in the list yet</p>
+  //     </div>`;
 };
 
-const loadFromStorage = key => {
-  try {
-    const savedData = localStorage.getItem(key);
-
-    // If there are no movies added to the queue list in Local Storage, show Travolta GIF from Pulp Fiction
-    if (savedData === null) {
-      renderNoMoviesMarkup();
-      return;
-    }
-
-    parsedData = JSON.parse(savedData);
-    // потім переписати на return JSON.parse(savedData); ?
-    return parsedData;
-  } catch (error) {
-    console.error('Error: ', error.message);
-  }
-};
-
-const queueList = loadFromStorage(QUEUE_LIST);
-console.log('queueList:', queueList);
-
+/**TEST */
 clearMarkup(mainSectionCards);
+renderNoMoviesMarkup();
+/**TEST */
 
-queueList.map(movie => {
-  const { original_title, genres, posterURL, vote_average, release_date } =
-    movie;
+// const loadFromStorage = key => {
+//   try {
+//     const savedData = localStorage.getItem(key);
 
-  let movieGenres = genres.map(genre => genre.name);
-  // !!! пропрацювати логіку, якщо жанрів більше 3, то замість 3-го поставити "Other"
+//     // If there are no movies added to the queue list in Local Storage, show Travolta GIF from Pulp Fiction
+//     if (savedData === null) {
+//       renderNoMoviesMarkup();
+//       return;
+//     }
 
-  mainSectionCards.insertAdjacentHTML(
-    'beforeend',
-    `    <div class="main-section__card">
-        <img src="${posterURL}" alt="${original_title}" class="main-section__image" loading="lazy">
+//     parsedData = JSON.parse(savedData);
+//     // потім переписати на return JSON.parse(savedData); ?
+//     return parsedData;
+//   } catch (error) {
+//     console.error('Error: ', error.message);
+//   }
+// };
 
-					<h2 class="main-section__card-title">${original_title}</h2>
-                    <div class="main-section__cards">
-					<p class="main-section__description">${movieGenres} | ${release_date}</p>
-                <span class="main-section__card-rating">${vote_average}</span>
-                </div>
+// const queueList = loadFromStorage(QUEUE_LIST);
+// console.log('queueList:', queueList);
 
-    </div>`
-  );
-});
+// clearMarkup(mainSectionCards);
+
+// queueList.map(movie => {
+//   const { original_title, genres, posterURL, vote_average, release_date } =
+//     movie;
+
+//   let movieGenres = genres.map(genre => genre.name);
+//   // !!! пропрацювати логіку, якщо жанрів більше 3, то замість 3-го поставити "Other"
+
+//   mainSectionCards.insertAdjacentHTML(
+//     'beforeend',
+//     `    <div class="main-section__card">
+//         <img src="${posterURL}" alt="${original_title}" class="main-section__image" loading="lazy">
+
+// 					<h2 class="main-section__card-title">${original_title}</h2>
+//                     <div class="main-section__cards">
+// 					<p class="main-section__description">${movieGenres} | ${release_date}</p>
+//                 <span class="main-section__card-rating">${vote_average}</span>
+//                 </div>
+
+//     </div>`
+//   );
+// });
