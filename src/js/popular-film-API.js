@@ -1,24 +1,13 @@
-import axios from 'axios';
-import { API_KEY, BASE_URL} from '../js/config'
-
 import { getPopularFilm } from '../js/fetchApi';
 import * as pagination  from './pagination';
-let currentPage = 1;
-const mainContainerEl = document.querySelector('.main-section__allcards');
-const logoEl = document.querySelector('.link');
-const allGenres = new Map();
-const BASE_URL_POSTER='https://image.tmdb.org/t/p/w500/';
 
-async function getGenreFilm() {
-  try {
-    const fetchAPI = await axios.get(
-      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
-    );
-    const data = await fetchAPI.data;
-    
-    return fetchAPI.data;
-  } catch (error) {
-    console.error('Something is wrong with the search' + error);
+import { renderFilmCards } from './render-card';
+
+let currentPage = 1;
+
+getPopularFilm(currentPage).then(
+  ({ page, results, total_pages, total_results }) => {
+    renderFilmCards(results);
   }
 }
 
@@ -76,3 +65,4 @@ const _getPopularFilm = () => {
 _getPopularFilm()
 
 pagination.subscribeOnPageChange( _getPopularFilm );
+);
