@@ -1,17 +1,6 @@
-import axios from 'axios';
-import { API_KEY, BASE_URL } from './config';
-const mainContainerEl = document.querySelector('.main-section__allcards');
 
-async function searchGenres() {
-  try {
-    const fetchAPI = await axios.get(
-      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
-    );
-    return fetchAPI.data;
-  } catch (error) {
-    console.error('Something is wrong with the search' + error);
-  }
-}
+import { searchGenres } from './fetchApi';
+const mainContainerEl = document.querySelector('.main-section__allcards');
 
 export async function renderFilmCards(elem) {
   const allCards = elem
