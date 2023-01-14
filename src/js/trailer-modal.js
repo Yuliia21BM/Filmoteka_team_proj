@@ -3,18 +3,6 @@ import * as basicLightbox from 'basiclightbox';
 const cardsRef = document.querySelector(`.main-section__allcards`);
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
 
-// trailerBtn.addEventListener('click', searchTrailerById);
-
-// cardsRef.addEventListener('click', onClick);
-
-// async function onClick(event) {
-//   if (event.target.dataset.movieid) {
-//     const movieId = event.target.dataset.movieid;
-//     console.log(movieId);
-
-//     buildTrailerBtns(movieId);
-//   }
-// }
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
   const trailerModel = basicLightbox.create(`
