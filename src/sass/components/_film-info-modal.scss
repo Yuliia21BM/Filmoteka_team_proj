@@ -33,7 +33,7 @@
     &__poster {
         margin-bottom: 20px;
         border-radius: 5px;
-        width: 240px;
+        max-width: 240px;
     }
 
     &__title {
@@ -181,7 +181,7 @@
 
         &__poster {
             margin-bottom: 0px;
-            width: 264px;
+            max-width: 264px;
             max-height: 373px;
         }
 
@@ -203,7 +203,7 @@
         padding: 40px 12px;
 
         &__poster {
-            width: 375px;
+            max-width: 375px;
             max-height: 478px;
         }
 
