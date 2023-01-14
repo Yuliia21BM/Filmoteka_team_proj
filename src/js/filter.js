@@ -1,15 +1,151 @@
 import { API_KEY } from './config';
 import { BASE_URL } from './config';
-import { QUEUE_LIST } from './config';
-import { WATCHED_LIST } from './config';
-import { searchMovieById } from './fetchApi';
-import axios from 'axios';
-import { Console } from 'console';
+import { renderFilmCards } from './render-card';
+
+
+
 
 const familyBtn = document.querySelector('#family');
-const renderFilmsArea = document.querySelector('.renderFilms');
+const musicBtn = document.querySelector('#music');
+const mysteryBtn = document.querySelector('#mystery');
+const romanceBtn = document.querySelector('#romance');
+const warBtn = document.querySelector('#war');
+const scienceFictionBtn = document.querySelector('#scienceFiction');
 
-familyBtn.addEventListener('click', getMovies);
+familyBtn.addEventListener('click', getFamily);
+musicBtn.addEventListener('click', getMusic);
+mysteryBtn.addEventListener('click', getMystery);
+romanceBtn.addEventListener('click', getRomance);
+warBtn.addEventListener('click', getWar);
+scienceFictionBtn.addEventListener('click', getScienceFiction);
+
+function getFamily(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=10751`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+function getMusic(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=37`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+function getMystery(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=9648`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+function getRomance(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=10749`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+function getWar(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=10752`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+function getScienceFiction(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=878`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+function getMystery(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=9648`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+function getMystery(API_URL) {
+    API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=9648`
+    fetch(API_URL).then(res => res.json()).then(data => {
+        console.log(data.results);
+        renderFilmCards(data.results);
+})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// familyBtn.addEventListener('click', getMovies);
 
 // // function rengerGanre(id) {
 
@@ -61,9 +197,6 @@ familyBtn.addEventListener('click', getMovies);
 //         renderFilmsArea.insertAdjacentHTML('beforeend', movieElements)
     
 // }
-
-
-
 
 
 

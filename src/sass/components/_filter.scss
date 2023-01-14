@@ -13,11 +13,13 @@
     align-items: center;
     gap: 30px;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .genres-button {
-    min-width: 130px;
-    height: 45px;
+    min-width: 100px;
+    height: 35px;
+    flex-wrap: wrap;
 
     font-weight: 500;
     font-size: 12px;
