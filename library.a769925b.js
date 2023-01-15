@@ -1,0 +1,2 @@
+!function(){mainSectionCards=document.querySelector(".main-section__allcards");localStorage.removeItem("queue-list");mainSectionCards.innerHTML="",(()=>{let e=document.createElement("img");e.alt="Travolta from Pulp Fiction is searching for something",mainSectionCards.innerHTML=`<div class="no-movies-wrap">\n                ${e.outerHTML}\n                <p>No movies in the list yet</p>\n            </div>`})()}();
+//# sourceMappingURL=library.a769925b.js.map
