@@ -2,6 +2,7 @@ import { searchMovieById } from './fetchApi';
 import { buildTrailerBtns } from './trailer-modal';
 import { addWatch, addQueue } from './localstorage-save-films-API';
 import { iconCross, defaultPoster } from './create-images-for-js-input';
+import { QUEUE_LIST, WATCHED_LIST } from './config';
 
 const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
@@ -9,6 +10,18 @@ const filmCardSection = document.querySelector('.main-section__allcards');
 filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
+
+async function checkIdFbyKey(filmId, key) {
+  let isInLS = false;
+  const keyList = await JSON.parse(localStorage.getItem(key));
+  console.log(keyList);
+  if (keyList === null || keyList === []) return (isInLS = false);
+  keyList.forEach(item => {
+    if (item.id === filmId) {
+      return (isInLS = true);
+    }
+  });
+}
 
 export function openModal(e, childClass) {
   if (!e.target.parentNode.classList.contains(childClass)) {
@@ -126,6 +139,20 @@ export function openModal(e, childClass) {
         const queueBtn = document.querySelector('button.btn-add-queue');
         watchBtn.addEventListener('click', addWatch);
         queueBtn.addEventListener('click', addQueue);
+
+        const watced = checkIdFbyKey(filmId, WATCHED_LIST);
+        console.log(watced);
+        const queue = checkIdFbyKey(filmId, QUEUE_LIST);
+        console.log(queue);
+        if (!watced || !queue) console.log('False');
+        if (watced) {
+          console.log('true W');
+          watchBtn.textContent = 'REMOVE FROM WATCHED';
+        }
+        if (queue) {
+          console.log('true Q');
+          queueBtn.textContent = 'REMOVE FROM QUEUE';
+        }
       }
 
       const closeBtn = document.querySelector('.film-modal__close-btn');
