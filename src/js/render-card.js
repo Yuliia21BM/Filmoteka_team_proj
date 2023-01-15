@@ -1,7 +1,5 @@
-
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
-
 
 export async function renderFilmCards(elem) {
   const allCards = elem
@@ -18,8 +16,8 @@ function createElementsMovie(data) {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   let genreFilm = '';
   let img = document.createElement('img');
- 
-  img.src = new URL('../images/default-poster.jpg', import.meta.url)
+
+  img.src = new URL('../images/default-poster.jpg', import.meta.url);
 
   if (data.genre_ids.length <= 2) {
     genreFilm = data.genre_ids.map(genre => allGenres.get(genre)).join(', ');
@@ -33,14 +31,14 @@ function createElementsMovie(data) {
   return `
   <div class="main-section__card" data-film-id="${data.id}">
         <img src="${
-          data.poster_path
-            ? POSTER_URL + data.poster_path
-            : img.src 
+          data.poster_path ? POSTER_URL + data.poster_path : img.src
         }" alt="${
     data.title ? data.title : 'Unknown'
   }" class="main-section__image" loading="lazy">
     <div>
-					<h2 class="main-section__card-title">${data.title ? data.title : 'Unknown title'}</h2>
+					<h2 class="main-section__card-title">${
+            data.title ? data.title : 'Unknown title'
+          }</h2>
                     <div class="main-section__cards">
 					<p class="main-section__description">${
             data.genre_ids ? genreFilm : 'Unknown'
@@ -61,3 +59,15 @@ searchGenres().then(res => {
     allGenres.set(id, name);
   });
 });
+
+export const renderNoMoviesMarkup = () => {
+  let notFoundGIF = document.createElement('img');
+  notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
+
+  notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+
+  refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
+                ${notFoundGIF.outerHTML}
+                <p>No movies here yet</p>
+            </div>`;
+};

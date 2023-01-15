@@ -1,5 +1,6 @@
-import { QUEUE_LIST } from '../js/config';
+import { QUEUE_LIST } from './config';
 import { refs } from './refs';
+import { renderNoMoviesMarkup } from './render-card';
 
 console.log(refs.mainContainerEl);
 
@@ -41,21 +42,21 @@ const clearMarkup = el => {
   el.innerHTML = '';
 };
 
-const renderNoMoviesMarkup = () => {
-  let noMoviesGIF = document.createElement('img');
-  noMoviesGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
+// const renderNoMoviesMarkup = () => {
+//   let notFoundGIF = document.createElement('img');
+//   notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
 
-  noMoviesGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+//   notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
 
-  refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
-                ${noMoviesGIF.outerHTML}
-                <p>No movies in the list yet</p>
-            </div>`;
-};
+//   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
+//                 ${notFoundGIF.outerHTML}
+//                 <p>No movies here yet</p>
+//             </div>`;
+// };
 
 /**TEST */
 clearMarkup(refs.mainContainerEl);
-renderNoMoviesMarkup();
+// renderNoMoviesMarkup();
 /**TEST */
 
 // const loadFromStorage = key => {
