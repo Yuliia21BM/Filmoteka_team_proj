@@ -2,6 +2,10 @@ import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
 
+export const clearMarkup = el => {
+  el.innerHTML = '';
+};
+
 export async function renderFilmCards(elem) {
   const allCards = elem
     .map(film => {
@@ -9,54 +13,71 @@ export async function renderFilmCards(elem) {
     })
     .join('');
 
-  refs.mainContainerEl.innerHTML = '';
+  clearMarkup(refs.mainContainerEl);
+
   refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
 }
 
 export function createElementsMovie(data) {
+  const { poster_path, id, title, genre_ids, release_date, vote_average } =
+    data;
+
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   let genreFilm = '';
   let img = document.createElement('img');
 
   img.src = new URL('../images/default-poster.jpg', import.meta.url);
 
-  if (!data.genre_ids) {
+
+  const markupFromAPI = () => `
+  <div class="main-section__card" data-film-id="${id}">
+        <img src="${poster_path ? POSTER_URL + poster_path : img.src}" alt="${
+    title ? title : 'Unknown'
+  }" class="main-section__image" loading="lazy">
+    <div>
+					<h2 class="main-section__card-title">${title ? title : 'Unknown title'}</h2>
+          <div class="main-section__cards">
+					<p class="main-section__description">${genre_ids ? genreFilm : 'Unknown'} | ${
+    release_date ? release_date.slice(0, 4) : 'n/a'
+  }</p>
+                <span class="main-section__card-rating">${
+                  vote_average ? vote_average.toFixed(1) : '0'
+                }</span></div>
+                </div>
+    </div>`;
+
+  const markupFromStorage = () => `
+  <div class="main-section__card" data-film-id="${id}">
+        <img src="${poster_path ? POSTER_URL + poster_path : img.src}" alt="${
+    title ? title : 'Unknown'
+  }" class="main-section__image" loading="lazy">
+    <div>
+					<h2 class="main-section__card-title">${title ? title : 'Unknown title'}</h2>
+                    <div class="main-section__cards">
+					<p class="main-section__description">${genre_ids ? genreFilm : data.genres} | ${
+    release_date ? release_date.slice(0, 4) : 'n/a'
+  }</p>
+                <span class="main-section__card-rating">${
+
+                  vote_average ? vote_average.toFixed(1) : '0'
+                }</span></div>
+                </div>
+    </div>`;
+
+  if (!genre_ids) {
     genreFilm = data.genres;
-  } else if (data.genre_ids.length <= 2) {
-    genreFilm = data.genre_ids.map(genre => allGenres.get(genre)).join(', ');
+
+    return markupFromStorage();
+  } else if (genre_ids.length <= 3) {
+    genreFilm = genre_ids.map(genre => allGenres.get(genre)).join(', ');
   } else {
     genreFilm =
-      allGenres.get(data.genre_ids[0]) +
+      allGenres.get(genre_ids[0]) +
       ', ' +
-      allGenres.get(data.genre_ids[1]) +
+      allGenres.get(genre_ids[1]) +
       ', Other';
   }
-  return `
-  <div class="main-section__card" data-film-id="${data.id}">
-  <div class = "main-section__popup">
-        <img src="${
-          data.poster_path ? POSTER_URL + data.poster_path : defaultPoster.src
-        }" alt="${
-    data.title ? data.title : 'Unknown'
-  }" class="main-section__image" loading="lazy">
-  <p class="main-section__popup-title"> <span class = "popUp-title">About</span> <br/>${
-    data.overview ? data.overview : 'No description'
-  }</p>
-  </div>
-    <div class = "main-section__text-block">
-					<h2 class="main-section__card-title">${
-            data.title ? data.title : 'Unknown title'
-          }</h2>
-                    <div class="main-section__cards">
-					<p class="main-section__description">${
-            data.genre_ids ? genreFilm : 'Unknown'
-          } | ${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}</p>
-				
-                <span class="main-section__card-rating">${
-                  data.vote_average ? data.vote_average.toFixed(1) : '0.0'
-                }</span></div>
-                </div>        
-    </div>`;
+  return markupFromAPI();
 }
 
 const allGenres = new Map();
@@ -68,7 +89,7 @@ searchGenres().then(res => {
 });
 
 export const renderNoMoviesMarkup = () => {
-  let notFoundGIF = document.createElement('img');
+  const notFoundGIF = document.createElement('img');
   notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
 
   notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
@@ -77,8 +98,4 @@ export const renderNoMoviesMarkup = () => {
                 ${notFoundGIF.outerHTML}
                 <p>No movies here yet</p>
             </div>`;
-};
-
-export const clearMarkup = el => {
-  el.innerHTML = '';
 };
