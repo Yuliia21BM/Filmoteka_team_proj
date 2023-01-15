@@ -5,9 +5,9 @@ import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
 
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
-  const trailerModel = basicLightbox.create(`
+  const trailerModal = basicLightbox.create(`
   <div id="trailer-modal" data-modal>
-  <button class="film-modal__close-btn" type="button" data-modal-close>
+  <button class="film-modal__close-btn" type="button" trailer-modal-close>
    <img class="cross-button__icon" src="${svgCloseIcon}" />
   </button>
   <iframe
@@ -20,13 +20,14 @@ export function showTrailerModal(trailerId, filmModal) {
   ></iframe>  
 </div>`);
 
-  trailerModel.show();
+  trailerModal.show();
 
   const trailerIframe = document.querySelector('#trailer-iframe');
   trailerIframe.src = `https://www.youtube.com/embed/${trailerId}`;
-  const closeModalBtn = document.querySelector('[data-modal-close]');
+  const closeModalBtn = document.querySelector('[trailer-modal-close]');
+  console.log(closeModalBtn);
 
-  closeModalBtn.addEventListener('click', trailerModel.close);
+  closeModalBtn.addEventListener('click', trailerModal.close);
 }
 
 export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
@@ -41,7 +42,7 @@ export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
     container.innerHTML = 'No trailers are found';
     return;
   }
-  const trailerButtons = trailers.results.slice(0, 2).map((item, key) => {
+  const trailerButtons = trailers.results.slice(0, 1).map((item, key) => {
     const button = document.createElement('button');
     button.innerText = `trailer ${key + 1}`;
     button.classList.add('film-modal__trailer-btn');
