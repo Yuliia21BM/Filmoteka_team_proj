@@ -12,7 +12,7 @@ export async function renderFilmCards(elem) {
   refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
 }
 
-function createElementsMovie(data) {
+export function createElementsMovie(data) {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   let genreFilm = '';
   let img = document.createElement('img');
@@ -61,3 +61,19 @@ searchGenres().then(res => {
     allGenres.set(id, name);
   });
 });
+
+export const renderNoMoviesMarkup = () => {
+  let notFoundGIF = document.createElement('img');
+  notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
+
+  notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+
+  refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
+                ${notFoundGIF.outerHTML}
+                <p>No movies here yet</p>
+            </div>`;
+};
+
+export const clearMarkup = el => {
+  el.innerHTML = '';
+};
