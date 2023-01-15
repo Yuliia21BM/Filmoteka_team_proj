@@ -3,6 +3,8 @@ import * as pagination from './pagination';
 
 import { renderFilmCards } from './render-card';
 
+
+  
 const _getPopularFilm = () => {
   getPopularFilm(pagination.getCurrentPage()).then(
     ({ page, results, total_pages, total_results }) => {
