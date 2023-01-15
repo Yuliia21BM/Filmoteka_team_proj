@@ -43,6 +43,7 @@ const clearMarkup = el => {
 const renderNoMoviesMarkup = () => {
   let noMoviesGIF = document.createElement('img');
   noMoviesGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
+
   noMoviesGIF.alt = 'Travolta from Pulp Fiction is searching for something';
 
   mainSectionCards.innerHTML = `<div class="no-movies-wrap">
