@@ -1,6 +1,7 @@
 import { QUEUE_LIST } from '../js/config';
+import { refs } from './refs';
 
-mainSectionCards = document.querySelector('.main-section__allcards');
+console.log(refs.mainContainerEl);
 
 // 👇Це mockup data, поки немає функціоналу додавання в localStorage ==============================
 const movie = [
@@ -31,7 +32,7 @@ const movie = [
   },
 ];
 // localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
-localStorage.removeItem(QUEUE_LIST);
+// localStorage.removeItem(QUEUE_LIST);
 // ☝Це mockup data, поки немає функціоналу додавання в localStorage ==============================
 
 // STARTS HERE <=============<<<<
@@ -46,14 +47,14 @@ const renderNoMoviesMarkup = () => {
 
   noMoviesGIF.alt = 'Travolta from Pulp Fiction is searching for something';
 
-  mainSectionCards.innerHTML = `<div class="no-movies-wrap">
+  refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${noMoviesGIF.outerHTML}
                 <p>No movies in the list yet</p>
             </div>`;
 };
 
 /**TEST */
-clearMarkup(mainSectionCards);
+clearMarkup(refs.mainContainerEl);
 renderNoMoviesMarkup();
 /**TEST */
 
@@ -78,7 +79,7 @@ renderNoMoviesMarkup();
 // const queueList = loadFromStorage(QUEUE_LIST);
 // console.log('queueList:', queueList);
 
-// clearMarkup(mainSectionCards);
+// clearMarkup(refs.mainContainerEl);
 
 // queueList.map(movie => {
 //   const { original_title, genres, posterURL, vote_average, release_date } =
@@ -87,7 +88,7 @@ renderNoMoviesMarkup();
 //   let movieGenres = genres.map(genre => genre.name);
 //   // !!! пропрацювати логіку, якщо жанрів більше 3, то замість 3-го поставити "Other"
 
-//   mainSectionCards.insertAdjacentHTML(
+//   refs.mainContainerEl.insertAdjacentHTML(
 //     'beforeend',
 //     `    <div class="main-section__card">
 //         <img src="${posterURL}" alt="${original_title}" class="main-section__image" loading="lazy">
