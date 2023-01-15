@@ -1,5 +1,6 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
+import { defaultPoster } from './create-images-for-js-input';
 
 export const clearMarkup = el => {
   el.innerHTML = '';
@@ -26,6 +27,7 @@ export function createElementsMovie(data) {
   let img = document.createElement('img');
 
   img.src = new URL('../images/default-poster.jpg', import.meta.url);
+
 
   const markupFromAPI = () => `
   <div class="main-section__card" data-film-id="${id}">
@@ -56,6 +58,7 @@ export function createElementsMovie(data) {
     release_date ? release_date.slice(0, 4) : 'n/a'
   }</p>
                 <span class="main-section__card-rating">${
+
                   vote_average ? vote_average.toFixed(1) : '0'
                 }</span></div>
                 </div>
