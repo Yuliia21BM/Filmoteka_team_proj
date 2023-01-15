@@ -8,7 +8,6 @@ import {
 import { loadFromStorage } from './localstorage-load-films';
 
 // -------------👇Це mockup data, поки немає функціоналу додавання в localStorage ------------
-
 const movie = [
   {
     id: 1,
@@ -29,11 +28,10 @@ const movie = [
     date: 2008,
   },
 ];
+
 localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
 // localStorage.removeItem(QUEUE_LIST);
-
 // -------------☝Це mockup data, поки немає функціоналу додавання в localStorage -------------
-
 /**TEST */
 // clearMarkup(refs.mainContainerEl);
 // renderNoMoviesMarkup();
