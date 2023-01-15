@@ -18,6 +18,10 @@
   width: 100%;
   cursor: pointer;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   @include tablet {
     flex-basis: calc((100% - 30px) / 2);
   }
@@ -51,8 +55,9 @@
 
   @include desktop {
     font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
+
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -71,9 +76,9 @@
   }
 
   @include desktop {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
+
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 
