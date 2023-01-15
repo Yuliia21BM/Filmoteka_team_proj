@@ -12,7 +12,7 @@ export async function renderFilmCards(elem) {
   refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
 }
 
-function createElementsMovie(data) {
+export function createElementsMovie(data) {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   let genreFilm = '';
   let img = document.createElement('img');
@@ -70,4 +70,8 @@ export const renderNoMoviesMarkup = () => {
                 ${notFoundGIF.outerHTML}
                 <p>No movies here yet</p>
             </div>`;
+};
+
+export const clearMarkup = el => {
+  el.innerHTML = '';
 };
