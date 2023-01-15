@@ -32,14 +32,16 @@ async function getCardsData(id) {
     const filmData = {
       id: data.id,
       title: `${data.title ? data.title : 'Unknown'}`,
-      poster: `${
+      poster_path: `${
         data.poster_path
           ? POSTER_URL + data.poster_path
           : '../images/default-poster.jpg'
       }`,
-      genre: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
-      rating: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
-      date: `${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}`,
+      genres: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
+      vote_average: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
+      release_date: `${
+        data.release_date ? data.release_date.slice(0, 4) : 'n/a'
+      }`,
     };
     return filmData;
   } catch (err) {
