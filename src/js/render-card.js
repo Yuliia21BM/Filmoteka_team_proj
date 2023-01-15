@@ -1,5 +1,6 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
+import { defaultPoster } from './create-images-for-js-input';
 
 export async function renderFilmCards(elem) {
   const allCards = elem
@@ -32,12 +33,17 @@ export function createElementsMovie(data) {
   }
   return `
   <div class="main-section__card" data-film-id="${data.id}">
+  <div class = "main-section__popup">
         <img src="${
-          data.poster_path ? POSTER_URL + data.poster_path : img.src
+          data.poster_path ? POSTER_URL + data.poster_path : defaultPoster.src
         }" alt="${
     data.title ? data.title : 'Unknown'
   }" class="main-section__image" loading="lazy">
-    <div>
+  <p class="main-section__popup-title"> <span class = "popUp-title">About</span> <br/>${
+    data.overview ? data.overview : 'No description'
+  }</p>
+  </div>
+    <div class = "main-section__text-block">
 					<h2 class="main-section__card-title">${
             data.title ? data.title : 'Unknown title'
           }</h2>
@@ -47,10 +53,9 @@ export function createElementsMovie(data) {
           } | ${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}</p>
 				
                 <span class="main-section__card-rating">${
-                  data.vote_average ? data.vote_average.toFixed(1) : '0'
+                  data.vote_average ? data.vote_average.toFixed(1) : '0.0'
                 }</span></div>
-                </div>
-                
+                </div>        
     </div>`;
 }
 
