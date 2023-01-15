@@ -1,5 +1,3 @@
-import { startPage } from '../index.js';
-
 
 const btn1Ref = document.querySelector('[data-index="1"]');
 const btn2Ref = document.querySelector('[data-index="2"]');
@@ -114,7 +112,9 @@ function onPaginationClick(event) {
     //     }
     //   }
     // }
-
+    if (_subscriber) { _subscriber() }
+    
+   
     let pageSize = 9;
 
     function defineResultsPerPage() {
@@ -129,3 +129,17 @@ function onPaginationClick(event) {
     }
   }
 }
+
+function getCurrentPage() {
+  console.log( "currentPage", currentPage )
+  return currentPage
+}
+
+let _subscriber;
+
+function subscribeOnPageChange(subscriber) {
+  _subscriber = subscriber;
+}
+
+export { getCurrentPage, subscribeOnPageChange }
+
