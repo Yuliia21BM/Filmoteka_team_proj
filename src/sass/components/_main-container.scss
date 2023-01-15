@@ -1,129 +1,126 @@
 .main-section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .main-section__allcards {
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
-justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 
-@include tablet {
-justify-content: flex-start;
-}
-
+  @include tablet {
+    justify-content: flex-start;
+  }
 }
 
 .main-section__card {
-    width: 100%;
-    cursor: pointer;
-   
+  width: 100%;
+  cursor: pointer;
 
-    @include tablet {
-        flex-basis: calc((100% - 30px) / 2);
-    }
+  @include tablet {
+    flex-basis: calc((100% - 30px) / 2);
+  }
 
-    @include desktop {
-        flex-basis: calc((100% - 90px) / 4);
-
-    }
+  @include desktop {
+    flex-basis: calc((100% - 90px) / 4);
+  }
 }
-
 
 .main-section__image {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 8px;
-
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 8px;
 }
-
 
 .main-section__card-title {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size:12px;
-line-height: 16px;
-text-transform: uppercase;
-color: #000;
-padding-left: 0px;
-display: block;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #000;
+  padding-left: 0px;
+  display: block;
 
-@include tablet {
+  @include tablet {
     padding-left: 0;
-}
+  }
 
-@include desktop {
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
+  @include desktop {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
-}
-
 
 .main-section__description {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
-text-transform: uppercase;
-padding-left: 0px; 
-color: #ff6b08;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding-left: 0px;
+  color: #ff6b08;
 
-@include tablet {
-padding-left: 0;
-}
+  @include tablet {
+    padding-left: 0;
+  }
 
-@include desktop {
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
+  @include desktop {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
-}
-
 
 .main-section__card-rating {
-    width: 36px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    background-color: #ff6b08;
-    border-radius: 5px;
-    margin-left: 8px;
-    padding: 1px 0;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.16;
-    display: flex;
-    justify-content: center;
+  width: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff6b08;
+  border-radius: 5px;
+  margin-left: 8px;
+  padding: 1px 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.16;
+  display: flex;
+  justify-content: center;
 
-    @include desktop {
-        width: 40px;
-        font-size: 14px;
-    }
-
+  @include desktop {
+    width: 40px;
+    font-size: 14px;
+  }
 }
 
+.main-section__cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-.main-section__cards
-{
-    display: flex;
+  @include tablet {
     justify-content: flex-start;
-    align-items: center;
+  }
 
-    @include tablet {
-        justify-content: flex-start;
-    }
-
-    @include desktop {
+  @include desktop {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 0px;
-    }
+  }
+}
 
+.no-movies-wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 20px;
+
+  text-align: center;
+  font-size: 25px;
 }

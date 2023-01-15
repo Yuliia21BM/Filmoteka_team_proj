@@ -40,31 +40,15 @@ const clearMarkup = el => {
   el.innerHTML = '';
 };
 
-/** ПЕРЕВІРИТИ, ЧОМУ НЕ ВИДНО GIF?👇*/
 const renderNoMoviesMarkup = () => {
-  let img = document.createElement('img');
-  img.src = new URL('../images/travolta_no_data.gif', import.meta.url);
-  img.alt = 'Travolta from Pulp Fiction is searching for something';
-  //   mainSectionCards.prepend(img);
-  console.log('img:', img);
-
-  //   mainSectionCards.insertAdjacentHTML(
-  //     'afterbegin',
-  //     `<div class="no-movies-wrap">
-  //                 ${img.outerHTML}
-  //                 <p>No movies in the list yet</p>
-  //             </div>`
-  //   );
+  let noMoviesGIF = document.createElement('img');
+  noMoviesGIF.src = new URL('../images/travolta_no_data.gif', import.meta.url);
+  noMoviesGIF.alt = 'Travolta from Pulp Fiction is searching for something';
 
   mainSectionCards.innerHTML = `<div class="no-movies-wrap">
-                ${img.outerHTML}
+                ${noMoviesGIF.outerHTML}
                 <p>No movies in the list yet</p>
             </div>`;
-
-  //   mainSectionCards.innerHTML = `<div class="no-movies-wrap">
-  //         <img src="./images/travolta_no_data.gif" width="320" alt="Travolta from Pulp Fiction is searching for something">
-  //         <p>No movies in the list yet</p>
-  //     </div>`;
 };
 
 /**TEST */
