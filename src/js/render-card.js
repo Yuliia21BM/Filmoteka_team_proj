@@ -19,7 +19,9 @@ export function createElementsMovie(data) {
 
   img.src = new URL('../images/default-poster.jpg', import.meta.url);
 
-  if (data.genre_ids.length <= 2) {
+  if (!data.genre_ids) {
+    genreFilm = data.genres;
+  } else if (data.genre_ids.length <= 2) {
     genreFilm = data.genre_ids.map(genre => allGenres.get(genre)).join(', ');
   } else {
     genreFilm =
