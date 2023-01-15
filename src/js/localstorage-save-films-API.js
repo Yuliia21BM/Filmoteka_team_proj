@@ -7,6 +7,7 @@ export async function addWatch(e) {
   try {
     const data = await getCardsData(id);
     if (!data) return;
+    // console.log(e.target.textContent);
 
     const allFilms = JSON.parse(localStorage.getItem(WATCHED_LIST)) || [];
     let deleted = false;
@@ -15,11 +16,13 @@ export async function addWatch(e) {
         const index = allFilms.indexOf(film);
         allFilms.splice(index, 1);
         deleted = true;
+        e.target.textContent = 'ADD TO WATCHED';
         // Змінити текст кнопки на 'ADD TO QUEUE'
       }
     });
     if (!deleted) {
       allFilms.push(data);
+      e.target.textContent = 'REMOVE FROM WATCHED';
       // Змінити текст кнопки на 'REMOVE FROM WATCHED'
     }
     localStorage.setItem(WATCHED_LIST, JSON.stringify(allFilms));
@@ -34,7 +37,6 @@ export async function addQueue(e) {
   try {
     const data = await getCardsData(id);
     if (!data) return;
-    console.log(data);
 
     const allFilms = JSON.parse(localStorage.getItem(QUEUE_LIST)) || [];
 
@@ -44,11 +46,13 @@ export async function addQueue(e) {
         const index = allFilms.indexOf(film);
         allFilms.splice(index, 1);
         deleted = true;
+        e.target.textContent = 'ADD TO QUEUE';
         // Змінити текст кнопки на 'ADD TO QUEUE'
       }
     });
     if (!deleted) {
       allFilms.push(data);
+      e.target.textContent = 'REMOVE FROM QUEUE';
       // Змінити текст кнопки на 'REMOVE FROM QUEUE'
     }
     localStorage.setItem(QUEUE_LIST, JSON.stringify(allFilms));
@@ -92,4 +96,3 @@ function getGanre(arr) {
     return genre;
   }
 }
-
