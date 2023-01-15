@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
+
 // import {getDatabase} from "firebase/database";
 
 (() => {
@@ -7,17 +8,21 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onA
     openModalBtn: document.querySelector("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
+    backdrop: document.querySelector (".backdrop"),
+
   };
 
   refs.openModalBtn.addEventListener("click", toggleModal);
   refs.closeModalBtn.addEventListener("click", toggleModal);
-
+  
   function toggleModal() {
     refs.modal.classList.toggle("is-hidden");
+
   }
+            
 })();
 
-// const db=getDatabase();
+
 
 
 // Import the functions you need from the SDKs you need
@@ -27,7 +32,9 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onA
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+
+// Initialize Firebase
+const app = initializeApp({
   apiKey: "AIzaSyDgfwSR24olSnYZLDLM-icYYxbVwf46d2w",
   authDomain: "filmoteka-team-proj.firebaseapp.com",
   databaseURL: "https://filmoteka-team-proj-default-rtdb.europe-west1.firebasedatabase.app",
@@ -36,27 +43,28 @@ const firebaseConfig = {
   messagingSenderId: "1008290292863",
   appId: "1:1008290292863:web:00de032de04d4c26064b4a",
   measurementId: "G-4K0E4519N0"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+});
 const auth = getAuth(app);
-// const analytics = getAnalytics(app);
 console.log (app);
 
-// const name=getElementById('user-name');
+
 const email=document.getElementById('user-email');
-// const username=getElementById('user-nick');
+
 const password=document.getElementById('user-pas');
-// const submit=getElementById('btn-sbm');
+
 const btnLogin=document.getElementById('btn-login');
 const btnSignUp=document.getElementById('btn-signup');
 
-// connectAuthEmulator(auth, "https://lokalhost:9099");
 
-async function loginEmailPassword() {
+
+connectAuthEmulator(auth, 'http://lokalhost:9099');
+
+async function loginEmailPassword(e) {
+  e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
+  console.log(loginEmail);
+  console.log(loginPassword);
   try {
     const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
     console.log(userCredential.user);
@@ -85,17 +93,7 @@ async function createAccount() {
 }
 btnSignUp.addEventListener ("click", createAccount);
 
-  // .then((userCredential) => {
-  //   // Signed in 
-  //   const user = userCredential.user;
-  //   // ...
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  // });
-
-
+  
 
 // function validation() {
   
@@ -119,19 +117,7 @@ btnSignUp.addEventListener ("click", createAccount);
 
 // }
 
-// createUserWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ..
-//   });
-
-  
+ 
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
