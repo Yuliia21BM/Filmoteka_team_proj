@@ -1,49 +1,88 @@
-.genres {
-    text-align: center;
-    margin-bottom: 20px;
-    color: $accent;
-    text-shadow: 1px 1px 2px black;
-    font-size: 30;
-
-}
-
 .genres-list {
-    display: flex;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  @media screen and (max-width: 479px) {
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+  }
+
+  @include mobile {
+    display: flex;
+  }
 }
 
 .genres-button {
-padding: 10px;
-    height: 35px;
-display: flex;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-transform: uppercase;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  padding: 10px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 
-    color: $primary-text-color;
-    background-color: transparent;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
 
-    border: 1px solid $primary-text-color;
-    border-radius: 5px;
+  color: $primary-text-color;
+  background-color: transparent;
 
-    transition: 
-    // color ($animation-time $animation-cubic),
-        border-color ($animation-time $animation-cubic);
-        background-color: ($animation-time $animation-cubic);
+  border: 1px solid $primary-text-color;
+  border-radius: 5px;
 
-    &:hover,
-    &:focus {
-        color: $primary-bg-color;
-        border-color: $hover;
-        background-color: $hover;
-    }
+  transition: text-color ($animation-time $animation-cubic);
+  border-color: ($animation-time $animation-cubic);
+  background-color: ($animation-time $animation-cubic);
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-color;
+    border-color: $hover;
+    background-color: $hover;
+    border-color: #ff6b01;
+    box-shadow: 0 0 10px 0 #ff6b01 inset, 0 0 10px 4px #ff6b01;
+  }
+}
+.genres-button-mobile {
+  display: flex;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  color: $primary-bg-color;
+  background-color: $accent;
+
+  border: 1px solid $primary-bg-color;
+  border-radius: 5px;
+
+  @media screen and (max-width: 479px) {
+    display: flex;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.is-active {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

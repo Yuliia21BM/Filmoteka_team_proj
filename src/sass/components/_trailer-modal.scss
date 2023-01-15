@@ -1,0 +1,57 @@
+#trailer-modal {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  overflow-y: auto;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+  .film-modal__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &:hover {
+      box-shadow: 0px 1px 1px;
+      transition: box-shadow $animation-time $animation-cubic;
+    }
+  }
+
+  @include tablet {
+    display: flex;
+    width: 704px;
+    height: inherit;
+  }
+
+  @include desktop {
+    width: 806px;
+  }
+}
+
+.cross-button__icon {
+  filter: invert(100%);
+}
+
+#trailer-iframe {
+  width: 100%;
+  min-height: 400px;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
+}
