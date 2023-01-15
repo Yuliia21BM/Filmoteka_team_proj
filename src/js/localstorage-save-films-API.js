@@ -6,7 +6,8 @@ export async function addWatch(e) {
   try {
     const data = await getCardsData(id);
     if (!data) return;
-    console.log(data);
+    console.log(data);    
+    localStorage.setItem('key', JSON.stringify(data));    
   } catch (err) {
     console.log(err);
   }
@@ -19,6 +20,7 @@ export async function addQueue(e) {
     const data = await getCardsData(id);
     if (!data) return;
     console.log(data);
+    localStorage.setItem('key', JSON.stringify(data));   
   } catch (err) {
     console.log(err);
   }
