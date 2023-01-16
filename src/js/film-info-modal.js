@@ -16,6 +16,7 @@ async function checkIdFbyKey(key) {
   const res = !keyList || keyList == [] ? false : true;
   console.log(res);
   if (res) {
+    console.log(keyList);
     return keyList;
   } else {
     return false;
@@ -141,22 +142,35 @@ export function openModal(e, childClass) {
 
         checkIdFbyKey(WATCHED_LIST).then(watched => {
           console.log(watched, 'watched');
-          // if (!watched || watched === []) return;
+          if (!watched || watched === []) return;
           watched.forEach(item => {
-            item.id !== filmId
-              ? (watchBtn.textContent = 'ADD TO WATCHED')
-              : (watchBtn.textContent = 'REMOVE FROM WATCHED');
+            item.id !== filmId ? addW() : removeW();
           });
         });
         checkIdFbyKey(QUEUE_LIST).then(queue => {
           console.log(queue, 'queue');
           if (!queue || queue === []) return;
-          queue.forEach(item => {
-            item.id !== filmId
-              ? (watchBtn.textContent = 'ADD TO QUEUE')
-              : (watchBtn.textContent = 'REMOVE FROM QUEUE');
+          queue.map(item => {
+            console.log(item.id !== filmId, 'item.id !== filmId');
+            item.id !== filmId ? addQ() : removeQ();
           });
         });
+      }
+      function addW() {
+        watchBtn.textContent = 'ADD TO WATCHED';
+        return;
+      }
+      function removeW() {
+        watchBtn.textContent = 'REMOVE FROM WATCHED';
+        return;
+      }
+      function addQ() {
+        queueBtn.textContent = 'ADD TO QUEUE';
+        return;
+      }
+      function removeQ() {
+        queueBtn.textContent = 'REMOVE FROM QUEUE';
+        return;
       }
 
       const closeBtn = document.querySelector('.film-modal__close-btn');
