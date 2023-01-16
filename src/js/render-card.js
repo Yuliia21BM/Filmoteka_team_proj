@@ -37,7 +37,9 @@ export function createElementsMovie(data) {
     data.overview ? data.overview : 'No description'
   }</p>
   </div>
-      <div class="main-section__card main-section__cards" data-film-id="${data.id}">
+      <div class="main-section__card main-section__cards" data-film-id="${
+        data.id
+      }">
 					<h2 class="main-section__card-title">${
             data.title ? data.title : 'Unknown title'
           }</h2>
@@ -65,7 +67,9 @@ export function createElementsMovie(data) {
     data.overview ? data.overview : 'No description'
   }</p>
   </div>
-      <div class="main-section__card main-section__cards" data-film-id="${data.id}">
+      <div class="main-section__card main-section__cards" data-film-id="${
+        data.id
+      }">
 					<h2 class="main-section__card-title">${
             data.title ? data.title : 'Unknown title'
           }</h2>

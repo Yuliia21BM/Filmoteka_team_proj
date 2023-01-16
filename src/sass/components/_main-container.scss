@@ -145,6 +145,7 @@ padding: 5px;
 
   .main-section__popup-title {
     position: absolute;
+    min-height: 120px;
     left: 0;
     bottom: 0;
     padding: 5px;
@@ -153,14 +154,25 @@ padding: 5px;
     text-align: center;
     width: 100%;
     border-radius: 5px;
-
-    font-size: 13;
-    line-height: 1.4;
+    font-size: 14;
+    line-height: 1.1;
     letter-spacing: .03em;
-    color: $primary-text-color;
-    background-color: #faa66ee2;
+    color: $primary-bg-color;
+    background-color: rgba(0, 0, 0, 0.7);
     transition: transform $animation-time $animation-cubic,
       opacity $animation-time $animation-cubic;
+
+      @include tablet {
+        min-height: 120px;
+        line-height: 1.1;
+        font-size: 13;
+      }
+    
+      @include desktop {
+        min-height: 110px;
+        font-size: 12;
+        line-height: 1.05;
+      }
 }
 
 .popUp-title {
