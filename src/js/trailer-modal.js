@@ -27,7 +27,10 @@ export function showTrailerModal(trailerId, filmModal) {
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
   console.log(closeModalBtn);
 
-  closeModalBtn.addEventListener('click', trailerModal.close);
+  closeModalBtn.addEventListener('click', () => {
+    trailerModal.close();
+    filmModal.show();
+  });
 }
 
 export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
