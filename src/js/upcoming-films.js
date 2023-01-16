@@ -3,33 +3,6 @@ import { openModal } from './film-info-modal';
 
 const upcomingListRef = document.querySelector('.swiper-wrapper');
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  slidesPerView: 2,
-  spaceBetween: 20,
-  loop: true,
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  speed: 1500,
-  autoplay: {
-    delay: 3000,
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 20,
-    },
-  },
-});
 
 async function getUpcomingFilms() {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
@@ -59,6 +32,36 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
 
     upcomingListRef.innerHTML = '';
     upcomingListRef.insertAdjacentHTML('afterbegin', markup);
+    
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true,
+    
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      speed: 1500,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      },
+    });
+
   } catch (err) {
     console.log(err);
   }
