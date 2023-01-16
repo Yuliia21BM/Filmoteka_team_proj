@@ -64,4 +64,4 @@ async function getMoviesHandler(value) {
     } catch (error) {
         console.log(error);
     }
-    };
+};
