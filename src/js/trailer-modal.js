@@ -33,7 +33,7 @@ export function showTrailerModal(trailerId, filmModal) {
   });
 }
 
-export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
+export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);
 
   console.log(trailers);
@@ -47,10 +47,10 @@ export async function buildTrailerBtns(filmId, createFilmModalMarkup) {
   }
   const trailerButtons = trailers.results.slice(0, 1).map((item, key) => {
     const button = document.createElement('button');
-    button.innerText = `trailer ${key + 1}`;
+    button.innerHTML = `Watch trailer<span class="triangle-right"></span>`;
     button.classList.add('film-modal__trailer-btn');
     button.addEventListener('click', () =>
-      showTrailerModal(item.key, createFilmModalMarkup)
+      showTrailerModal(item.key, filmModal)
     );
 
     return button;
