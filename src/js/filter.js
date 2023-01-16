@@ -114,6 +114,7 @@ function getMovies(url, page) {
     .then(data => {
       console.log(data.results);
        console.log(data.page);
+
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
       }
@@ -143,15 +144,6 @@ function openGenreList() {
   else(
   mobileBtn.textContent = 'SHOW GENRES');
 };
-
-
-
-
-
-
-
-
-
 
 
 
