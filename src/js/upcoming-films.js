@@ -36,7 +36,7 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
     const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
-  slidesPerView: 3,
+  slidesPerView: 'auto',
   loopedSlides: results.length,
   spaceBetween: 20,
   loop: true,
@@ -50,16 +50,6 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 20,
-    },
   },
 });
 
