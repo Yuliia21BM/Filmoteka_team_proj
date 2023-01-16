@@ -57,7 +57,7 @@ const btnSignUp=document.getElementById('btn-signup');
 
 
 
-connectAuthEmulator(auth, 'http://lokalhost:9099');
+// connectAuthEmulator(auth, "http://localhost:9099");
 
 async function loginEmailPassword(e) {
   e.preventDefault();
@@ -68,26 +68,31 @@ async function loginEmailPassword(e) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
     console.log(userCredential.user);
+    alert("You logged in");
   }
 
   catch (error) {
-    console.log(error);
+    console.log(error.message);
     alert(error);
   }
 }
 
 btnLogin.addEventListener ("click", loginEmailPassword);
 
-async function createAccount() {
+async function createAccount(e) {
+   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
+  console.log(loginEmail);
+  console.log(loginPassword);
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
     console.log(userCredential.user);
+    alert("You signed up");
   }
 
   catch (error) {
-    console.log(error);
+    console.log(error.message);
     alert(error);
   }
 }
