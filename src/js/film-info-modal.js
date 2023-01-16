@@ -144,31 +144,34 @@ export function openModal(e, childClass) {
           console.log(watched, 'watched');
           if (!watched || watched === []) return;
           watched.forEach(item => {
-            item.id !== filmId ? addW() : removeW();
+            item.id !== +filmId ? addW() : removeW();
           });
         });
         checkIdFbyKey(QUEUE_LIST).then(queue => {
-          console.log(queue, 'queue');
           if (!queue || queue === []) return;
           queue.map(item => {
             console.log(item.id !== filmId, 'item.id !== filmId');
-            item.id !== filmId ? addQ() : removeQ();
+            item.id !== +filmId ? addQ() : removeQ();
           });
         });
       }
       function addW() {
-        watchBtn.textContent = 'ADD TO WATCHED';
+        // const watchBtn = document.querySelector('button.btn-add-watched');
+        // watchBtn.textContent = 'ADD TO WATCHED';
         return;
       }
       function removeW() {
+        const watchBtn = document.querySelector('button.btn-add-watched');
         watchBtn.textContent = 'REMOVE FROM WATCHED';
         return;
       }
       function addQ() {
-        queueBtn.textContent = 'ADD TO QUEUE';
+        // const queueBtn = document.querySelector('button.btn-add-queue');
+        // queueBtn.textContent = 'ADD TO QUEUE';
         return;
       }
       function removeQ() {
+        const queueBtn = document.querySelector('button.btn-add-queue');
         queueBtn.textContent = 'REMOVE FROM QUEUE';
         return;
       }
