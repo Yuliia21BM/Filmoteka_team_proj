@@ -140,7 +140,10 @@ function getMovies(url, page) {
 mobileBtn.addEventListener('click', openGenreList);
 
 function openGenreList() {
-  tagsEl.classList.toggle('is-active');
+ if(tagsEl.classList.toggle('is-active'))
+    mobileBtn.textContent = 'HIDE GENRES';
+  else(
+  mobileBtn.textContent = 'SHOW GENRES');
 };
 
 
