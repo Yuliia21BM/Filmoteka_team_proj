@@ -14,7 +14,8 @@ const mainSectionCards = document.querySelector('.main-section__allcards');
 searchForm.addEventListener('submit', onFormSubmit);
 
 async function onFormSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
+    mainSectionCards.scrollIntoView({ behavior: 'smooth' });
   const value = e.currentTarget.searchQuery.value.trim();
     console.log(value);
 
