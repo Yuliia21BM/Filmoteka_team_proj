@@ -15,8 +15,15 @@ export const loadFromStorage = async key => {
 
     let movieList = await JSON.parse(savedData);
 
-    if (movieList.length < 20) {
-      refs.paginationWrap.classList.toggle('visually-hidden');
+    // треба доробити перевірку,
+    // якщо в списку менше 20 фільмів, ховати пагінацію
+    if (
+      movieList.length < 20 &&
+      !refs.paginationWrap.classList.contains('visually-hidden')
+    ) {
+      refs.paginationWrap.classList.add('visually-hidden');
+    } else {
+      refs.paginationWrap.classList.remove('visually-hidden');
     }
 
     console.log('movieList:', movieList);
