@@ -3,7 +3,9 @@ import { buildTrailerBtns } from './trailer-modal';
 import { addWatch, addQueue } from './localstorage-save-films-API';
 import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
+import Spinner from './spinner';
 
+const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
 
@@ -27,6 +29,8 @@ export function openModal(e, childClass) {
   if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
+
+  spinner.enable();
 
   const filmId = e.target.parentNode.dataset.filmId;
 
@@ -123,7 +127,7 @@ export function openModal(e, childClass) {
       );
 
       createFilmModalMarkup.show();
-
+      spinner.disable();
       buildTrailerBtns(filmId, createFilmModalMarkup);
 
       if (!poster_path) {
