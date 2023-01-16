@@ -11,16 +11,28 @@ const rightArrowRef = document.querySelector('.arrow-right');
 const leftArrowRef = document.querySelector('.arrow-left');
 const prevDotsRef = document.querySelector('#previous');
 const afterDotsRef = document.querySelector('#after');
+const mainContainer = document.querySelector('.main-container');
 
 paginationRef.addEventListener('click', onPaginationClick);
 
 let currentPage = 1;
-
+let totalPages = 1000;
 let btns = document.querySelectorAll('.pagination-button');
 
 prevDotsRef.hidden = true;
 leftArrowRef.hidden = true;
 firstPageRef.hidden = true;
+
+function setPagination(page, total_pages) {
+  currentPage = page;
+  totalPages = total_pages;
+  lastPageRef.textContent = totalPages;
+}
+
+function renderPagination() {
+
+}
+
 
 function onPaginationClick(event) {
   if (event.target.tagName === 'BUTTON') {
@@ -103,15 +115,15 @@ function onPaginationClick(event) {
     }
 
     //     gallery.innerHTML = '';
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    //     if (inputRef.value !== '') {
-    //       movieSearcher(inputRef.value, currentPage);
-    //     } else {
-    //       startPage();
-    //     }
-    //   }
-    // }
+    mainContainer.scrollIntoView({ behavior: 'smooth' })
+  
+          //  window.scrollTo({ top: 0, behavior: 'smooth' });
+        // if (inputRef.value !== '') {
+        //   movieSearcher(inputRef.value, currentPage);
+        // } else {
+        //   currentPage();
+        // }
+     
     if (_subscriber) { _subscriber() }
     
    
@@ -132,7 +144,7 @@ function onPaginationClick(event) {
 
 function getCurrentPage() {
   console.log( "currentPage", currentPage )
-  return currentPage
+  return +currentPage
 }
 
 let _subscriber;
@@ -141,5 +153,6 @@ function subscribeOnPageChange(subscriber) {
   _subscriber = subscriber;
 }
 
-export { getCurrentPage, subscribeOnPageChange }
+
+export { getCurrentPage, subscribeOnPageChange, setPagination }
 

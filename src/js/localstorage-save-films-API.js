@@ -1,4 +1,5 @@
 import { searchMovieById } from './fetchApi';
+import { QUEUE_LIST, WATCHED_LIST } from './config';
 
 export async function addWatch(e) {
   const id = e.currentTarget.dataset.id;
@@ -6,7 +7,25 @@ export async function addWatch(e) {
   try {
     const data = await getCardsData(id);
     if (!data) return;
-    console.log(data);
+    // console.log(e.target.textContent);
+
+    const allFilms = JSON.parse(localStorage.getItem(WATCHED_LIST)) || [];
+    let deleted = false;
+    allFilms.forEach(film => {
+      if (film.id === data.id) {
+        const index = allFilms.indexOf(film);
+        allFilms.splice(index, 1);
+        deleted = true;
+        e.target.textContent = 'ADD TO WATCHED';
+        // Змінити текст кнопки на 'ADD TO QUEUE'
+      }
+    });
+    if (!deleted) {
+      allFilms.push(data);
+      e.target.textContent = 'REMOVE FROM WATCHED';
+      // Змінити текст кнопки на 'REMOVE FROM WATCHED'
+    }
+    localStorage.setItem(WATCHED_LIST, JSON.stringify(allFilms));
   } catch (err) {
     console.log(err);
   }
@@ -18,12 +37,29 @@ export async function addQueue(e) {
   try {
     const data = await getCardsData(id);
     if (!data) return;
-    console.log(data);
+
+    const allFilms = JSON.parse(localStorage.getItem(QUEUE_LIST)) || [];
+
+    let deleted = false;
+    allFilms.forEach(film => {
+      if (film.id === data.id) {
+        const index = allFilms.indexOf(film);
+        allFilms.splice(index, 1);
+        deleted = true;
+        e.target.textContent = 'ADD TO QUEUE';
+        // Змінити текст кнопки на 'ADD TO QUEUE'
+      }
+    });
+    if (!deleted) {
+      allFilms.push(data);
+      e.target.textContent = 'REMOVE FROM QUEUE';
+      // Змінити текст кнопки на 'REMOVE FROM QUEUE'
+    }
+    localStorage.setItem(QUEUE_LIST, JSON.stringify(allFilms));
   } catch (err) {
     console.log(err);
   }
 }
-
 async function getCardsData(id) {
   try {
     const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
@@ -32,14 +68,16 @@ async function getCardsData(id) {
     const filmData = {
       id: data.id,
       title: `${data.title ? data.title : 'Unknown'}`,
-      poster: `${
+      poster_path: `${
         data.poster_path
           ? POSTER_URL + data.poster_path
           : '../images/default-poster.jpg'
       }`,
-      genre: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
-      rating: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
-      date: `${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}`,
+      genres: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
+      vote_average: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
+      release_date: `${
+        data.release_date ? data.release_date.slice(0, 4) : 'n/a'
+      }`,
     };
     return filmData;
   } catch (err) {
@@ -58,49 +96,3 @@ function getGanre(arr) {
     return genre;
   }
 }
-
-// function localStorageFunction(movieData) {
-//   const isLibraryPage = location.pathname.includes('library');
-//   const cartItem = document.querySelector(`[data-id="${movieData.id}"]`);
-
-//   function addWatch() {
-//     if (movieData) {
-//       let film = JSON.parse(localStorage.getItem('watch')) || [];
-//       if (film.find(e => e.id === movieData.id)) {
-//         watchBtn.classList.remove('button--accent-btn');
-//         watchBtn.textContent = 'ADD TO WATCHED';
-//         film = film.filter(e => e.id !== movieData.id);
-//         if (isLibraryPage && cartItem && refs.isWatchTabActive) {
-//           cartItem.remove();
-//         }
-//       } else {
-//         watchBtn.classList.add('button--accent-btn');
-//         watchBtn.textContent = 'REMOVE FROM WATCHED';
-//         film.push(movieData);
-//       }
-//       localStorage.setItem('watch', JSON.stringify(film));
-//     }
-//     isLocalStorageEmpty('watch');
-//   }
-
-//   function addQueue() {
-//     if (movieData) {
-//       let film = JSON.parse(localStorage.getItem('queue')) || [];
-//       if (film.find(e => e.id === movieData.id)) {
-//         queueBtn.classList.remove('button--accent-btn');
-//         queueBtn.textContent = 'ADD TO QUEUE';
-//         film = film.filter(e => e.id !== movieData.id);
-
-//         if (isLibraryPage && cartItem && !refs.isWatchTabActive) {
-//           cartItem.remove();
-//         }
-//       } else {
-//         queueBtn.classList.add('button--accent-btn');
-//         queueBtn.textContent = 'REMOVE FROM QUEUE';
-//         film.push(movieData);
-//       }
-//       localStorage.setItem('queue', JSON.stringify(film));
-//     }
-//     isLocalStorageEmpty('queue');
-//   }
-// }
