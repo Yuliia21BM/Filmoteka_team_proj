@@ -7,12 +7,15 @@ import { renderFilmCards } from './render-card';
 
   
 const _getPopularFilm = () => {
+
   getPopularFilm(pagination.getCurrentPage()).then(
     ({ page, results, total_pages, total_results }) => {
       renderFilmCards(results);
     }
   );
 };
+
+
 //const cardsContaier = document.querySelector('.allcards-skeleton');
 const cardsTemplate = `<li class="cards-skeleton">
         <div class="movie--isloading">
@@ -26,19 +29,29 @@ const cardsTemplate = `<li class="cards-skeleton">
           </div>
         </div>
         </li>`;
-let cardsSkeleton = '';
+// let cardsSkeleton = '';
+// export const renderSkeleton = () => {
+//   for (let i = 1; i <= 20; i+=1) {
+   
+//     cardsSkeleton = cardsSkeleton + cardsTemplate;
+    
+//   }
+//   refs.mainContainerEl.innerHTML = cardsSkeleton;
+//   //console.log(cardsSkeleton);
+//   return;
+// }
+const cardsSkeleton = [];
 export const renderSkeleton = () => {
   for (let i = 1; i <= 20; i+=1) {
    
-    cardsSkeleton = cardsSkeleton + cardsTemplate;
-    
+    cardsSkeleton.push(cardsTemplate);
+    console.log(i);
   }
-  refs.mainContainerEl.innerHTML = cardsSkeleton;
+  refs.mainContainerEl.innerHTML = cardsSkeleton.join('');
   //console.log(cardsSkeleton);
   return;
 }
 
-
-_getPopularFilm();
-
+//_getPopularFilm();
+renderSkeleton();
 pagination.subscribeOnPageChange(_getPopularFilm);

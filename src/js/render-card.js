@@ -8,7 +8,6 @@ export const clearMarkup = el => {
 };
 
 export async function renderFilmCards(elem) {
-  renderSkeleton();
   const allCards = elem
     .map(film => {
       return createElementsMovie(film);
