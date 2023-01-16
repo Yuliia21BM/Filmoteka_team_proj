@@ -1,5 +1,6 @@
 import { getPopularFilm } from '../js/fetchApi';
 import * as pagination from './pagination';
+import { refs } from './refs';
 
 import { renderFilmCards } from './render-card';
 
@@ -12,8 +13,8 @@ const _getPopularFilm = () => {
     }
   );
 };
-const cardsContaier = document.querySelector('.main-section__allcards');
-let cardsTemplate = `<li class="cards-skeleton">
+//const cardsContaier = document.querySelector('.allcards-skeleton');
+const cardsTemplate = `<li class="cards-skeleton">
         <div class="movie--isloading">
           <div class="loading-image"></div>
           <div class="loading-content">
@@ -25,17 +26,19 @@ let cardsTemplate = `<li class="cards-skeleton">
           </div>
         </div>
         </li>`;
-const cardsSkeleton = '';
-const renderSkeleton = () => {
+let cardsSkeleton = '';
+export const renderSkeleton = () => {
   for (let i = 1; i <= 20; i+=1) {
-    console.log('sdfs');
-    cardsTemplate += cardsTemplate;
+   
+    cardsSkeleton = cardsSkeleton + cardsTemplate;
+    
   }
-  cardsContaier.innerHTML = cardsTemplate;
+  refs.mainContainerEl.innerHTML = cardsSkeleton;
+  //console.log(cardsSkeleton);
   return;
 }
 
-renderSkeleton();
+
 _getPopularFilm();
 
 pagination.subscribeOnPageChange(_getPopularFilm);
