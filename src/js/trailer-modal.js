@@ -25,7 +25,7 @@ export function showTrailerModal(trailerId, filmModal) {
   const trailerIframe = document.querySelector('#trailer-iframe');
   trailerIframe.src = `https://www.youtube.com/embed/${trailerId}`;
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
-  console.log(closeModalBtn);
+  // console.log(closeModalBtn);
 
   closeModalBtn.addEventListener('click', () => {
     trailerModal.close();
@@ -36,10 +36,10 @@ export function showTrailerModal(trailerId, filmModal) {
 export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);
 
-  console.log(trailers);
+  // console.log(trailers);
   const container = document.querySelector(`#trailerBtns-wrapper`);
 
-  console.log(container, filmId);
+  // console.log(container, filmId);
 
   if (trailers.results.length === 0) {
     container.innerHTML = 'No trailers are found';

@@ -11,18 +11,15 @@ filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
 
-async function checkIdFbyKey(filmId, key) {
+async function checkIdFbyKey(key) {
   const keyList = await JSON.parse(localStorage.getItem(key));
-  if (keyList === null || keyList === []) {
-    console.log(keyList, 'null || []');
+  const res = !keyList || keyList == [] ? false : true;
+  console.log(res);
+  if (res) {
+    return keyList;
+  } else {
     return false;
   }
-  keyList.forEach(item => {
-    if (item.id === filmId) {
-      console.log(keyList, 'don`t empty');
-      return true;
-    }
-  });
 }
 
 export function openModal(e, childClass) {
@@ -142,15 +139,24 @@ export function openModal(e, childClass) {
         watchBtn.addEventListener('click', addWatch);
         queueBtn.addEventListener('click', addQueue);
 
-        const watced = checkIdFbyKey(filmId, WATCHED_LIST);
-        const queue = checkIdFbyKey(filmId, QUEUE_LIST);
-        if (!watced || !queue) return;
-        if (watced) {
-          watchBtn.textContent = 'REMOVE FROM WATCHED';
-        }
-        if (queue) {
-          queueBtn.textContent = 'REMOVE FROM QUEUE';
-        }
+        checkIdFbyKey(WATCHED_LIST).then(watched => {
+          console.log(watched, 'watched');
+          // if (!watched || watched === []) return;
+          watched.forEach(item => {
+            item.id !== filmId
+              ? (watchBtn.textContent = 'ADD TO WATCHED')
+              : (watchBtn.textContent = 'REMOVE FROM WATCHED');
+          });
+        });
+        checkIdFbyKey(QUEUE_LIST).then(queue => {
+          console.log(queue, 'queue');
+          if (!queue || queue === []) return;
+          queue.forEach(item => {
+            item.id !== filmId
+              ? (watchBtn.textContent = 'ADD TO QUEUE')
+              : (watchBtn.textContent = 'REMOVE FROM QUEUE');
+          });
+        });
       }
 
       const closeBtn = document.querySelector('.film-modal__close-btn');
