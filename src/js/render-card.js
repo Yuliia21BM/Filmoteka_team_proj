@@ -79,7 +79,9 @@ export function createElementsMovie(data) {
           } | ${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}
 				
                 <span class="main-section__card-rating">${
-                  data.vote_average ? data.vote_average.toFixed(1) : '0.0'
+                  data.vote_average
+                    ? Number(data.vote_average).toFixed(1)
+                    : '0.0'
                 }</span>
                 </p>
       </div>             

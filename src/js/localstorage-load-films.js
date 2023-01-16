@@ -12,7 +12,7 @@ export const loadFromStorage = async key => {
     }
 
     let movieList = await JSON.parse(savedData);
-
+    console.log(movieList);
     return renderFilmCards(movieList);
   } catch (error) {
     console.error('Error: ', error.message);
