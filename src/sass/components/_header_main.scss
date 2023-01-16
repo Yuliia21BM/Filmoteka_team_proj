@@ -275,6 +275,8 @@
 
 .wrong-box {
   margin: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .not-found-text {
@@ -282,4 +284,5 @@
     justify-content: space-around;
     display: flex;
     font-size: 40px;
+    padding-bottom: 20px;
 }

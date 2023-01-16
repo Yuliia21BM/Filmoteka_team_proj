@@ -1,29 +1,58 @@
-import { QUEUE_LIST } from './config';
+import { QUEUE_LIST, WATCHED_LIST } from './config';
 import { loadFromStorage } from './localstorage-load-films';
+import { refs } from './refs';
 
-// -------------👇Це mockup data, поки немає функціоналу додавання в localStorage ------------
-const movie = [
-  {
-    id: 13,
-    title: 'Test Movie1',
-    genres: 'Drama, Family, Thriller',
-    poster_path: '/1NqwE6LP9IEdOZ57NCT51ftHtWT.jpg',
-    vote_average: 6.2,
-    release_date: '2011-11-02',
-  },
-  {
-    id: 2,
-    title: 'Test Movie2',
-    genres: 'Comedy, Family, Romance',
-    poster_path: '/7CNCv9uhqdwK7Fv4bR4nmDysnd9.jpg',
-    vote_average: 7.8,
-    release_date: '2008-11-02',
-  },
-];
-localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
+// -------------👇 Для тестів ------------
+// localStorage.setItem(QUEUE_LIST, JSON.stringify(movie));
 // localStorage.removeItem(QUEUE_LIST);
-// -------------☝Це mockup data, поки немає функціоналу додавання в localStorage -------------
+// -------------☝ Для тестів -------------
 
 // STARTS HERE <================================================================<<<<
 
-loadFromStorage(QUEUE_LIST);
+const onWatchedBtnClick = () => {
+  if (refs.watchedBtn.classList.contains('header-lib__btn--current')) {
+    return;
+  }
+  loadFromStorage(WATCHED_LIST);
+
+  refs.queueBtn.classList.toggle('header-lib__btn--current');
+  refs.watchedBtn.classList.toggle('header-lib__btn--current');
+};
+
+const onQueueBtnClick = () => {
+  if (refs.queueBtn.classList.contains('header-lib__btn--current')) {
+    return;
+  }
+  loadFromStorage(QUEUE_LIST);
+
+  refs.watchedBtn.classList.toggle('header-lib__btn--current');
+  refs.queueBtn.classList.toggle('header-lib__btn--current');
+};
+
+const onLoad = () => {
+  // Проблема: якщо активний список watched, при перезавантаженні свторінки,
+  //  кнопки ще неактивні, і класів теж нема, тому завантажується queue.
+  // Варто ще попрацювати над функцією
+  if (
+    !refs.queueBtn.classList.contains('header-lib__btn--current') ||
+    !refs.watchedBtn.classList.contains('header-lib__btn--current')
+  ) {
+    refs.queueBtn.classList.toggle('header-lib__btn--current');
+    loadFromStorage(QUEUE_LIST);
+  } else if (refs.queueBtn.classList.contains('header-lib__btn--current')) {
+    // refs.queueBtn.classList.toggle('header-lib__btn--current');
+    // refs.watchedBtn.classList.toggle('header-lib__btn--current');
+
+    loadFromStorage(QUEUE_LIST);
+  } else if (refs.watchedBtn.classList.contains('header-lib__btn--current')) {
+    // refs.watchedBtn.classList.toggle('header-lib__btn--current');
+    // refs.queueBtn.classList.toggle('header-lib__btn--current');
+
+    loadFromStorage(WATCHED_LIST);
+  }
+};
+
+refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
+refs.queueBtn.addEventListener('click', onQueueBtnClick);
+
+onLoad();

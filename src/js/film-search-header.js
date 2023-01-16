@@ -14,11 +14,13 @@ const mainSectionCards = document.querySelector('.main-section__allcards');
 searchForm.addEventListener('submit', onFormSubmit);
 
 async function onFormSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
+    mainSectionCards.scrollIntoView({ behavior: 'smooth' });
   const value = e.currentTarget.searchQuery.value.trim();
     console.log(value);
 
-   await getMoviesHandler(value) 
+    await getMoviesHandler(value) 
+    pagination.setCurrentPageto1()
     pagination.subscribeOnPageChange(() => {
     getMoviesHandler(input.value)
 
@@ -37,7 +39,7 @@ async function getMoviesHandler(value) {
 
     try {
         const response = await searchMovieByName(value, pagination.getCurrentPage());
-        pagination.setPagination(response.page, response.total_pages)
+        pagination.setTotalPages(response.total_pages)
         const getMovie = response.results;
         console.log(response);
         console.log(getMovie);
