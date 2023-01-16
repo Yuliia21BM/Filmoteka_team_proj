@@ -1,4 +1,4 @@
-import { renderNoMoviesMarkup } from './render-card';
+import { renderFilmCards, renderNoMoviesMarkup } from './render-card';
 
 // Returns parsed data from Local Storage
 export const loadFromStorage = key => {
@@ -6,12 +6,14 @@ export const loadFromStorage = key => {
     const savedData = localStorage.getItem(key);
 
     // If there are no movies added to list in Local Storage, show Travolta GIF from Pulp Fiction
-    if (savedData === null) {
+    if (!savedData) {
       renderNoMoviesMarkup();
       return;
     }
 
-    return JSON.parse(savedData);
+    let movieList = JSON.parse(savedData);
+
+    renderFilmCards(movieList);
   } catch (error) {
     console.error('Error: ', error.message);
   }

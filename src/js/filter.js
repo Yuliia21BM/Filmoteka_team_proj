@@ -6,7 +6,6 @@ import * as pagination from './pagination';
 
 const API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}`;
 
-
 const genres = [
   {
     id: 28,
@@ -133,7 +132,6 @@ function getMovies(url, page) {
 //       }
 //     });
 // }
-
 
 
 

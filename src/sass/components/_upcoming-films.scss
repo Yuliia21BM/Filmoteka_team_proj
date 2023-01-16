@@ -1,10 +1,16 @@
 .upcoming-title {
   text-align: center;
   padding: 10px;
-  color: $bg-footer;
-  text-shadow: 1px 1px 2px black;
-  font-size: 24;
-  background-color: #181f25;
+  color: $accent;
+  text-shadow: 1px 1px 1px black;
+  font-size: 16;
+  // background-color: #181f25;
+  @include tablet {
+    font-size: 18;
+  }
+  @include desktop {
+    font-size: 22;
+  }
 }
 
 .swiper {
@@ -61,11 +67,9 @@
 }
 
 .swiper-button-next {
-
   text-shadow: 5px 5px 8px #150905;
 }
 
 .swiper-button-prev {
-  
   text-shadow: -5px 5px 8px #150905;
 }
