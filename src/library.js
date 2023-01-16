@@ -5,3 +5,4 @@ import './js/pagination';
 import './js/BtnScrollToTop';
 import './js/localstorage-load-films';
 import './js/change-color-theme';
+import './js/spinner';

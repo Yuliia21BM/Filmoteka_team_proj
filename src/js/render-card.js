@@ -114,8 +114,8 @@ searchGenres().then(res => {
 export const renderNoMoviesMarkup = () => {
   const notFoundGIF = document.createElement('img');
   notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
-
   notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+  notFoundGIF.class = 'not-found';
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}
