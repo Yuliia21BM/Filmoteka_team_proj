@@ -12,13 +12,15 @@ filmCardSection.addEventListener('click', e => {
 });
 
 async function checkIdFbyKey(filmId, key) {
-  let isInLS = false;
   const keyList = await JSON.parse(localStorage.getItem(key));
-  console.log(keyList);
-  if (keyList === null || keyList === []) return (isInLS = false);
+  if (keyList === null || keyList === []) {
+    console.log(keyList, 'null || []');
+    return false;
+  }
   keyList.forEach(item => {
     if (item.id === filmId) {
-      return (isInLS = true);
+      console.log(keyList, 'don`t empty');
+      return true;
     }
   });
 }
@@ -141,16 +143,12 @@ export function openModal(e, childClass) {
         queueBtn.addEventListener('click', addQueue);
 
         const watced = checkIdFbyKey(filmId, WATCHED_LIST);
-        console.log(watced);
         const queue = checkIdFbyKey(filmId, QUEUE_LIST);
-        console.log(queue);
-        if (!watced || !queue) console.log('False');
+        if (!watced || !queue) return;
         if (watced) {
-          console.log('true W');
           watchBtn.textContent = 'REMOVE FROM WATCHED';
         }
         if (queue) {
-          console.log('true Q');
           queueBtn.textContent = 'REMOVE FROM QUEUE';
         }
       }

@@ -4,7 +4,6 @@ import { renderFilmCards } from './render-card';
 
 const API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}`;
 
-
 const genres = [
   {
     id: 28,
@@ -99,7 +98,6 @@ function getMovies(url) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data.results);
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
       }
@@ -110,26 +108,7 @@ mobileBtn.addEventListener('click', openGenreList);
 
 function openGenreList() {
   tagsEl.classList.toggle('is-active');
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 // ---------------------------- second code -------------------------------------------
 
