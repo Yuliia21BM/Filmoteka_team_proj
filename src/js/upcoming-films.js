@@ -32,35 +32,36 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
 
     upcomingListRef.innerHTML = '';
     upcomingListRef.insertAdjacentHTML('afterbegin', markup);
-    
+
     const swiper = new Swiper('.swiper', {
-      // Optional parameters
-      direction: 'horizontal',
-      slidesPerView: 2,
+  // Optional parameters
+  direction: 'horizontal',
+  slidesPerView: 3,
+  loopedSlides: results.length,
+  spaceBetween: 20,
+  loop: true,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  speed: 1500,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 4,
       spaceBetween: 20,
-      loop: true,
-    
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      speed: 1500,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 20,
-        },
-      },
-    });
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 20,
+    },
+  },
+});
 
   } catch (err) {
     console.log(err);
