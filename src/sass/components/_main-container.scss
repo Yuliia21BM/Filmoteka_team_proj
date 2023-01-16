@@ -49,6 +49,12 @@
   width: 100%;
   overflow: hidden;
   border-radius: 5px;
+  
+  &:hover{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-radius $animation-time $animation-cubic;
+  }
 }
 
 .main-section__card-title {
@@ -153,7 +159,8 @@ padding: 5px;
     opacity: 0;
     text-align: center;
     width: 100%;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-size: 14;
     line-height: 1.1;
     letter-spacing: .03em;
