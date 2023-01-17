@@ -1,4 +1,4 @@
-import { refs } from './refs';
+// import { refs } from './refs';
 import { renderFilmCards, renderNoMoviesMarkup } from './render-card';
 import { refs } from './refs';
 
@@ -17,14 +17,14 @@ export const loadFromStorage = async key => {
 
     // треба доробити перевірку,
     // якщо в списку менше 20 фільмів, ховати пагінацію
-    if (
-      movieList.length < 20 &&
-      !refs.paginationWrap.classList.contains('visually-hidden')
-    ) {
-      refs.paginationWrap.classList.add('visually-hidden');
-    } else {
-      refs.paginationWrap.classList.remove('visually-hidden');
-    }
+    // if (
+    //   movieList.length < 20 &&
+    //   !refs.paginationWrap.classList.contains('visually-hidden')
+    // ) {
+    //   refs.paginationWrap.classList.add('visually-hidden');
+    // } else {
+    //   refs.paginationWrap.classList.remove('visually-hidden');
+    // }
 
     console.log('movieList:', movieList);
     return renderFilmCards(movieList);
