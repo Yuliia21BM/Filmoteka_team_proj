@@ -104,11 +104,10 @@
 }
 
 .navigation__item:not(:last-child) {
-margin-right: 10px;
+  margin-right: 10px;
   @media screen and (min-width: 420px) {
-      margin-right: 40px;
-    }
-  
+    margin-right: 40px;
+  }
 }
 
 .link {
@@ -164,8 +163,8 @@ margin-right: 10px;
   justify-content: center;
 
   @media screen and (min-width: 480px) {
-      width: 336px;
-    }
+    width: 336px;
+  }
 
   @include desktop {
     width: 394px;
@@ -280,10 +279,10 @@ margin-right: 10px;
 
 .not-found-text {
   color: #ff6b08;
-    justify-content: space-around;
-    display: flex;
-    font-size: 40px;
-    padding-bottom: 20px;
+  justify-content: space-around;
+  display: flex;
+  font-size: 40px;
+  padding-bottom: 20px;
 }
 
 .settings {
@@ -305,6 +304,6 @@ margin-right: 10px;
 
 .navigation__menu {
   @media screen and (max-width: 420px) {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
+  }
 }
