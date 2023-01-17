@@ -51,6 +51,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 30px;
 
   @include tablet {
     gap: 30px;
@@ -100,4 +101,94 @@
     color: $primary-bg-color;
     cursor: default;
   }
+}
+
+
+// .sort-block {
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .sort-class {
+//   width: 25px;
+//     height: 30px;
+//     padding: 4px 0;
+//     border: none;
+//     border-bottom: 0.5px solid white;
+//     outline: none;
+//     background-color: transparent;
+//     color: #ffffff;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 1.17;
+//     background-color: transparent;
+//    margin-left: auto;
+//    margin-right: auto;
+
+  
+//     @media screen and (min-width: 480px) {
+//       width: 336px;
+//     }
+  
+//     @include desktop {
+//       width: 394px;
+//     }
+// }
+
+.sort-class option {
+color: white;
+background-color: $accent;
+}
+
+
+
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select wrapper */
+.sort-block {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 10em;
+  height: 3em;
+  overflow: hidden;
+  border-bottom: 0.5px solid white;
+}
+
+/* Arrow */
+.sort-block::after {
+  content: '\25BC';
+  position: absolute;
+  color: #fff;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: transparent;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+.sort-block:hover::after {
+  color: #f39c12;
 }
