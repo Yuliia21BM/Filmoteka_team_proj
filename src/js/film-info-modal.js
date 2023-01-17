@@ -4,6 +4,7 @@ import { addWatch, addQueue } from './localstorage-save-films-API';
 import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
 import Spinner from './spinner';
+import { loadFromStorage } from './localstorage-load-films';
 
 const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
@@ -12,6 +13,31 @@ const filmCardSection = document.querySelector('.main-section__allcards');
 filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
+
+const checkPathname = async (pathname, activetab) => {
+  if (pathname === '/library.html' && activetab === 'Queue') {
+    await loadFromStorage(QUEUE_LIST);
+    return;
+  }
+
+  if (pathname === '/library.html' && activetab === 'Watched') {
+    await loadFromStorage(WATCHED_LIST);
+  }
+};
+
+const refreshLibraryList = async () => {
+  try {
+    const pathname = window.location.pathname;
+
+    const parsedActiveTab = await JSON.parse(
+      localStorage.getItem('active-tab')
+    );
+
+    checkPathname(pathname, parsedActiveTab);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 async function checkIdFbyKey(key) {
   const keyList = await JSON.parse(localStorage.getItem(key));
@@ -65,6 +91,7 @@ export function openModal(e, childClass) {
             document.removeEventListener('keydown', escClose);
             createFilmModalMarkup.close();
           });
+          refreshLibraryList();
         },
       };
 
