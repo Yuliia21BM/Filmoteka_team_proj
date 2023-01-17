@@ -11,6 +11,7 @@ export function showTrailerModal(trailerId, filmModal) {
 
     onClose: () => {
       document.removeEventListener('keydown', escClose);
+      filmModal.show();
     },
   };
 

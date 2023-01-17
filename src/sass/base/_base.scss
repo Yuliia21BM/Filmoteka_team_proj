@@ -3,6 +3,8 @@ body {
 
   font-family: 'Roboto', sans-serif;
   color: $primary-text-color;
+  background-color: $primary-bg-color;
+  transition: background-color $animation-time $animation-cubic;
 }
 
 html {
