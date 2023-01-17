@@ -3,7 +3,7 @@ import { changeColorThemeMain } from './change-color-theme';
 
 const buttonRef = document.querySelector('.change-color');
 
-const LS = localStorage.getItem(THEME);
+const LS = JSON.parse(localStorage.getItem(THEME));
 
 let darkTheme = LS;
 
@@ -13,4 +13,4 @@ buttonRef.addEventListener('click', () => {
   changeColorThemeMain(darkTheme);
 });
 
-changeColorThemeMain(darkTheme);
+changeColorThemeMain((darkTheme = darkTheme || false));
