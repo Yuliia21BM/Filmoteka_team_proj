@@ -4,7 +4,24 @@ const cardsRef = document.querySelector(`.main-section__allcards`);
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
-  const trailerModal = basicLightbox.create(`
+  const basicLightboxOptions = {
+    onShow: () => {
+      document.addEventListener('keydown', escClose);
+    },
+    
+    onClose: () => {
+      document.removeEventListener('keydown', escClose);
+    },
+  
+    }
+    
+     function escClose(e) {
+      if (e.key === 'Escape') {
+    trailerModal.close();
+    filmModal.show();
+  }
+}
+   const trailerModal =  basicLightbox.create(`
   <div id="trailer-modal" data-modal>
   <button class="film-modal__close-btn" type="button" trailer-modal-close>
    <img class="cross-button__icon" src="${svgCloseIcon}" />
@@ -16,8 +33,9 @@ export function showTrailerModal(trailerId, filmModal) {
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen
-  ></iframe>  
-</div>`);
+  ></iframe> 
+</div>`,
+    basicLightboxOptions);
 
   trailerModal.show();
 
@@ -33,24 +51,6 @@ export function showTrailerModal(trailerId, filmModal) {
     filmModal.show();
   });
 }
-
-const basicLightboxOptions = {
-  onShow: () => {
-    document.addEventListener('keydown', escClose);
-  },
-
-  onClose: () => {
-    document.removeEventListener('keydown', escClose);
-  
-  }
-};
-
-
-       function escClose(e) {
-        if (e.key === 'Escape') {
-          trailerModal.close();
-        }
-      }
 
 
 export async function buildTrailerBtns(filmId, filmModal) {
