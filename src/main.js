@@ -4,3 +4,4 @@ import './js/film-search-header';
 import './js/filter';
 import './js/popular-film-API';
 import './js/pagination';
+import './js/authorization-modal';
