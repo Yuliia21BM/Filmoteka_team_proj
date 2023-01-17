@@ -16,11 +16,23 @@ filmCardSection.addEventListener('click', e => {
 
 const checkPathname = async (pathname, activetab) => {
   if (pathname === '/library.html' && activetab === 'Queue') {
+    console.log(
+      "it's pathname check on queue & active tab:",
+      pathname,
+      activetab
+    );
+
     await loadFromStorage(QUEUE_LIST);
     return;
   }
 
   if (pathname === '/library.html' && activetab === 'Watched') {
+    console.log(
+      "it's pathname check on watched & active tab:",
+      pathname,
+      activetab
+    );
+
     await loadFromStorage(WATCHED_LIST);
   }
 };
@@ -28,10 +40,12 @@ const checkPathname = async (pathname, activetab) => {
 const refreshLibraryList = async () => {
   try {
     const pathname = window.location.pathname;
+    console.log('this is pathname in refreshLibList:', pathname);
 
     const parsedActiveTab = await JSON.parse(
       localStorage.getItem('active-tab')
     );
+    console.log('this is parsedActiveTab in refreshLibList:', parsedActiveTab);
 
     checkPathname(pathname, parsedActiveTab);
   } catch (error) {
