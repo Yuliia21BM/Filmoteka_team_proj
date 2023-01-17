@@ -4,9 +4,7 @@ const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
 const cartTitle = document.querySelectorAll('.main-section__card-title');
 
-let darkTheme = localStorage.getItem(THEME) || false;
-
-export function changeColorThemeMain() {
+export function changeColorThemeMain(darkTheme = true) {
   const cartTitle = document.querySelectorAll('.main-section__card-title');
   const genreBtn = document.querySelectorAll('.genres-button');
 
@@ -40,7 +38,7 @@ export function changeColorThemeMain() {
   }
 }
 
-export function changeColorThemeLib() {
+export function changeColorThemeLib(darkTheme = true) {
   const cartTitle = document.querySelectorAll('.main-section__card-title');
 
   if (!darkTheme) {
