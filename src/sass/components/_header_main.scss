@@ -104,7 +104,10 @@
 }
 
 .navigation__item:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 10px;
+  @media screen and (min-width: 420px) {
+    margin-right: 40px;
+  }
 }
 
 .link {
@@ -160,8 +163,8 @@
   justify-content: center;
 
   @media screen and (min-width: 480px) {
-      width: 336px;
-    }
+    width: 336px;
+  }
 
   @include desktop {
     width: 394px;
@@ -235,11 +238,6 @@
 
 .register__icon {
   fill: white;
-  margin-right: 25px;
-
-  @include tablet {
-    margin-right: 40px;
-  }
 }
 
 .warning-notification {
@@ -281,8 +279,31 @@
 
 .not-found-text {
   color: #ff6b08;
-    justify-content: space-around;
-    display: flex;
-    font-size: 40px;
-    padding-bottom: 20px;
+  justify-content: space-around;
+  display: flex;
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.settings {
+  background-color: inherit;
+  height: 40px;
+  border-style: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  font-family: inherit;
+  line-height: 1.15;
+  margin: 0;
+  cursor: pointer;
+}
+
+.filter__icon {
+  fill: white;
+}
+
+.navigation__menu {
+  @media screen and (max-width: 420px) {
+    justify-content: space-between;
+  }
 }

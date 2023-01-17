@@ -91,7 +91,7 @@ function getGanre(arr) {
     .join(', ')
     .split(',');
   if (genre.length > 3) {
-    return `${genre.slice(1)}, Other`;
+    return `${genre.slice(0, 1)}, Other`;
   } else {
     return genre;
   }

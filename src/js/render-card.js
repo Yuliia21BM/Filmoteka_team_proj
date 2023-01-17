@@ -1,6 +1,7 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
+//import { renderSkeleton } from './popular-film-API';
 
 export const clearMarkup = el => {
   el.innerHTML = '';
@@ -63,9 +64,6 @@ export function createElementsMovie(data) {
         }" alt="${
     data.title ? data.title : 'Unknown'
   }" class="main-section__image" loading="lazy">
-  <p class="main-section__popup-title"> <span class = "popUp-title">About</span> <br/>${
-    data.overview ? data.overview : 'No description'
-  }</p>
   </div>
       <div class="main-section__card main-section__cards" data-film-id="${
         data.id
@@ -74,12 +72,14 @@ export function createElementsMovie(data) {
             data.title ? data.title : 'Unknown title'
           }</h2>
                    
-					<p class="main-section__description">${
-            data.genre_ids ? genreFilm : 'Unknown'
-          } | ${data.release_date ? data.release_date.slice(0, 4) : 'n/a'}
+					<p class="main-section__description">${data.genres ? genreFilm : 'Unknown'} | ${
+    data.release_date ? data.release_date.slice(0, 4) : 'n/a'
+  }
 				
                 <span class="main-section__card-rating">${
-                  data.vote_average ? data.vote_average.toFixed(1) : '0.0'
+                  data.vote_average
+                    ? Number(data.vote_average).toFixed(1)
+                    : '0.0'
                 }</span>
                 </p>
       </div>             
@@ -112,8 +112,8 @@ searchGenres().then(res => {
 export const renderNoMoviesMarkup = () => {
   const notFoundGIF = document.createElement('img');
   notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
-
   notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+  notFoundGIF.class = 'not-found';
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}

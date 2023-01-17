@@ -3,7 +3,9 @@ import { buildTrailerBtns } from './trailer-modal';
 import { addWatch, addQueue } from './localstorage-save-films-API';
 import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
+import Spinner from './spinner';
 
+const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
 
@@ -11,24 +13,24 @@ filmCardSection.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
 
-async function checkIdFbyKey(filmId, key) {
+async function checkIdFbyKey(key) {
   const keyList = await JSON.parse(localStorage.getItem(key));
-  if (keyList === null || keyList === []) {
-    console.log(keyList, 'null || []');
+  const res = !keyList || keyList == [] ? false : true;
+  console.log(res);
+  if (res) {
+    console.log(keyList);
+    return keyList;
+  } else {
     return false;
   }
-  keyList.forEach(item => {
-    if (item.id === filmId) {
-      console.log(keyList, 'don`t empty');
-      return true;
-    }
-  });
 }
 
 export function openModal(e, childClass) {
   if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
+
+  spinner.enable();
 
   const filmId = e.target.parentNode.dataset.filmId;
 
@@ -52,6 +54,7 @@ export function openModal(e, childClass) {
       const basicLightboxOptions = {
         onShow: () => {
           document.body.classList.add('hide-scroll');
+          document.addEventListener('keydown', escClose);
         },
 
         onClose: () => {
@@ -59,6 +62,7 @@ export function openModal(e, childClass) {
           closeBtn.removeEventListener('click', () => {
             watchBtn.removeEventListener('click', addWatch);
             queueBtn.removeEventListener('click', addQueue);
+            document.removeEventListener('keydown', escClose);
             createFilmModalMarkup.close();
           });
         },
@@ -125,7 +129,7 @@ export function openModal(e, childClass) {
       );
 
       createFilmModalMarkup.show();
-
+      spinner.disable();
       buildTrailerBtns(filmId, createFilmModalMarkup);
 
       if (!poster_path) {
@@ -142,14 +146,45 @@ export function openModal(e, childClass) {
         watchBtn.addEventListener('click', addWatch);
         queueBtn.addEventListener('click', addQueue);
 
-        const watced = checkIdFbyKey(filmId, WATCHED_LIST);
-        const queue = checkIdFbyKey(filmId, QUEUE_LIST);
-        if (!watced || !queue) return;
-        if (watced) {
-          watchBtn.textContent = 'REMOVE FROM WATCHED';
-        }
-        if (queue) {
-          queueBtn.textContent = 'REMOVE FROM QUEUE';
+        checkIdFbyKey(WATCHED_LIST).then(watched => {
+          console.log(watched, 'watched');
+          if (!watched || watched === []) return;
+          watched.forEach(item => {
+            item.id !== +filmId ? addW() : removeW();
+          });
+        });
+        checkIdFbyKey(QUEUE_LIST).then(queue => {
+          if (!queue || queue === []) return;
+          queue.map(item => {
+            console.log(item.id !== filmId, 'item.id !== filmId');
+            item.id !== +filmId ? addQ() : removeQ();
+          });
+        });
+      }
+      function addW() {
+        // const watchBtn = document.querySelector('button.btn-add-watched');
+        // watchBtn.textContent = 'ADD TO WATCHED';
+        return;
+      }
+      function removeW() {
+        const watchBtn = document.querySelector('button.btn-add-watched');
+        watchBtn.textContent = 'REMOVE FROM WATCHED';
+        return;
+      }
+      function addQ() {
+        // const queueBtn = document.querySelector('button.btn-add-queue');
+        // queueBtn.textContent = 'ADD TO QUEUE';
+        return;
+      }
+      function removeQ() {
+        const queueBtn = document.querySelector('button.btn-add-queue');
+        queueBtn.textContent = 'REMOVE FROM QUEUE';
+        return;
+      }
+
+      function escClose(e) {
+        if (e.key === 'Escape') {
+          createFilmModalMarkup.close();
         }
       }
 

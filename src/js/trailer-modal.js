@@ -2,10 +2,20 @@ import { searchTrailerById } from './fetchApi';
 import * as basicLightbox from 'basiclightbox';
 const cardsRef = document.querySelector(`.main-section__allcards`);
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
-
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
-  const trailerModal = basicLightbox.create(`
+  const basicLightboxOptions = {
+    onShow: () => {
+      document.addEventListener('keydown', escClose);
+    },
+
+    onClose: () => {
+      document.removeEventListener('keydown', escClose);
+    },
+  };
+
+  const trailerModal = basicLightbox.create(
+    `
   <div id="trailer-modal" data-modal>
   <button class="film-modal__close-btn" type="button" trailer-modal-close>
    <img class="cross-button__icon" src="${svgCloseIcon}" />
@@ -17,15 +27,23 @@ export function showTrailerModal(trailerId, filmModal) {
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen
-  ></iframe>  
-</div>`);
+  ></iframe> 
+</div>`,
+    basicLightboxOptions
+  );
 
   trailerModal.show();
 
   const trailerIframe = document.querySelector('#trailer-iframe');
   trailerIframe.src = `https://www.youtube.com/embed/${trailerId}`;
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
-  console.log(closeModalBtn);
+
+  function escClose(e) {
+    if (e.key === 'Escape') {
+      trailerModal.close();
+      filmModal.show();
+    }
+  }
 
   closeModalBtn.addEventListener('click', () => {
     trailerModal.close();
@@ -36,10 +54,10 @@ export function showTrailerModal(trailerId, filmModal) {
 export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);
 
-  console.log(trailers);
+  // console.log(trailers);
   const container = document.querySelector(`#trailerBtns-wrapper`);
 
-  console.log(container, filmId);
+  // console.log(container, filmId);
 
   if (trailers.results.length === 0) {
     container.innerHTML = 'No trailers are found';
