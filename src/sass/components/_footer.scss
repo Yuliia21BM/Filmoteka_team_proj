@@ -1,261 +1,260 @@
 .footer {
-    background-color: $bg-footer;
-    padding: 0;
+  background-color: $bg-footer;
+  padding: 0;
 
-    @include tablet {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+  @include tablet {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
 
-        padding-top: 30px;
-        padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 
-     }
- 
-     @include desktop {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+  @include desktop {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
 
-        padding-top: 30px;
-        padding-bottom: 30px;
-     }
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 .footer__text {
-    display: flex;
+  display: flex;
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    
-    color: rgba(84, 84, 84, 1);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
 
-    @media screen and (max-width: 479px) {
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-     
-        
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
+  color: rgba(84, 84, 84, 1);
 
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: 30px;
-        padding-bottom: 10px;
-    }
+  @media screen and (max-width: 479px) {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-    @include mobile {
-        align-items: center;
-        text-align: center;
-        justify-content: center;    
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
 
-        max-width: 480px;
-        font-size: 14px;
-        line-height: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
 
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: 30px;
-        padding-bottom: 10px;
-    }
+  @include mobile {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-    @include tablet {
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 16px;
 
-        padding: 0;
-        margin: 0;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
 
-        padding: 0;
-        margin: 0;
-     }
+  @include tablet {
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
+
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__text_container {
-    display: flex;
+  display: flex;
 
-    @media screen and (max-width: 479px) {
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+  @media screen and (max-width: 479px) {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
 
-        margin-right: auto;
-        margin-left: auto;
-        padding-bottom: 30px;
-    }
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+  }
 
-    @include mobile {
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+  @include mobile {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-        max-width: 480px;
-        font-size: 14px;
-        line-height: 16px;
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 16px;
 
-        margin-right: auto;
-        margin-left: auto;
-        padding-bottom: 30px;
-    }
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+  }
 
-    @include tablet {
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
+  @include tablet {
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
 
-        padding: 0;
-        margin: 0;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
+    padding: 0;
+    margin: 0;
+  }
 
-        padding: 0;
-        margin: 0;
-     }    
+  @include desktop {
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
+
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__text_content {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    
-    color: rgba(84, 84, 84, 1);
-    margin-right: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
 
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
-    }
+  color: rgba(84, 84, 84, 1);
+  margin-right: 10px;
 
-    @include mobile {
-        max-width: 480px;
-        font-size: 14px;
-        line-height: 16px;
-    }   
-    
-    @include tablet {
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
-     }
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include mobile {
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include tablet {
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 .footer__text_span {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    
-    color: rgba(84, 84, 84, 1);
-    margin-right: 3px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
 
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
-    }
+  color: rgba(84, 84, 84, 1);
+  margin-right: 3px;
 
-    @include mobile {
-        max-width: 480px;
-        font-size: 14px;
-        line-height: 16px;
-    }   
-    
-    @include tablet {
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
-     }
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include mobile {
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include tablet {
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .footer__button {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    color: rgba(84, 84, 84, 1);
-    background-color: $bg-footer;
+  font-family: 'Roboto';
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(84, 84, 84, 1);
+  background-color: $bg-footer;
 
-    border: none;
-    text-decoration: underline;
+  border: none;
+  text-decoration: underline;
 
-    padding: 0;
-    
-    
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
-     }
-     @include mobile {
-        max-width: 480px;
-        font-size: 14px;
-        line-height: 16px;
-     }
- 
-     @include tablet {
-        max-width: 768px;
-        font-size: 16px;
-        line-height: 19px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 16px;
-        line-height: 19px;
-     }
+  padding: 0;
+
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  @include mobile {
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include tablet {
+    max-width: 768px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .footer__icon {
-    display: block;
-    margin-right: 10px;
-    fill: #ff6b08;
-    animation: pulse .7s ease-in infinite alternate;
+  display: block;
+  margin-right: 10px;
+  fill: #ff6b08;
+  animation: pulse 0.7s ease-in infinite alternate;
 }
 
 @keyframes pulse {
-    from {
-      transform: scale(0.9);
-    }
-  
-    to {
-      transform: scale(1.1);
-    }
+  from {
+    transform: scale(0.9);
   }
+
+  to {
+    transform: scale(1.1);
+  }
+}
