@@ -1,22 +1,26 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
-//import { renderSkeleton } from './popular-film-API';
+import { renderSkeleton } from './skeleton';
+
+export const milisecond = 800;
 
 export const clearMarkup = el => {
   el.innerHTML = '';
 };
 
 export async function renderFilmCards(elem) {
+  renderSkeleton();
   const allCards = elem
     .map(film => {
       return createElementsMovie(film);
     })
     .join('');
-
-  clearMarkup(refs.mainContainerEl);
-
-  refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
+  
+  setTimeout(() => {
+    clearMarkup(refs.mainContainerEl);
+    refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
+  }, milisecond);
 }
 
 export function createElementsMovie(data) {
