@@ -2,7 +2,8 @@ import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
 import { renderSkeleton } from './skeleton';
-const milisecond = 800;
+
+export const milisecond = 800;
 
 export const clearMarkup = el => {
   el.innerHTML = '';

@@ -1,8 +1,9 @@
 import { searchUpcomimgFilms } from './fetchApi';
 import { openModal } from './film-info-modal';
-
+import { renderSkeletonSlider } from './skeleton';
+//import { milisecond } from './render-card'
 const upcomingListRef = document.querySelector('.swiper-wrapper');
-
+const milisecondSlider = 600;
 
 async function getUpcomingFilms() {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
@@ -29,9 +30,11 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
       </li>`;
       })
       .join('');
-
+    renderSkeletonSlider();
+    setTimeout(() => {
     upcomingListRef.innerHTML = '';
     upcomingListRef.insertAdjacentHTML('afterbegin', markup);
+      
 
     const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -52,7 +55,7 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
     disableOnInteraction: false,
   },
 });
-
+}, milisecondSlider);
   } catch (err) {
     console.log(err);
   }
