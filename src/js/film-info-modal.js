@@ -230,7 +230,7 @@ export function openModal(e, childClass) {
       }
 
       function escClose(e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' && createFilmModalMarkup.visible()) {
           createFilmModalMarkup.close();
         }
       }
