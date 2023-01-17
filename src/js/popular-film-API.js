@@ -13,10 +13,10 @@ const _getPopularFilm = () => {
   
   getPopularFilm(pagination.getCurrentPage()).then(
     ({ page, results, total_pages, total_results }) => {
-       renderSkeleton();
-      setTimeout(() => {
+  //     renderSkeleton();
+      // setTimeout(() => {
         renderFilmCards(results);
-      }, 800);
+      // }, 800);
       spinner.disable();
     }
   );
