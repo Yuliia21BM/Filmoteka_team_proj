@@ -1,43 +1,52 @@
 <div class="backdrop is-hidden" data-modal>
-    
-    <div class="modal">
-        
-        <button type="button" class="modal-close" data-modal-close>
-            X
-                          
-        </button>
-        <p class="modal-title">Реєстрація користувача</p>
-        <form class="modal-form">
-<!-- 
+  <div class="modal">
+    <button type="button" class="modal-close" data-modal-close></button>
+    <p class="modal-title">Registration</p>
+    <form class="modal-form">
+      <!-- 
             <div class='input-field'>                       
             <label for="user-name" class="input-title">Повне ім'я</label>
             <div class="input-wrap">    
             <input type="text" class="form-input" name="user-name" id="user-name" placeholder=" " required>
             </div></div> -->
-            
-            <div class='input-field'>
-                <label for="user-email" class="input-title">Пошта</label>
-                <div class="input-wrap">
-                <input type="email" class="form-input" name="user-email" id="user-email" placeholder=" " required>            
-            </div></div>
 
-            <!-- <div class='input-field'>
+      <div class="input-field">
+        <label for="user-email" class="input-title">Email</label>
+        <div class="input-wrap">
+          <input
+            type="email"
+            class="form-input"
+            name="user-email"
+            id="user-email"
+            placeholder=" "
+            required
+          />
+        </div>
+      </div>
+
+      <!-- <div class='input-field'>
                 <label for="user-tel" class="input-title">Ім'я користувача</label>
                 <div class="input-wrap">
                 <input type="text" class="form-input" name="user-nick" id="user-nick" placeholder=" " required>           
             </div></div> -->
 
-            <div class='input-field'>
-                <label for="user-tel" class="input-title">Пароль</label>
-                <div class="input-wrap">
-                <input type="password" class="form-input" name="user-pas" id="user-pas" placeholder=" " required>           
-            </div></div>
-            
-                              
-                       
-            <button type="submit" class="btn submit" id="btn-login">Login</button>
-            <button type="submit" class="btn submit" id="btn-signup">Sign up</button>
-            <!-- <a href="./partials/authentication-modal.html" class="badge badge-secondary">вже є аккаунт?</a> -->
-        </form>
-    </div>
+      <div class="input-field">
+        <label for="user-tel" class="input-title">Password</label>
+        <div class="input-wrap">
+          <input
+            type="password"
+            class="form-input"
+            name="user-pas"
+            id="user-pas"
+            placeholder=" "
+            required
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn submit" id="btn-login">Login</button>
+      <button type="submit" class="btn submit" id="btn-signup">Sign up</button>
+      <!-- <a href="./partials/authentication-modal.html" class="badge badge-secondary">вже є аккаунт?</a> -->
+    </form>
+  </div>
 </div>

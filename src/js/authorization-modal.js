@@ -7,6 +7,8 @@ import {
   connectAuthEmulator,
 } from 'firebase/auth';
 
+import { iconCross } from './create-images-for-js-input';
+
 // import {getDatabase} from "firebase/database";
 
 (() => {
@@ -16,6 +18,8 @@ import {
     modal: document.querySelector('[data-modal]'),
     backdrop: document.querySelector('.backdrop'),
   };
+
+  refs.closeModalBtn.appendChild(iconCross);
 
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
