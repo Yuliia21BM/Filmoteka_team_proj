@@ -1,7 +1,7 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
-import { renderSkeleton } from './popular-film-API';
+//import { renderSkeleton } from './popular-film-API';
 
 export const clearMarkup = el => {
   el.innerHTML = '';
