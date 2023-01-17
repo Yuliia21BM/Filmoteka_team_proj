@@ -7,6 +7,8 @@ import {
   connectAuthEmulator,
 } from 'firebase/auth';
 
+import { EscClose } from './close-modal';
+
 // import {getDatabase} from "firebase/database";
 
 (() => {

@@ -3,6 +3,7 @@ import { buildTrailerBtns } from './trailer-modal';
 import { addWatch, addQueue } from './localstorage-save-films-API';
 import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
+import { EscClose } from './close-modal';
 
 const basicLightbox = require('basiclightbox');
 const filmCardSection = document.querySelector('.main-section__allcards');
@@ -50,6 +51,7 @@ export function openModal(e, childClass) {
       const basicLightboxOptions = {
         onShow: () => {
           document.body.classList.add('hide-scroll');
+          document.addEventListener('keydown', escClose);
         },
 
         onClose: () => {
@@ -57,6 +59,7 @@ export function openModal(e, childClass) {
           closeBtn.removeEventListener('click', () => {
             watchBtn.removeEventListener('click', addWatch);
             queueBtn.removeEventListener('click', addQueue);
+            document.remove('keydown', escClose);
             createFilmModalMarkup.close();
           });
         },
@@ -174,11 +177,18 @@ export function openModal(e, childClass) {
         const queueBtn = document.querySelector('button.btn-add-queue');
         queueBtn.textContent = 'REMOVE FROM QUEUE';
         return;
+      } 
+
+      function escClose(e) {
+        if (e.key === 'Escape') {
+          createFilmModalMarkup.close();
+        }
       }
 
       const closeBtn = document.querySelector('.film-modal__close-btn');
       closeBtn.appendChild(iconCross);
       closeBtn.addEventListener('click', () => createFilmModalMarkup.close());
+      
     }
   );
 }

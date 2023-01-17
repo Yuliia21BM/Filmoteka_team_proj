@@ -2,7 +2,6 @@ import { searchTrailerById } from './fetchApi';
 import * as basicLightbox from 'basiclightbox';
 const cardsRef = document.querySelector(`.main-section__allcards`);
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
-
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
   const trailerModal = basicLightbox.create(`
@@ -25,13 +24,34 @@ export function showTrailerModal(trailerId, filmModal) {
   const trailerIframe = document.querySelector('#trailer-iframe');
   trailerIframe.src = `https://www.youtube.com/embed/${trailerId}`;
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
+  
   // console.log(closeModalBtn);
 
+  
   closeModalBtn.addEventListener('click', () => {
     trailerModal.close();
     filmModal.show();
   });
 }
+
+const basicLightboxOptions = {
+  onShow: () => {
+    document.addEventListener('keydown', escClose);
+  },
+
+  onClose: () => {
+    document.removeEventListener('keydown', escClose);
+  
+  }
+};
+
+
+       function escClose(e) {
+        if (e.key === 'Escape') {
+          trailerModal.close();
+        }
+      }
+
 
 export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);
