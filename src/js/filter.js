@@ -115,12 +115,17 @@ function getMovies(url, page) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data.results);
+      console.log(data);
        console.log(data.page);
 
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
-        pagination.setTotalPages(data.total_pages)
+        if (data.total_pages > 500) {
+        pagination.setTotalPages(500) 
+        } else {
+          pagination.setTotalPages(data.total_pages)
+      }
+        
       }
     });
 }
