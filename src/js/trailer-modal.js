@@ -8,20 +8,14 @@ export function showTrailerModal(trailerId, filmModal) {
     onShow: () => {
       document.addEventListener('keydown', escClose);
     },
-    
+
     onClose: () => {
       document.removeEventListener('keydown', escClose);
     },
-  
-    }
-    
-     function escClose(e) {
-      if (e.key === 'Escape') {
-    trailerModal.close();
-    filmModal.show();
-  }
-}
-   const trailerModal =  basicLightbox.create(`
+  };
+
+  const trailerModal = basicLightbox.create(
+    `
   <div id="trailer-modal" data-modal>
   <button class="film-modal__close-btn" type="button" trailer-modal-close>
    <img class="cross-button__icon" src="${svgCloseIcon}" />
@@ -35,23 +29,27 @@ export function showTrailerModal(trailerId, filmModal) {
     allowfullscreen
   ></iframe> 
 </div>`,
-    basicLightboxOptions);
+    basicLightboxOptions
+  );
 
   trailerModal.show();
 
   const trailerIframe = document.querySelector('#trailer-iframe');
   trailerIframe.src = `https://www.youtube.com/embed/${trailerId}`;
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
-  
-  // console.log(closeModalBtn);
 
-  
+  function escClose(e) {
+    if (e.key === 'Escape') {
+      trailerModal.close();
+      filmModal.show();
+    }
+  }
+
   closeModalBtn.addEventListener('click', () => {
     trailerModal.close();
     filmModal.show();
   });
 }
-
 
 export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);

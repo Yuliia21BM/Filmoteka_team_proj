@@ -7,8 +7,6 @@ import {
   connectAuthEmulator,
 } from 'firebase/auth';
 
-import { EscClose } from './close-modal';
-
 // import {getDatabase} from "firebase/database";
 
 (() => {
@@ -21,9 +19,16 @@ import { EscClose } from './close-modal';
 
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
+  document.addEventListener('keydown', escClose);
 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+  }
+  function escClose(e) {
+    if (e.key === 'Escape') {
+      toggleModal();
+      document.removeEventListener('keydown', escClose);
+    }
   }
 })();
 
@@ -72,10 +77,8 @@ async function loginEmailPassword(e) {
       loginPassword
     );
     console.log(userCredential.user);
-    alert("You logged in");
-  }
-
-  catch (error) {
+    alert('You logged in');
+  } catch (error) {
     console.log(error.message);
 
     alert(error);
@@ -85,7 +88,7 @@ async function loginEmailPassword(e) {
 btnLogin.addEventListener('click', loginEmailPassword);
 
 async function createAccount(e) {
-   e.preventDefault();
+  e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
   console.log(loginEmail);
@@ -97,10 +100,8 @@ async function createAccount(e) {
       loginPassword
     );
     console.log(userCredential.user);
-    alert("You signed up");
-  }
-
-  catch (error) {
+    alert('You signed up');
+  } catch (error) {
     console.log(error.message);
 
     alert(error);

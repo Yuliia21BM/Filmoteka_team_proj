@@ -62,7 +62,7 @@ export function openModal(e, childClass) {
           closeBtn.removeEventListener('click', () => {
             watchBtn.removeEventListener('click', addWatch);
             queueBtn.removeEventListener('click', addQueue);
-            document.remove('keydown', escClose);
+            document.removeEventListener('keydown', escClose);
             createFilmModalMarkup.close();
           });
         },
@@ -180,7 +180,7 @@ export function openModal(e, childClass) {
         const queueBtn = document.querySelector('button.btn-add-queue');
         queueBtn.textContent = 'REMOVE FROM QUEUE';
         return;
-      } 
+      }
 
       function escClose(e) {
         if (e.key === 'Escape') {
@@ -191,7 +191,6 @@ export function openModal(e, childClass) {
       const closeBtn = document.querySelector('.film-modal__close-btn');
       closeBtn.appendChild(iconCross);
       closeBtn.addEventListener('click', () => createFilmModalMarkup.close());
-      
     }
   );
 }
