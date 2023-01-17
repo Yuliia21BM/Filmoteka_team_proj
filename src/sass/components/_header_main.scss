@@ -104,11 +104,10 @@
 }
 
 .navigation__item:not(:last-child) {
-margin-right: 10px;
+  margin-right: 10px;
   @media screen and (min-width: 420px) {
-      margin-right: 40px;
-    }
-  
+    margin-right: 40px;
+  }
 }
 
 .link {
@@ -164,8 +163,8 @@ margin-right: 10px;
   justify-content: center;
 
   @media screen and (min-width: 480px) {
-      width: 336px;
-    }
+    width: 336px;
+  }
 
   @include desktop {
     width: 394px;
@@ -235,6 +234,12 @@ margin-right: 10px;
   cursor: pointer;
   list-style-type: none;
   fill: white;
+  transform: scale(1);
+  transition: transform $animation-time $animation-cubic;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .register__icon {
@@ -280,13 +285,14 @@ margin-right: 10px;
 
 .not-found-text {
   color: #ff6b08;
-    justify-content: space-around;
-    display: flex;
-    font-size: 40px;
-    padding-bottom: 20px;
+  justify-content: space-around;
+  display: flex;
+  font-size: 40px;
+  padding-bottom: 20px;
 }
 
 .settings {
+  position: relative;
   background-color: inherit;
   height: 40px;
   border-style: none;
@@ -296,7 +302,26 @@ margin-right: 10px;
   font-family: inherit;
   line-height: 1.15;
   margin: 0;
+  transform: scale(1);
+  transition: transform $animation-time $animation-cubic;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.icon-sun {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%);
+  opacity: 0;
+  transition: opacity $animation-time $animation-cubic;
+}
+
+.icon-moon {
+  opacity: 1;
+  transition: opacity $animation-time $animation-cubic;
 }
 
 .filter__icon {
@@ -305,6 +330,6 @@ margin-right: 10px;
 
 .navigation__menu {
   @media screen and (max-width: 420px) {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
+  }
 }
