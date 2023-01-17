@@ -22,7 +22,11 @@
     left: 50%;
     padding: 20px;
 
+<<<<<<< Updated upstream
     background: #d7ba82;  
+=======
+    background: #bc9a8d;
+>>>>>>> Stashed changes
 
     overflow-y: hidden;
 
@@ -46,7 +50,7 @@
     }
 
     @include desktop {
-        width: 1220px; 
+        width: 1030px; 
         min-height: 600px;
     }
    
@@ -135,7 +139,21 @@
 
 .team__container{
     display: flex;
-    width: 1700px;
+    @media screen and (max-width: 479px) {
+        max-width: 630px;
+    }
+
+    @include mobile {
+        width: 830px;
+    }
+    
+    @include tablet {
+       width: 1400px; 
+    }
+
+    @include desktop {
+        width: 1700px; 
+    }
 }
 
 .team__item {
@@ -150,6 +168,11 @@
 
     transition: box-shadow $animation-time $animation-cubic, visibility $animation-time, transform $animation-time $animation-cubic, visibility $animation-time;
 
+    background: #f46b45;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    transition: box-shadow $animation-time $animation-cubic, visibility $animation-time, transform $animation-time $animation-cubic, visibility $animation-time;
+
     &:hover,
     &:focus {
         box-shadow: 2px 3px 3px rgba(186, 73, 73, 0.481), 0px 4px 4px rgba(209, 68, 68, 0.673), 1px 4px 6px rgba(204, 57, 57, 0.705);
@@ -160,12 +183,30 @@
 .team__image {  
     display: block;
     border-radius: 50%;
-    width: 250px;
-    height: 250px;
 
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: 479px) {
+        width: 150px;
+        height: 150px;
+    }
+
+    @include mobile {
+        width: 250px;
+        height: 250px; 
+    }
+    
+    @include tablet {
+        width: 250px;
+        height: 250px;  
+    }
+
+    @include desktop {
+        width: 250px;
+        height: 250px; 
+    }    
 }
 
 .team__name{
@@ -229,8 +270,8 @@
     color: rgba(84, 84, 84, 1);
     @media screen and (max-width: 479px) {
         max-width: auto;
-        font-size: 16px;
-        line-height: 18px;
+        font-size: 14px;
+        line-height: 16px;
 
         margin-right: auto;
         margin-left: auto;
