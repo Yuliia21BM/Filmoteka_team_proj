@@ -15,3 +15,18 @@
     @content;
   }
 }
+
+@mixin geometry($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin bordered($border-color, $border-radius) {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+@mixin border-radius($border:none, $border-radius) {
+  border: $border;
+  border-radius: $border-radius;
+}

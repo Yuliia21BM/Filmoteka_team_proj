@@ -1,12 +1,147 @@
-<!-- <div class="team__backdrop is-hidden" data-modal-team>
+<div class="team__backdrop is-hidden-team container" data-team-modal>
     <div class="team__modal">
+        <button type="button" class="team__modal-close-btn" data-team-modal-close>
+            <img class="team__close-img" src="./images/close_btn.png"/>
+        </button>
 
-      <button type="button" class="team__modal-close" data-modal-team-close>
-        <img class="team__close-btn" src="./images/close_btn.png" width="11" height="11"/>
-      </button>
+        <h3 class="modal-title">Filmoteka developed with GoIT Students</h3>
+        
+        <section class="team-swiper swiper-container mySwiper">
+            <ul class="team__container swiper-wraper">
 
-      <h3 class="modal-title">Filmoteka developed with GoIT Students</h3>
-      
-      
+                <li class="team__item swiper-slide" >
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Юлія Михайлюк.jpeg"
+                            alt="Юлія Михайлюк"
+                        />
+                        <h2 class="team__name">Юлія Михайлюк</h2>
+                        <p class="team__text">Team Lead нашої команди. Розробила функцію рендеру карток та додавання в контейнер, а також надавала  підтримку усім розробникам проєкту</p>
+                </li>
+
+                 <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Дмитро_Таранюк.jpeg"
+                            alt="Дмитро Таранюк"
+                        />
+                        <h2 class="team__name">Дмитро Таранюк</h2>
+                        <p class="team__text">Scrum Master даного проєкту. Організатор роботи команди та розробник модального вікна, робота з Firebase, Fetch запити, кнопка Scroll to Top</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Андрій Чудля.jpg"
+                            alt="Андрій Чудля"
+                        />
+                        <h2 class="team__name">Андрій Чудля</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник пагінації сторінок даного проєкту</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Марія_.jpeg"
+                            alt="Марія"
+                        />
+                        <h2 class="team__name">Марія</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник запиту + модальне вікно з трейлером</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Наталя-Неізмайлова.jpeg"
+                            alt="Наталя Неізмайлова"
+                        />
+                        <h2 class="team__name">Наталя Неізмайлова</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник розмітки та стилів Footer, модального вікна Team_modal</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Олег Товпеко.jpeg"
+                            alt="Олег Товпеко"
+                        />
+                        <h2 class="team__name">Олег Товпеко</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Роман_Балаклеєць.jpeg"
+                            alt="Роман Балаклеєць"
+                        />
+                        <h2 class="team__name">Роман Балаклеєць</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник спінеру при очікуванні завантаження, закриття по ESC модалки</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Сергій_Черенков.jpeg"
+                            alt="Сергій_Черенков"
+                        />
+                        <h2 class="team__name">Сергій_Черенков</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник модального вікна з інформацією про фільм, запиту на отримання інформації про обраний фільм</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Юлія.jpg"
+                            alt="Юлія Мещанінова"
+                        />
+                        <h2 class="team__name">Юлія Мещанінова</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник  запиту на популярні фільми, переходу на популярні фільми при натисканні на лого </p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Ярослав_Пелих.jpg"
+                            alt="Ярослав Пелих"
+                        />
+                        <h2 class="team__name">Ярослав Пелих</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник header my library, запиту на заповнення бібліотеки queque</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Ігор_Мельников.jpg"
+                            alt="Ігор_Мельников"
+                        />
+                        <h2 class="team__name">Ігор Мельников</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник Header зі стилями, пошуку фільмів за ключовим словом</p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/PIR_4595.jpg"
+                            alt="Філіп"
+                        />
+                        <h2 class="team__name">Філіп Бєлан</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник фільтру по жанра на головній сторінці, фільтрації по рейтингу </p>
+                </li>
+
+                <li class="team__item swiper-slide">
+                        <img
+                            class="team__image"
+                            src="./images/team-img/Олександр Іонін.jpeg"
+                            alt="Alex"
+                        />
+                        <h2 class="team__name">Олександр Іонін</h2>
+                        <p class="team__text">Майбутній FullStack Developer та розробник</p>
+                </li>
+            </ul>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+            
     </div>
-</div> -->
+</div>

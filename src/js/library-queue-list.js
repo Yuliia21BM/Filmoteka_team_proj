@@ -11,7 +11,7 @@ const onWatchedBtnClick = async () => {
   try {
     const activeTab = refs.watchedBtn.textContent;
 
-    await localStorage.setItem('active-tab', JSON.stringify(activeTab));
+    localStorage.setItem('active-tab', JSON.stringify(activeTab));
   } catch (error) {
     console.error('Error: ', error.message);
   }
@@ -29,7 +29,7 @@ const onQueueBtnClick = async () => {
   try {
     const activeTab = refs.queueBtn.textContent;
 
-    await localStorage.setItem('active-tab', JSON.stringify(activeTab));
+    localStorage.setItem('active-tab', JSON.stringify(activeTab));
   } catch (error) {
     console.error('Error: ', error.message);
   }
@@ -39,6 +39,12 @@ const onQueueBtnClick = async () => {
 };
 
 const onLoad = async () => {
+  if (!localStorage.getItem('active-tab')) {
+    refs.queueBtn.classList.toggle('header-lib__btn--current');
+
+    return await loadFromStorage(QUEUE_LIST);
+  }
+
   try {
     const activeTab = await JSON.parse(localStorage.getItem('active-tab'));
 
