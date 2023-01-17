@@ -93,15 +93,18 @@ function setGenre() {
       console.log('selectedGenre' + selectedGenre);
       
       
-      getMovies(API_URL + '&with_genres=' + selectedGenre, pagination.getCurrentPage());
-      
+      getMovies(API_URL + '&with_genres=' + genre.id, 1);
+      pagination.setCurrentPageto1()
+      pagination.subscribeOnPageChange(() => {
+        getMovies(API_URL + '&with_genres=' + genre.id, pagination.getCurrentPage())
+      } );
       selectedGenre = [];
     });
     tagsEl.append(filmCard);
   });
 }
 
-getMovies(API_URL);
+// getMovies(API_URL);
 
 
 
@@ -117,6 +120,7 @@ function getMovies(url, page) {
 
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
+        pagination.setTotalPages(data.total_pages)
       }
     });
 }

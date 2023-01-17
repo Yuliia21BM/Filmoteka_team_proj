@@ -19,7 +19,8 @@ async function onFormSubmit(e) {
   const value = e.currentTarget.searchQuery.value.trim();
     console.log(value);
 
-   await getMoviesHandler(value) 
+    await getMoviesHandler(value) 
+    pagination.setCurrentPageto1()
     pagination.subscribeOnPageChange(() => {
     getMoviesHandler(input.value)
 
@@ -38,7 +39,7 @@ async function getMoviesHandler(value) {
 
     try {
         const response = await searchMovieByName(value, pagination.getCurrentPage());
-        pagination.setPagination(response.page, response.total_pages)
+        pagination.setTotalPages(response.total_pages)
         const getMovie = response.results;
         console.log(response);
         console.log(getMovie);
@@ -63,4 +64,4 @@ async function getMoviesHandler(value) {
     } catch (error) {
         console.log(error);
     }
-    };
+};

@@ -57,7 +57,7 @@ const password = document.getElementById('user-pas');
 const btnLogin = document.getElementById('btn-login');
 const btnSignUp = document.getElementById('btn-signup');
 
-connectAuthEmulator(auth, 'http://lokalhost:9099');
+// connectAuthEmulator(auth, "http://localhost:9099");
 
 async function loginEmailPassword(e) {
   e.preventDefault();
@@ -72,17 +72,24 @@ async function loginEmailPassword(e) {
       loginPassword
     );
     console.log(userCredential.user);
-  } catch (error) {
-    console.log(error);
+    alert("You logged in");
+  }
+
+  catch (error) {
+    console.log(error.message);
+
     alert(error);
   }
 }
 
 btnLogin.addEventListener('click', loginEmailPassword);
 
-async function createAccount() {
+async function createAccount(e) {
+   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
+  console.log(loginEmail);
+  console.log(loginPassword);
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -90,8 +97,12 @@ async function createAccount() {
       loginPassword
     );
     console.log(userCredential.user);
-  } catch (error) {
-    console.log(error);
+    alert("You signed up");
+  }
+
+  catch (error) {
+    console.log(error.message);
+
     alert(error);
   }
 }

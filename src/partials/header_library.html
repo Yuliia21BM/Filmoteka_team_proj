@@ -8,14 +8,28 @@
     </a>
     <nav class="navigation">
       <ul class="navigation__menu list">
-        <li class="header-btn">
+        <!-- <li class="header-btn">
           <button type="button" class="authorization-btn">
             <svg class="register__icon icon" width="20" height="20">
               <use href="/src/images/svg/symbol-defs.svg#icon-user"></use>
             </svg>
           </button>
-        </li>
+        </li> -->
 
+        <li class="header-btn navigation__item">
+          <button type="button" class="change-color settings">
+            <svg class="filter__icon icon" width="20" height="20">
+              <use href="/src/images/svg/symbol-defs.svg#icon-contrast"></use>
+            </svg>
+          </button>
+        </li>
+        <!-- <li class="header-btn navigation__item">
+          <button type="button" class="authorization-btn modal-open" data-modal-open>
+            <svg class="register__icon icon" width="20" height="20">
+              <use href="/src/images/svg/symbol-defs.svg#icon-user"></use>
+            </svg>
+          </button>
+        </li> -->
         <li class="navigation__item">
           <a class="navigation__link link" href="/src/index.html">Home</a>
         </li>
@@ -28,7 +42,7 @@
     </nav>
   </div>
   <div class="header-lib__btn-wrap">
-    <button class="header-lib__btn">Watched</button>
-    <button class="header-lib__btn header-lib__btn--current">Queue</button>
+    <button class="header-lib__btn header-lib__btn-watched">Watched</button>
+    <button class="header-lib__btn header-lib__btn-queue">Queue</button>
   </div>
 </header>

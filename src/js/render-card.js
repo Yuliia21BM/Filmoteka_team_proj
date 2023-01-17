@@ -1,6 +1,7 @@
 import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
+//import { renderSkeleton } from './popular-film-API';
 
 export const clearMarkup = el => {
   el.innerHTML = '';
@@ -114,8 +115,8 @@ searchGenres().then(res => {
 export const renderNoMoviesMarkup = () => {
   const notFoundGIF = document.createElement('img');
   notFoundGIF.src = new URL('../images/not-found-gif.gif', import.meta.url);
-
   notFoundGIF.alt = 'Travolta from Pulp Fiction is searching for something';
+  notFoundGIF.class = 'not-found';
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}
