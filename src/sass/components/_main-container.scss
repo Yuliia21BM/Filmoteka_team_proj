@@ -48,8 +48,15 @@
 }
 
 .no-movies-wrap {
-  width: 100%;
+  max-width: 320px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
+
+.no-movies-text {
+  color: $accent;
+}
+
 .main-section__image {
   width: 100%;
   overflow: hidden;

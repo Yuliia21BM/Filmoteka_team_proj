@@ -16,7 +16,7 @@ export async function renderFilmCards(elem) {
       return createElementsMovie(film);
     })
     .join('');
-  
+
   setTimeout(() => {
     clearMarkup(refs.mainContainerEl);
     refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
@@ -121,6 +121,6 @@ export const renderNoMoviesMarkup = () => {
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}
-                <p>No movies here yet</p>
+                <p class="no-movies-text" >No movies here yet</p>
             </div>`;
 };
