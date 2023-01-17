@@ -2,6 +2,9 @@
 import { renderFilmCards, renderNoMoviesMarkup } from './render-card';
 import { refs } from './refs';
 
+  
+const sortForm = document.querySelector('.sort-class');
+
 // Returns parsed data from Local Storage
 export const loadFromStorage = async key => {
   try {
@@ -14,6 +17,24 @@ export const loadFromStorage = async key => {
     }
 
     let movieList = await JSON.parse(savedData);
+
+
+
+    
+  sortForm.addEventListener('change', function () {
+    if (this.value === 'By popularity') {
+
+      const maxToMinRate = movieList.sort((maxRate, minRate) => minRate.vote_average - maxRate.vote_average);
+      renderFilmCards(maxToMinRate);
+    } else if (this.value === 'By relase date') {
+      const maxToMinYear = movieList.sort((maxYear, minYear) => minYear.release_date - maxYear.release_date);
+      renderFilmCards(maxToMinYear);
+    }
+});
+
+
+
+
 
     // треба доробити перевірку,
     // якщо в списку менше 20 фільмів, ховати пагінацію
