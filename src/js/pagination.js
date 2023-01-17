@@ -11,16 +11,35 @@ const rightArrowRef = document.querySelector('.arrow-right');
 const leftArrowRef = document.querySelector('.arrow-left');
 const prevDotsRef = document.querySelector('#previous');
 const afterDotsRef = document.querySelector('#after');
+const mainContainer = document.querySelector('.main-container');
 
 paginationRef.addEventListener('click', onPaginationClick);
 
 let currentPage = 1;
-
+let totalPages = 1000;
 let btns = document.querySelectorAll('.pagination-button');
 
 prevDotsRef.hidden = true;
 leftArrowRef.hidden = true;
 firstPageRef.hidden = true;
+
+// function setPagination(page, total_pages) {
+//   currentPage = page;
+//   totalPages = total_pages;
+//   lastPageRef.textContent = totalPages;
+//    btns.forEach(el => el.classList.remove('pagination--current'));
+// }
+
+function setCurrentPageto1(page) {
+  currentPage = page;
+  btns.forEach(el => el.classList.remove('pagination--current'));
+  btn1Ref.classList.add('pagination--current');
+}
+
+function setTotalPages(total_pages) {
+  totalPages = total_pages;
+  lastPageRef.textContent = totalPages;
+}
 
 function onPaginationClick(event) {
   if (event.target.tagName === 'BUTTON') {
@@ -36,7 +55,7 @@ function onPaginationClick(event) {
       event.target.classList.add('pagination--current');
     }
 
-    if (event.target.classList.contains('arrow-right') && currentPage < 1000) {
+    if (event.target.classList.contains('arrow-right') && currentPage < totalPages) {
       btns.forEach(el => el.classList.remove('pagination--current'));
       btn1Ref.classList.add('pagination--current');
       btn1Ref.textContent = Number(btn1Ref.textContent) + 5;
@@ -44,7 +63,7 @@ function onPaginationClick(event) {
       btn3Ref.textContent = Number(btn3Ref.textContent) + 5;
       btn4Ref.textContent = Number(btn4Ref.textContent) + 5;
       btn5Ref.textContent = Number(btn5Ref.textContent) + 5;
-      currentPage = btn1Ref.textContent;
+      currentPage = Number(btn1Ref.textContent);
     }
 
     if (event.target.classList.contains('arrow-left') && currentPage >= 5) {
@@ -55,7 +74,7 @@ function onPaginationClick(event) {
       btn4Ref.textContent = Number(btn4Ref.textContent) - 5;
       btn5Ref.textContent = Number(btn5Ref.textContent) - 5;
       btn5Ref.classList.add('pagination--current');
-      currentPage = btn5Ref.textContent;
+      currentPage = Number(btn5Ref.textContent);
     }
 
     if (event.target.classList.contains('first-button')) {
@@ -66,7 +85,7 @@ function onPaginationClick(event) {
       btn4Ref.textContent = 4;
       btn5Ref.textContent = 5;
       btn1Ref.classList.add('pagination--current');
-      currentPage = btn1Ref.textContent;
+      currentPage = Number(btn1Ref.textContent);
       leftArrowRef.hidden = true;
       prevDotsRef.hidden = true;
       firstPageRef.hidden = true;
@@ -80,7 +99,7 @@ function onPaginationClick(event) {
       btn4Ref.textContent = Number(lastPageRef.textContent) - 1;
       btn5Ref.textContent = lastPageRef.textContent;
       btn5Ref.classList.add('pagination--current');
-      currentPage = btn5Ref.textContent;
+      currentPage = Number(btn5Ref.textContent);
       rightArrowRef.hidden = true;
       afterDotsRef.hidden = true;
       lastPageRef.hidden = true;
@@ -96,22 +115,22 @@ function onPaginationClick(event) {
       firstPageRef.hidden = true;
     }
 
-    if (Number(currentPage) < 996) {
+    if (Number(currentPage) < totalPages - 4) {
       rightArrowRef.hidden = false;
       afterDotsRef.hidden = false;
       lastPageRef.hidden = false;
     }
 
     //     gallery.innerHTML = '';
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    //     if (inputRef.value !== '') {
-    //       movieSearcher(inputRef.value, currentPage);
-    //     } else {
-    //       startPage();
-    //     }
-    //   }
-    // }
+    mainContainer.scrollIntoView({ behavior: 'smooth' })
+  
+          //  window.scrollTo({ top: 0, behavior: 'smooth' });
+        // if (inputRef.value !== '') {
+        //   movieSearcher(inputRef.value, currentPage);
+        // } else {
+        //   currentPage();
+        // }
+     
     if (_subscriber) { _subscriber() }
     
    
@@ -131,8 +150,11 @@ function onPaginationClick(event) {
 }
 
 function getCurrentPage() {
+  if (isNaN(currentPage)) {
+    currentPage = 1;
+  }
   console.log( "currentPage", currentPage )
-  return currentPage
+  return +currentPage
 }
 
 let _subscriber;
@@ -141,5 +163,8 @@ function subscribeOnPageChange(subscriber) {
   _subscriber = subscriber;
 }
 
-export { getCurrentPage, subscribeOnPageChange }
+console.log('paginationInit');
+console.log('subscriber', _subscriber);
+console.log('CurrentPage', currentPage)
+export { getCurrentPage, subscribeOnPageChange, setCurrentPageto1, setTotalPages }
 

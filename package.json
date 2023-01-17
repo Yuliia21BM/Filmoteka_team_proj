@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://Yuliia21BM.github.io/Filmoteka_team_proj",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --port 4567",
     "build": "parcel build src/index.html --public-url /Filmoteka_team_proj/"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "axios": "^1.2.2",
     "basiclightbox": "^5.0.4",
     "firebase": "^9.15.0",
+    "firebaseui": "^6.0.2",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.12.1",
