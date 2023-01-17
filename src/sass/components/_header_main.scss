@@ -234,6 +234,12 @@
   cursor: pointer;
   list-style-type: none;
   fill: white;
+  transform: scale(1);
+  transition: transform $animation-time $animation-cubic;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .register__icon {
@@ -286,6 +292,7 @@
 }
 
 .settings {
+  position: relative;
   background-color: inherit;
   height: 40px;
   border-style: none;
@@ -295,7 +302,26 @@
   font-family: inherit;
   line-height: 1.15;
   margin: 0;
+  transform: scale(1);
+  transition: transform $animation-time $animation-cubic;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.icon-sun {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%);
+  opacity: 0;
+  transition: opacity $animation-time $animation-cubic;
+}
+
+.icon-moon {
+  opacity: 1;
+  transition: opacity $animation-time $animation-cubic;
 }
 
 .filter__icon {
