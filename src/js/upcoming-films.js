@@ -3,7 +3,6 @@ import { openModal } from './film-info-modal';
 
 const upcomingListRef = document.querySelector('.swiper-wrapper');
 
-
 async function getUpcomingFilms() {
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500';
   try {
@@ -34,25 +33,24 @@ ${film.release_date ? film.release_date : 'Not known'}</p>
     upcomingListRef.insertAdjacentHTML('afterbegin', markup);
 
     const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  slidesPerView: 'auto',
-  loopedSlides: results.length,
-  spaceBetween: 20,
-  loop: true,
+      // Optional parameters
+      direction: 'horizontal',
+      slidesPerView: 'auto',
+      loopedSlides: results.length,
+      spaceBetween: 20,
+      loop: true,
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  speed: 1500,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-});
-
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      speed: 1500,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
   } catch (err) {
     console.log(err);
   }
