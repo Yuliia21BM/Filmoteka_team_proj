@@ -40,5 +40,5 @@ const _getPopularFilm = () => {
   );
 };
 
-//_getPopularFilm();
+_getPopularFilm();
 pagination.subscribeOnPageChange(_getPopularFilm);
