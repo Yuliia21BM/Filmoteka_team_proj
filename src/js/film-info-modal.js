@@ -54,6 +54,7 @@ export function openModal(e, childClass) {
       const basicLightboxOptions = {
         onShow: () => {
           document.body.classList.add('hide-scroll');
+          document.addEventListener('keydown', escClose);
         },
 
         onClose: () => {
@@ -61,6 +62,7 @@ export function openModal(e, childClass) {
           closeBtn.removeEventListener('click', () => {
             watchBtn.removeEventListener('click', addWatch);
             queueBtn.removeEventListener('click', addQueue);
+            document.remove('keydown', escClose);
             createFilmModalMarkup.close();
           });
         },
@@ -178,11 +180,18 @@ export function openModal(e, childClass) {
         const queueBtn = document.querySelector('button.btn-add-queue');
         queueBtn.textContent = 'REMOVE FROM QUEUE';
         return;
+      } 
+
+      function escClose(e) {
+        if (e.key === 'Escape') {
+          createFilmModalMarkup.close();
+        }
       }
 
       const closeBtn = document.querySelector('.film-modal__close-btn');
       closeBtn.appendChild(iconCross);
       closeBtn.addEventListener('click', () => createFilmModalMarkup.close());
+      
     }
   );
 }
