@@ -136,6 +136,6 @@ export const renderNoMoviesMarkup = () => {
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}
-                <p>No movies here yet</p>
+                <p class="no-movies-text" >No movies here yet</p>
             </div>`;
 };

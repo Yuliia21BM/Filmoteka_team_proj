@@ -8,6 +8,8 @@ import {
   signOut,
 } from 'firebase/auth';
 
+import { iconCross } from './create-images-for-js-input';
+
 // import {getDatabase} from "firebase/database";
 
 (() => {
@@ -16,6 +18,8 @@ import {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     };
+
+  refs.closeModalBtn.appendChild(iconCross);
 
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);

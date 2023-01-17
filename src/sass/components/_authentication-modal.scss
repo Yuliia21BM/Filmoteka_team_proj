@@ -1,0 +1,177 @@
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  flex-basis: 80%;
+  min-width: 280px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+  transition: $animation-time $animation-cubic;
+  padding: 40px;
+
+  @media screen and (min-width: 480px) {
+    width: 350px;
+  }
+
+  @include tablet {
+    width: 400px;
+  }
+
+  // @include desktop {
+  //   width: 528px;
+  //   min-height: 581px;
+  // }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .backdrop.is-hidden & {
+    transform: translate(0%, 0%) scale(0) rotate(-180deg);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 50%;
+  fill: $secondary-text-color;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: $hover;
+    fill: $primary-bg-color;
+    transition: background-color $animation-time $animation-cubic;
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// .close-button {
+//   fill: #000000;
+//   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//   .modal-close:focus &,
+//   .modal-close:hover & {
+//     fill: var(--linkcolor);
+//   }
+// }
+
+.modal-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  // color: $accent;
+  margin-bottom: 12px;
+}
+
+.input-field {
+  margin-bottom: 10px;
+}
+
+.input-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+  color: #757575;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+
+  &:focus {
+    outline: 1px solid $hover;
+  }
+}
+
+.textarea-input {
+  height: 120px;
+  padding: 12px 16px;
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+  resize: none;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  padding: 10px;
+  height: 35px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  color: $primary-text-color;
+  background-color: transparent;
+
+  border: 1px solid $primary-text-color;
+  border-radius: 5px;
+
+  transition: color ($animation-time $animation-cubic),
+    border-color ($animation-time $animation-cubic),
+    background-color ($animation-time $animation-cubic);
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-color;
+    border-color: $hover;
+    background-color: $hover;
+    border-color: #ff6b01;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+    margin-top: 25px;
+  }
+}
