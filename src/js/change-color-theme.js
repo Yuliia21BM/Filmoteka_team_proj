@@ -6,6 +6,7 @@ const iconSun = document.querySelector('.icon-sun');
 export function changeColorThemeMain(darkTheme) {
   const cardTitle = document.querySelectorAll('.main-section__card-title');
   const genreBtn = document.querySelectorAll('.genres-button');
+  const genreFilterBtn = document.querySelector('.genres-button-mobile');
   const dots = document.querySelectorAll('.dots');
 
   if (!darkTheme) {
@@ -16,6 +17,7 @@ export function changeColorThemeMain(darkTheme) {
     cardTitle.forEach(el => {
       el.style.color = '#000';
     });
+    genreFilterBtn.classList.remove('genres-button-mobile--dark-theme');
     genreBtn.forEach(el => el.classList.remove('genres-button--dark-theme'));
     dots.forEach(el => {
       el.style.color = '#000';
@@ -27,6 +29,7 @@ export function changeColorThemeMain(darkTheme) {
     cardTitle.forEach(el => {
       el.style.color = '#fff';
     });
+    genreFilterBtn.classList.add('genres-button-mobile--dark-theme');
     genreBtn.forEach(el => el.classList.add('genres-button--dark-theme'));
     dots.forEach(el => {
       el.style.color = '#fff';

@@ -49,11 +49,52 @@
     color: $primary-bg-color;
     border-color: $hover;
     background-color: $hover;
-    // border-color: #ff6b01;
   }
 }
 
-.genres-button--dark-theme {
+.active {
+  color: $primary-bg-color;
+  border-color: $hover;
+  background-color: $hover;
+}
+
+.genres-button-mobile {
+  display: flex;
+  justify-content: center;
+
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  min-width: 105px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  color: $primary-text-color;
+  background-color: transparent;
+
+  border: 1px solid $primary-text-color;
+  border-radius: 5px;
+
+  transition: $animation-time $animation-cubic;
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-color;
+    border-color: $hover;
+    background-color: $hover;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.genres-button--dark-theme,
+.genres-button-mobile--dark-theme {
   color: $primary-bg-color;
   background-color: transparent;
   border: 1px solid $primary-bg-color;
@@ -64,37 +105,6 @@
     color: $primary-bg-color;
     background-color: $hover;
     border-color: $hover;
-  }
-}
-
-.active {
-  background-color: $hover;
-  border-color: #ff6b01;
-}
-
-.genres-button-mobile {
-  display: flex;
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  // text-transform: uppercase;
-
-  color: $primary-bg-color;
-  background-color: $accent;
-
-  border: 1px solid $primary-bg-color;
-  border-radius: 5px;
-
-  @media screen and (max-width: 479px) {
-    display: flex;
-  }
-
-  @include mobile {
-    display: none;
   }
 }
 
