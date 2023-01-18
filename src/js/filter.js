@@ -83,15 +83,24 @@ function setGenre() {
     filmCard.innerText = genre.name;
     
     filmCard.addEventListener('click', () => {
+      const allBtn = document.querySelectorAll('.genres-button');
+  
+
+      allBtn.forEach(function (elem) {
+        elem.classList.remove('active');
+      })
+     
       if (selectedGenre.length == 0) {
         selectedGenre.push(genre.id);
+        filmCard.classList.add('active');
       }
-      // console.log('selectedGenre' + selectedGenre);
+
       getMovies(API_URL + '&with_genres=' + genre.id, 1);
       pagination.setCurrentPageto1()
       pagination.subscribeOnPageChange(() => {
         getMovies(API_URL + '&with_genres=' + genre.id, pagination.getCurrentPage())
-      } );
+      });
+      
       selectedGenre = [];
     });
     tagsEl.append(filmCard);
@@ -102,13 +111,13 @@ function setGenre() {
 
 function getMovies(url, page) {
   url = url + '&page=' + page;
-  // console.log("ссылка", url)
-  // console.log("страница", page)
+
   fetch(url)
     .then(res => res.json())
     .then(data => {
       // console.log(data);
       //  console.log(data.page);
+
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
         if (data.total_pages > 500) {

@@ -2,8 +2,6 @@
 import './js/config';
 import './js/fetchApi';
 import './js/all-info-API';
-// import './js/authentication-modal';
-// import './js/authorization-modal';
 import './js/spinner';
 import './js/film-info-modal';
 import './js/firebase-author-authen-API';
