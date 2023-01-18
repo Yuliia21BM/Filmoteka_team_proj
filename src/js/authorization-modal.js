@@ -10,6 +10,7 @@ import {
 import { IS_LOGED } from './config';
 
 import { iconCross } from './create-images-for-js-input';
+import swal from 'sweetalert';
 
 // import {getDatabase} from "firebase/database";
 
@@ -81,14 +82,22 @@ async function loginEmailPassword(e) {
       loginPassword
     );
     // console.log(userCredential.user);
-    alert('You logged in');
+    // alert('You logged in');
+    refs.modal.classList.toggle('is-hidden');
+    swal("Great job!!!", "You logged in))", {
+    button: ["Aww yiss!"],
+    icon:"success",
+    });
+    
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
     console.log(error.message);
-
-    alert(error);
+    swal ("Smth wrong (((", {
+      icon: "error",
+    });
+    // alert(error);
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -109,14 +118,20 @@ async function createAccount(e) {
       loginPassword
     );
     // console.log(userCredential.user);
-    alert('You signed up');
+    // alert('You signed up');
+    swal("You did it)))", "Account created", {
+      // button: "Aww yiss!",
+      icon:"success",
+      });
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
     // console.log(error.message);
-
-    alert(error);
+    swal ("Smth wrong (((", {
+      icon: "error",
+    });
+    // alert(error);
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -128,16 +143,22 @@ const monitorAuthState = async () => {
       // console.log(user);
       localStorage.setItem(IS_LOGED, 'true');
       // alert('you are logged in')
+      swal ("you are logged in!!!", {
+        icon: "info",
+      });
       btnLogout.classList.remove('is-hidden');
       modalForm.classList.add('is-hidden');
       modalTitle.classList.add('is-hidden');
     } else {
-      alert('signed out');
+      // alert('signed out');
+      swal ("you've logged out!!!", {
+        icon: "info",
+      });
       localStorage.setItem(IS_LOGED, 'false');
     }
   });
 };
-// monitorAuthState();
+monitorAuthState();
 
 async function logout() {
   await signOut(auth);
