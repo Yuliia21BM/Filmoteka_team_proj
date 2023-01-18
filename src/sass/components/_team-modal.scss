@@ -133,20 +133,22 @@
 
 .team__container{
     display: flex;
+    width: 100%;
+
 }
 
 .swiper-slide {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    flex-basis: calc((100% - 30px) / 2);
+    flex-basis: calc(100%);
   
     @include tablet {
-      flex-basis: calc((100% - 100px) / 4);
+      flex-basis: calc((100% - 20px) / 2);
     }
   
     @include desktop {
-      flex-basis: calc((100% - 120px) / 5);
+      flex-basis: calc((100% - 355px) / 2);
     }
   }
   
@@ -155,7 +157,7 @@
     border: 2px solid rgb(90, 80, 80);
     border-radius: 10px;
     height: 450px;
-    margin-right: 20px;
+
     background: #f46b45;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
