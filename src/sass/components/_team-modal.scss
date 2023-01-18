@@ -1,297 +1,305 @@
 .team__backdrop {
-    position: fixed;
-    top: 0;
-    @include geometry(100%, 100%);
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: opacity $animation-time $animation-cubic, visibility $animation-time;
+  position: fixed;
+  top: 0;
+  @include geometry(100%, 100%);
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity $animation-time $animation-cubic,
+    visibility $animation-time;
 
-    &.is-hidden-team.team__modal {
-        transform: translate(-50%, -50%) scale(0);
-    }
+  &.is-hidden-team.team__modal {
+    transform: translate(-50%, -50%) scale(0);
+  }
 
-    &.is-hidden-team {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+  &.is-hidden-team {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
-.team__modal{
-    position: relative; 
-    top: 50%;  
-    left: 50%;
-    padding: 20px;
+.team__modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
 
-    background: #d7ba82;  
+  background: #d7ba82;
 
-    overflow-y: hidden;
+  overflow-y: hidden;
 
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    @include border-radius(none, 4px);
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 2000;
-    @media screen and (max-width: 479px) {
-        min-height: 440px;
-        max-width: auto;
-    }
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  @include border-radius(none, 4px);
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2000;
+  @media screen and (max-width: 479px) {
+    min-height: 440px;
+    max-width: auto;
+  }
 
-    @include mobile {
-        width: 440px;
-        min-height: 500px;
-    }
-    
-    @include tablet {
-       width: 704px; 
-       min-height: 500px;
-    }
+  @include mobile {
+    width: 440px;
+    min-height: 500px;
+  }
 
-    @include desktop {
-        width: 1025px; 
-        min-height: 600px;
-    }
-   
+  @include tablet {
+    width: 704px;
+    min-height: 500px;
+  }
+
+  @include desktop {
+    width: 1025px;
+    min-height: 600px;
+  }
 }
 
 .team__modal-close-btn {
-    margin-left: auto;
-    position: relative;
-    top: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-    border-radius: 50%;
-    background-color: transparent;
-   
-    &:hover,
-    &:focus {
-        cursor: pointer;
-    }
-} 
+  margin-left: auto;
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 50%;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
 
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .team__close-img {
-    position: relative;
+  position: relative;
 }
 
 .modal-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    text-transform:uppercase;
-    
-    color: rgb(0, 0, 0);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
 
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 16px;
-        line-height: 18px;
+  color: rgb(0, 0, 0);
 
-        margin-right: auto;
-        margin-left: auto;
-    }
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 16px;
+    line-height: 18px;
 
-    @include mobile {
-        max-width: 480px;
-        font-size: 16px;
-        line-height: 18px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-        margin-right: auto;
-        margin-left: auto;
-    }
+  @include mobile {
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 18px;
 
-    @include tablet {
-        max-width: 768px;
-        font-size: 18px;
-        line-height: 20px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 18px;
-        line-height: 20px;
-     }
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include tablet {
+    max-width: 768px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 18px;
+    line-height: 20px;
+  }
 }
 
 .team__icon {
-    display: block;
-    width: 25px;
-    height: 25px;
+  display: block;
+  width: 25px;
+  height: 25px;
 
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-    fill: #ff6b08;
-    animation: pulse 0.7s ease-in infinite alternate;
+  fill: #ff6b08;
+  animation: pulse 0.7s ease-in infinite alternate;
 }
 
-.team__container{
-    display: flex;
-    width: 100%;
-
+.team__container {
+  display: flex;
+  width: 100%;
 }
 
-.swiper-slide {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    flex-basis: calc(100%);
-  
-    @include tablet {
-      flex-basis: calc((100% - 20px) / 2);
-    }
-  
-    @include desktop {
-      flex-basis: calc((100% - 355px) / 2);
-    }
-  }
-  
 .team__item {
-    display: block;
-    border: 2px solid rgb(90, 80, 80);
-    border-radius: 10px;
-    height: 450px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-basis: calc(100%);
 
-    background: #f46b45;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  @include tablet {
+    flex-basis: calc((100% - 20px) / 2);
+  }
 
-    transition: box-shadow $animation-time $animation-cubic, visibility $animation-time, transform $animation-time $animation-cubic, visibility $animation-time;
-
-
-    &:hover,
-    &:focus {
-        box-shadow: 2px 3px 3px rgba(186, 73, 73, 0.481), 0px 4px 4px rgba(209, 68, 68, 0.673), 1px 4px 6px rgba(204, 57, 57, 0.705);
-        transform: scale(1.03);
-    }
+  @include desktop {
+    flex-basis: calc((100% - 355px) / 2);
+  }
 }
 
-.team__image {  
-    display: block;
-    border-radius: 50%;
+.team__item {
+  display: block;
+  border: 2px solid rgb(90, 80, 80);
+  border-radius: 10px;
+  height: 450px;
 
-    margin-top: 10px;
-    margin-left: auto;
+  background: #f46b45; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eea849,
+    #f46b45
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #eea849,
+    #f46b45
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  transition: box-shadow $animation-time $animation-cubic,
+    visibility $animation-time, transform $animation-time $animation-cubic,
+    visibility $animation-time;
+
+  &:hover,
+  &:focus {
+    box-shadow: 2px 3px 3px rgba(186, 73, 73, 0.481),
+      0px 4px 4px rgba(209, 68, 68, 0.673), 1px 4px 6px rgba(204, 57, 57, 0.705);
+    transform: scale(1.03);
+  }
+}
+
+.team__image {
+  display: block;
+  border-radius: 50%;
+
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 479px) {
+    width: 150px;
+    height: 150px;
+  }
+
+  @include mobile {
+    width: 250px;
+    height: 250px;
+  }
+
+  @include tablet {
+    width: 250px;
+    height: 250px;
+  }
+
+  @include desktop {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.team__name {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  color: rgb(0, 0, 0);
+
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 16px;
+    line-height: 18px;
+
     margin-right: auto;
+    margin-left: auto;
+  }
 
-    @media screen and (max-width: 479px) {
-        width: 150px;
-        height: 150px;
-    }
+  @include mobile {
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 18px;
 
-    @include mobile {
-        width: 250px;
-        height: 250px; 
-    }
-    
-    @include tablet {
-        width: 250px;
-        height: 250px;  
-    }
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-    @include desktop {
-        width: 250px;
-        height: 250px; 
-    }    
-}
+  @include tablet {
+    max-width: 768px;
+    font-size: 18px;
+    line-height: 20px;
+  }
 
-.team__name{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-
-    padding: 10px;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    text-transform:uppercase;
-
-    color: rgb(0, 0, 0);
-   
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 16px;
-        line-height: 18px;
-
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    @include mobile {
-        max-width: 480px;
-        font-size: 16px;
-        line-height: 18px;
-
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    @include tablet {
-        max-width: 768px;
-        font-size: 18px;
-        line-height: 20px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 18px;
-        line-height: 20px;
-     }
-
+  @include desktop {
+    max-width: 1280px;
+    font-size: 18px;
+    line-height: 20px;
+  }
 }
 .team__text {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 
-    padding: 10px;
+  padding: 10px;
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    
-    color: rgba(84, 84, 84, 1);
-    @media screen and (max-width: 479px) {
-        max-width: auto;
-        font-size: 14px;
-        line-height: 16px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
 
-        margin-right: auto;
-        margin-left: auto;
-    }
+  color: rgba(84, 84, 84, 1);
+  @media screen and (max-width: 479px) {
+    max-width: auto;
+    font-size: 14px;
+    line-height: 16px;
 
-    @include mobile {
-        max-width: 480px;
-        font-size: 16px;
-        line-height: 18px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-        margin-right: auto;
-        margin-left: auto;
-    }
+  @include mobile {
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 18px;
 
-    @include tablet {
-        max-width: 768px;
-        font-size: 18px;
-        line-height: 20px;
-     }
- 
-     @include desktop {
-        max-width: 1280px;
-        font-size: 18px;
-        line-height: 20px;
-     }
+    margin-right: auto;
+    margin-left: auto;
+  }
 
+  @include tablet {
+    max-width: 768px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    font-size: 18px;
+    line-height: 20px;
+  }
 }
-    
+
 .swiper-button-next,
 .swiper-button-prev {
   color: red;
