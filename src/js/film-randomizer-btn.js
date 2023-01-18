@@ -10,7 +10,7 @@ const getRandomNumber = (max, min) => {
 
 const randomBtnWrapper = document.querySelector('.film-randomizer-btn');
 randomBtnWrapper.addEventListener('click', (e) => {
-
+    spinner.enable();
     searchMovieById('latest').then(latestFilm => {
         
         
