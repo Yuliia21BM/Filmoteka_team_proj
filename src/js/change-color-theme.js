@@ -43,6 +43,8 @@ export function changeColorThemeMain(darkTheme) {
 
 export function changeColorThemeLib(darkTheme) {
   const cardTitle = document.querySelectorAll('.main-section__card-title');
+  const paginBtn = document.querySelectorAll('.pagination-button');
+  const dots = document.querySelectorAll('.dots');
 
   if (!darkTheme) {
     iconMoon.style.opacity = 1;
@@ -52,11 +54,40 @@ export function changeColorThemeLib(darkTheme) {
     cardTitle.forEach(el => {
       el.style.color = '#000';
     });
+    paginBtn.forEach(el => {
+      if (
+        el.classList.contains('pagination--current') ||
+        el.classList.contains('arrow-left') ||
+        el.classList.contains('arrow-right')
+      )
+        return;
+      el.style.backgroundColor = '#fff';
+      el.style.color = '#000';
+      el.style.border = 'none';
+    });
+    dots.forEach(el => {
+      el.style.color = '#000';
+    });
   } else {
     iconMoon.style.opacity = 0;
     iconSun.style.opacity = 1;
     document.body.style.backgroundColor = '#000';
     cardTitle.forEach(el => {
+      el.style.color = '#fff';
+    });
+    paginBtn.forEach(el => {
+      if (
+        el.classList.contains('pagination--current') ||
+        el.classList.contains('arrow-left') ||
+        el.classList.contains('arrow-right')
+      )
+        return;
+      el.style.backgroundColor = '#181F25';
+      el.style.color = '#fff';
+      el.style.border = '1px solid #fff';
+      el.style.borderRadius = '5px';
+    });
+    dots.forEach(el => {
       el.style.color = '#fff';
     });
   }
