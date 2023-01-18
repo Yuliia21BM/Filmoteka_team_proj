@@ -10,7 +10,7 @@ import {
 import { IS_LOGED } from './config';
 
 import { iconCross } from './create-images-for-js-input';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
 // import {getDatabase} from "firebase/database";
 
@@ -20,10 +20,10 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
 };
 
-refs.closeModalBtn.appendChild(iconCross);
+// refs.closeModalBtn.appendChild(iconCross);
 
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.openModalBtn?.addEventListener('click', toggleModal);
+refs.closeModalBtn?.addEventListener('click', toggleModal);
 document.addEventListener('keydown', escClose);
 
 export function toggleModal() {
@@ -102,7 +102,7 @@ async function loginEmailPassword(e) {
   }
 }
 
-btnLogin.addEventListener('click', loginEmailPassword);
+btnLogin?.addEventListener('click', loginEmailPassword);
 // document.querySelector('input').value= '' ;
 
 async function createAccount(e) {
@@ -135,7 +135,7 @@ async function createAccount(e) {
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
-btnSignUp.addEventListener('click', createAccount);
+btnSignUp?.addEventListener('click', createAccount);
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
@@ -165,5 +165,5 @@ async function logout() {
   location.reload();
 }
 
-btnLogout.addEventListener('click', logout);
+btnLogout?.addEventListener('click', logout);
 localStorage.getItem(IS_LOGED);

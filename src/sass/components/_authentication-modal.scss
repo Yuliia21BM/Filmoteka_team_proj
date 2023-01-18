@@ -59,15 +59,18 @@
   align-items: center;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 50%;
-  fill: $secondary-text-color;
   background-color: transparent;
 
   &:hover,
   &:focus {
     background-color: $hover;
-    fill: $primary-bg-color;
     transition: background-color $animation-time $animation-cubic;
   }
+}
+.modal-close-icon {
+  width: 12px;
+  height: 12px;
+  fill: $primary-text-color;
 }
 
 .is-hidden {
