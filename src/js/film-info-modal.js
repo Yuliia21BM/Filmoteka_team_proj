@@ -7,12 +7,12 @@ import Spinner from './spinner';
 import { loadFromStorage } from './localstorage-load-films';
 import { IS_LOGED } from './config';
 import { toggleModal } from './authorization-modal';
+import { refs } from './refs';
 
 const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
-const filmCardSection = document.querySelector('.main-section__allcards');
 
-filmCardSection.addEventListener('click', e => {
+refs.mainContainerEl.addEventListener('click', e => {
   openModal(e, 'main-section__card');
 });
 
@@ -21,11 +21,11 @@ const checkPathname = async (pathname, activetab) => {
     pathname === '/Filmoteka_team_proj/library.html' &&
     activetab === 'Queue'
   ) {
-    console.log(
-      "it's pathname check on queue & active tab:",
-      pathname,
-      activetab
-    );
+    // console.log(
+    //   "it's pathname check on queue & active tab:",
+    //   pathname,
+    //   activetab
+    // );
 
     await loadFromStorage(QUEUE_LIST);
     return;
@@ -35,11 +35,11 @@ const checkPathname = async (pathname, activetab) => {
     pathname === '/Filmoteka_team_proj/library.html' &&
     activetab === 'Watched'
   ) {
-    console.log(
-      "it's pathname check on watched & active tab:",
-      pathname,
-      activetab
-    );
+    // console.log(
+    //   "it's pathname check on watched & active tab:",
+    //   pathname,
+    //   activetab
+    // );
 
     await loadFromStorage(WATCHED_LIST);
   }
@@ -48,13 +48,12 @@ const checkPathname = async (pathname, activetab) => {
 const refreshLibraryList = async () => {
   try {
     const pathname = window.location.pathname;
-    console.log('this is pathname in refreshLibList:', pathname);
+    // console.log('this is pathname in refreshLibList:', pathname);
 
     const parsedActiveTab = await JSON.parse(
       localStorage.getItem('active-tab')
     );
-    console.log('this is parsedActiveTab in refreshLibList:', parsedActiveTab);
-
+    // console.log('this is parsedActiveTab in refreshLibList:', parsedActiveTab);
     checkPathname(pathname, parsedActiveTab);
   } catch (error) {
     console.log(error.message);
@@ -64,9 +63,9 @@ const refreshLibraryList = async () => {
 async function checkIdFbyKey(key) {
   const keyList = await JSON.parse(localStorage.getItem(key));
   const res = !keyList || keyList == [] ? false : true;
-  console.log(res);
+  // console.log(res);
   if (res) {
-    console.log(keyList);
+  // console.log(keyList);
     return keyList;
   } else {
     return false;
@@ -207,7 +206,7 @@ export function openModal(e, childClass) {
         queueBtn.addEventListener('click', addQueue);
 
         checkIdFbyKey(WATCHED_LIST).then(watched => {
-          console.log(watched, 'watched');
+          // console.log(watched, 'watched');
           if (!watched || watched === []) return;
           watched.forEach(item => {
             item.id !== +filmId ? addW() : removeW();
@@ -216,7 +215,7 @@ export function openModal(e, childClass) {
         checkIdFbyKey(QUEUE_LIST).then(queue => {
           if (!queue || queue === []) return;
           queue.map(item => {
-            console.log(item.id !== filmId, 'item.id !== filmId');
+            // console.log(item.id !== filmId, 'item.id !== filmId');
             item.id !== +filmId ? addQ() : removeQ();
           });
         });

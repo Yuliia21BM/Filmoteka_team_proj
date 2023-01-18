@@ -28,7 +28,7 @@ const onQueueBtnClick = async () => {
 
   try {
     const activeTab = refs.queueBtn.textContent;
-
+    
     localStorage.setItem('active-tab', JSON.stringify(activeTab));
   } catch (error) {
     console.error('Error: ', error.message);

@@ -1,6 +1,5 @@
 import { searchTrailerById } from './fetchApi';
 import * as basicLightbox from 'basiclightbox';
-const cardsRef = document.querySelector(`.main-section__allcards`);
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();

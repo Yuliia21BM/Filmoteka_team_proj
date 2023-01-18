@@ -3,7 +3,6 @@ import { BASE_URL } from './config';
 import { renderFilmCards } from './render-card';
 import * as pagination from './pagination';
 
-
 const API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}`;
 
 const genres = [
@@ -74,9 +73,6 @@ const genres = [
 const tagsEl = document.querySelector('.genres-list');
 const mobileBtn = document.querySelector('.genres-button-mobile');
 
-
-
-
 let selectedGenre = [];
 setGenre();
 function setGenre() {
@@ -90,9 +86,7 @@ function setGenre() {
       if (selectedGenre.length == 0) {
         selectedGenre.push(genre.id);
       }
-      console.log('selectedGenre' + selectedGenre);
-      
-      
+      // console.log('selectedGenre' + selectedGenre);
       getMovies(API_URL + '&with_genres=' + genre.id, 1);
       pagination.setCurrentPageto1()
       pagination.subscribeOnPageChange(() => {
@@ -106,18 +100,15 @@ function setGenre() {
 
 // getMovies(API_URL);
 
-
-
 function getMovies(url, page) {
   url = url + '&page=' + page;
-  console.log("ссылка", url)
-  console.log("страница", page)
+  // console.log("ссылка", url)
+  // console.log("страница", page)
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-       console.log(data.page);
-
+      // console.log(data);
+      //  console.log(data.page);
       if (data.results.length !== 0) {
         renderFilmCards(data.results);
         if (data.total_pages > 500) {
@@ -125,11 +116,9 @@ function getMovies(url, page) {
         } else {
           pagination.setTotalPages(data.total_pages)
       }
-        
       }
     });
 }
-
 
 // function getMovies(url) {
 //   fetch(url)
@@ -142,8 +131,6 @@ function getMovies(url, page) {
 //       }
 //     });
 // }
-
-
 
 mobileBtn.addEventListener('click', openGenreList);
 

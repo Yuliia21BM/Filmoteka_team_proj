@@ -1,8 +1,6 @@
 // import { refs } from './refs';
 import { renderFilmCards, renderNoMoviesMarkup } from './render-card';
-import { refs } from './refs';
 
-  
 const sortForm = document.querySelector('.sort-class');
 
 // Returns parsed data from Local Storage
@@ -18,9 +16,6 @@ export const loadFromStorage = async key => {
 
     let movieList = await JSON.parse(savedData);
 
-
-
-    
   sortForm.addEventListener('change', function () {
     if (this.value === 'By popularity') {
 
@@ -31,10 +26,6 @@ export const loadFromStorage = async key => {
       renderFilmCards(maxToMinYear);
     }
 });
-
-
-
-
 
     // треба доробити перевірку,
     // якщо в списку менше 20 фільмів, ховати пагінацію
@@ -47,7 +38,7 @@ export const loadFromStorage = async key => {
     //   refs.paginationWrap.classList.remove('visually-hidden');
     // }
 
-    console.log('movieList:', movieList);
+    // console.log('movieList:', movieList);
     return renderFilmCards(movieList);
   } catch (error) {
     console.error('Error: ', error.message);

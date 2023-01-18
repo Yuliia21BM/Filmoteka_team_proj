@@ -2,29 +2,23 @@ import { searchMovieByName } from '../js/fetchApi';
 import { renderFilmCards } from '../js/render-card';
 import * as pagination from './pagination';
 import { notFoundFilm } from '../js/create-images-for-js-input';
+import { refs } from './refs';
 
-
-const input = document.querySelector('.search__input');
-const btn = document.querySelector('.search__button');
-const searchForm = document.querySelector('.search');
 const error = document.querySelector('.warning-notification');
-const mainSectionCards = document.querySelector('.main-section__allcards');
 
-
-searchForm.addEventListener('submit', onFormSubmit);
+refs.searchForm.addEventListener('submit', onFormSubmit);
 
 async function onFormSubmit(e) {
     e.preventDefault();
-    mainSectionCards.scrollIntoView({ behavior: 'smooth' });
+    refs.mainContainerEl.scrollIntoView({ behavior: 'smooth' });
   const value = e.currentTarget.searchQuery.value.trim();
-    console.log(value);
-
+   
     await getMoviesHandler(value) 
     pagination.setCurrentPageto1()
     pagination.subscribeOnPageChange(() => {
-    getMoviesHandler(input.value)
+    getMoviesHandler(refs.searchInput.value)
 
-    console.log(input.value, input.text, 'subscriberTextContent')
+    // console.log(input.value, input.text, 'subscriberTextContent')
 });    
     
     };
@@ -41,18 +35,16 @@ async function getMoviesHandler(value) {
         const response = await searchMovieByName(value, pagination.getCurrentPage());
         pagination.setTotalPages(response.total_pages)
         const getMovie = response.results;
-        console.log(response);
-        console.log(getMovie);
+        // console.log(response);
+        // console.log(getMovie);
 
         if (getMovie.length === 0) {
 
             return (error.textContent = `No matches found for your query. Enter the correct movie name.`),
-                mainSectionCards.innerHTML = " ",
-                mainSectionCards.innerHTML = `<div class="wrong-box"> <p class="not-found-text">Not Found</p></div>`,
+                refs.mainContainerEl.innerHTML = " ",
+                refs.mainContainerEl.innerHTML = `<div class="wrong-box"> <p class="not-found-text">Not Found</p></div>`,
                 document.querySelector('.wrong-box').prepend(notFoundFilm).classList.add('film-not-found'),
-                document.querySelector('.pagination-container').classList.add("visually-hidden");
-            
-             
+                document.querySelector('.pagination-container').classList.add("visually-hidden");       
     }
         else {
             error.textContent = '',
