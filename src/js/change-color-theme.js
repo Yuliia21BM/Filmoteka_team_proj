@@ -43,6 +43,8 @@ export function changeColorThemeMain(darkTheme) {
 
 export function changeColorThemeLib(darkTheme) {
   const cardTitle = document.querySelectorAll('.main-section__card-title');
+  const paginBtn = document.querySelectorAll('.pagination-button');
+  const dots = document.querySelectorAll('.dots');
 
   if (!darkTheme) {
     iconMoon.style.opacity = 1;
