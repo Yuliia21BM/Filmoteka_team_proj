@@ -12,4 +12,3 @@ import './js/team-modal-swiper';
 import './js/BtnScrollToTop';
 import './js/localstorage-save-films-API';
 import './js/change-color-theme';
-import './js/film-randomizer-btn'

@@ -20,15 +20,11 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
 };
 
-refs.closeModalBtn.appendChild(iconCross);
+refs.closeModalBtn?.appendChild(iconCross);
 
 refs.openModalBtn?.addEventListener('click', toggleModal);
 refs.closeModalBtn?.addEventListener('click', toggleModal);
 document.addEventListener('keydown', escClose);
-
-refs.openModalBtn?.addEventListener('click', () => {
-  monitorAuthState();
-});
 
 export function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
@@ -162,13 +158,11 @@ const monitorAuthState = async () => {
     }
   });
 };
-// monitorAuthState();
+monitorAuthState();
 
 async function logout() {
   await signOut(auth);
-  toggleModal();
-  // location.reload();
-  // monitorAuthState();
+  location.reload();
 }
 
 btnLogout?.addEventListener('click', logout);
