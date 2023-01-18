@@ -13,28 +13,26 @@ import { iconCross } from './create-images-for-js-input';
 
 // import {getDatabase} from "firebase/database";
 
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-  };
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
 
-  refs.closeModalBtn.appendChild(iconCross);
+refs.closeModalBtn.appendChild(iconCross);
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-  document.addEventListener('keydown', escClose);
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+document.addEventListener('keydown', escClose);
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+export function toggleModal() {
+  refs.modal.classList.toggle('is-hidden');
+}
+function escClose(e) {
+  if (e.key === 'Escape') {
+    refs.modal.classList.add('is-hidden');
   }
-  function escClose(e) {
-    if (e.key === 'Escape') {
-      refs.modal.classList.add('is-hidden');
-    }
-  }
-})();
+}
 
 // Import the functions you need from the SDKs you need
 // import { getAnalytics } from "firebase/analytics";

@@ -6,6 +6,7 @@ import { QUEUE_LIST, WATCHED_LIST } from './config';
 import Spinner from './spinner';
 import { loadFromStorage } from './localstorage-load-films';
 import { IS_LOGED } from './config';
+import { toggleModal } from './authorization-modal';
 
 const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
@@ -180,7 +181,7 @@ export function openModal(e, childClass) {
                 ${
                   isLogged
                     ? ''
-                    : '<p class="disabled-text">You should be registered to add this movie to your library :)</p>'
+                    : '<p class="disabled-text">You should <button type="button" class="disabled-text-link">be registered</button> to add this movie to your library :)</p>'
                 }
                 </div>
         </div>`,
@@ -240,6 +241,12 @@ export function openModal(e, childClass) {
         queueBtn.textContent = 'REMOVE FROM QUEUE';
         return;
       }
+
+      const disabledLink = document.querySelector('.disabled-text-link');
+      disabledLink?.addEventListener('click', () => {
+        createFilmModalMarkup.close();
+        toggleModal();
+      });
 
       function escClose(e) {
         if (e.key === 'Escape' && createFilmModalMarkup.visible()) {
