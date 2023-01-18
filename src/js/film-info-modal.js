@@ -17,7 +17,7 @@ filmCardSection.addEventListener('click', e => {
 
 const checkPathname = async (pathname, activetab) => {
   if (
-    pathname === 'Filmoteka_team_proj/library.html' &&
+    pathname === '/Filmoteka_team_proj/library.html' &&
     activetab === 'Queue'
   ) {
     console.log(
@@ -31,7 +31,7 @@ const checkPathname = async (pathname, activetab) => {
   }
 
   if (
-    pathname === 'Filmoteka_team_proj/library.html' &&
+    pathname === '/Filmoteka_team_proj/library.html' &&
     activetab === 'Watched'
   ) {
     console.log(
