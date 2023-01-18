@@ -46,17 +46,30 @@
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: $primary-bg-color;
     border-color: $hover;
     background-color: $hover;
-    border-color: #ff6b01;
+    // border-color: #ff6b01;
   }
 }
 
+.genres-button--dark-theme {
+  color: $primary-bg-color;
+  background-color: transparent;
+  border: 1px solid $primary-bg-color;
+  transition: all $animation-time $animation-cubic;
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-color;
+    background-color: $hover;
+    border-color: $hover;
+  }
+}
 
 .active {
-    background-color: $hover;
-      border-color: #ff6b01;
+  background-color: $hover;
+  border-color: #ff6b01;
 }
 
 .genres-button-mobile {
