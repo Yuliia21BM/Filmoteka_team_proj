@@ -6,7 +6,6 @@ const iconSun = document.querySelector('.icon-sun');
 export function changeColorThemeMain(darkTheme) {
   const cardTitle = document.querySelectorAll('.main-section__card-title');
   const genreBtn = document.querySelectorAll('.genres-button');
-  const paginBtn = document.querySelectorAll('.pagination-button');
   const dots = document.querySelectorAll('.dots');
 
   if (!darkTheme) {
@@ -18,17 +17,6 @@ export function changeColorThemeMain(darkTheme) {
       el.style.color = '#000';
     });
     genreBtn.forEach(el => el.classList.remove('genres-button--dark-theme'));
-    paginBtn.forEach(el => {
-      if (
-        el.classList.contains('pagination--current') ||
-        el.classList.contains('arrow-left') ||
-        el.classList.contains('arrow-right')
-      )
-        return;
-      el.style.backgroundColor = '#fff';
-      el.style.color = '#000';
-      el.style.border = 'none';
-    });
     dots.forEach(el => {
       el.style.color = '#000';
     });
@@ -40,18 +28,6 @@ export function changeColorThemeMain(darkTheme) {
       el.style.color = '#fff';
     });
     genreBtn.forEach(el => el.classList.add('genres-button--dark-theme'));
-    paginBtn.forEach(el => {
-      if (
-        el.classList.contains('pagination--current') ||
-        el.classList.contains('arrow-left') ||
-        el.classList.contains('arrow-right')
-      )
-        return;
-      el.style.backgroundColor = '#181F25';
-      el.style.color = '#fff';
-      el.style.border = '1px solid #fff';
-      el.style.borderRadius = '5px';
-    });
     dots.forEach(el => {
       el.style.color = '#fff';
     });
