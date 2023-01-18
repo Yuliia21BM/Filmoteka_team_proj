@@ -16,12 +16,14 @@ export function changeColorThemeMain(darkTheme) {
     cardTitle.forEach(el => {
       el.style.color = '#000';
     });
-    genreBtn.forEach(el => {
-      el.style.color = '#000';
-    });
-    genreBtn.forEach(el => {
-      el.style.borderColor = '#000';
-    });
+    genreBtn.forEach(el => el.classList.remove('genres-button--dark-theme'));
+
+    // genreBtn.forEach(el => {
+    //   el.style.color = '#000';
+    // });
+    // genreBtn.forEach(el => {
+    //   el.style.borderColor = '#000';
+    // });
   } else {
     iconMoon.style.opacity = 0;
     iconSun.style.opacity = 1;
@@ -29,12 +31,13 @@ export function changeColorThemeMain(darkTheme) {
     cardTitle.forEach(el => {
       el.style.color = '#fff';
     });
-    genreBtn.forEach(el => {
-      el.style.color = '#fff';
-    });
-    genreBtn.forEach(el => {
-      el.style.borderColor = '#fff';
-    });
+    genreBtn.forEach(el => el.classList.add('genres-button--dark-theme'));
+    // genreBtn.forEach(el => {
+    //   el.style.color = '#fff';
+    // });
+    // genreBtn.forEach(el => {
+    //   el.style.borderColor = '#fff';
+    // });
   }
 }
 
