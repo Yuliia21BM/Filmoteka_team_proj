@@ -84,18 +84,18 @@ async function loginEmailPassword(e) {
     // console.log(userCredential.user);
     // alert('You logged in');
     refs.modal.classList.toggle('is-hidden');
-    swal("Great job!!!", "You logged in))", {
-    button: ["Aww yiss!"],
-    icon:"success",
+    swal('Great job!!!', 'You logged in))', {
+      button: ['Aww yiss!'],
+      icon: 'success',
     });
-    
+
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
     console.log(error.message);
-    swal ("Smth wrong (((", {
-      icon: "error",
+    swal('Smth wrong (((', {
+      icon: 'error',
     });
     // alert(error);
     localStorage.setItem(IS_LOGED, 'false');
@@ -119,17 +119,17 @@ async function createAccount(e) {
     );
     // console.log(userCredential.user);
     // alert('You signed up');
-    swal("You did it)))", "Account created", {
+    swal('You did it)))', 'Account created', {
       // button: "Aww yiss!",
-      icon:"success",
-      });
+      icon: 'success',
+    });
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
     // console.log(error.message);
-    swal ("Smth wrong (((", {
-      icon: "error",
+    swal('Smth wrong (((', {
+      icon: 'error',
     });
     // alert(error);
     localStorage.setItem(IS_LOGED, 'false');
@@ -143,8 +143,8 @@ const monitorAuthState = async () => {
       // console.log(user);
       localStorage.setItem(IS_LOGED, 'true');
       // alert('you are logged in')
-      swal ("you are logged in!!!", {
-        icon: "info",
+      swal('you are logged in!!!', {
+        icon: 'info',
       });
       btnLogout.classList.remove('is-hidden');
       modalForm.classList.add('is-hidden');
@@ -158,11 +158,12 @@ const monitorAuthState = async () => {
     }
   });
 };
-monitorAuthState();
+// monitorAuthState();
 
 async function logout() {
   await signOut(auth);
   location.reload();
+  monitorAuthState();
 }
 
 btnLogout.addEventListener('click', logout);
