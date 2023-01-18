@@ -33,6 +33,11 @@ async function searchMovieById(id) {
     const fetchAPI = await axios.get(
       `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
     );
+    
+    if (fetchAPI.status !== 200) {
+      return
+    }
+
     return fetchAPI.data;
   } catch (error) {
     console.error('Something is wrong with the search' + error);
