@@ -26,8 +26,11 @@ refs.openModalBtn?.addEventListener('click', toggleModal);
 refs.closeModalBtn?.addEventListener('click', toggleModal);
 document.addEventListener('keydown', escClose);
 
-export function toggleModal() {
+refs.openModalBtn?.addEventListener('click', () => {
   monitorAuthState();
+});
+
+export function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
 }
 function escClose(e) {
@@ -163,8 +166,9 @@ const monitorAuthState = async () => {
 
 async function logout() {
   await signOut(auth);
-  location.reload();
-  monitorAuthState();
+  toggleModal();
+  // location.reload();
+  // monitorAuthState();
 }
 
 btnLogout?.addEventListener('click', logout);
