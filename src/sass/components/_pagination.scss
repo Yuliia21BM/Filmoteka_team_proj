@@ -17,7 +17,7 @@
 .pagination-button:not(:last-child),
 .dots {
     margin-right: 16px;
-}
+   }
 
 .pagination-button {
     padding: 0;
@@ -31,7 +31,7 @@
     line-height: 1.333;
     width: 40px;
     height: 40px;
-}
+    }
 
 .pagination--current {
     width: 40px;
@@ -39,6 +39,10 @@
     border-radius: 5px;
     background-color: #FF6B08;
     color: white;
+    &:hover {
+            // &:focus {
+            transform: scale(1.1);
+        }
 }
 
 .dots,
