@@ -7,6 +7,7 @@ import {
   connectAuthEmulator,
   signOut,
 } from 'firebase/auth';
+import { IS_LOGED } from './config';
 
 import { iconCross } from './create-images-for-js-input';
 
@@ -17,7 +18,7 @@ import { iconCross } from './create-images-for-js-input';
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
-    };
+  };
 
   refs.closeModalBtn.appendChild(iconCross);
 
@@ -30,9 +31,7 @@ import { iconCross } from './create-images-for-js-input';
   }
   function escClose(e) {
     if (e.key === 'Escape') {
-      
       refs.modal.classList.add('is-hidden');
-      
     }
   }
 })();
@@ -85,19 +84,19 @@ async function loginEmailPassword(e) {
     );
     console.log(userCredential.user);
     alert('You logged in');
-    email.value = "";
-    password.value = "";
+    localStorage.setItem(IS_LOGED, 'true');
+    email.value = '';
+    password.value = '';
   } catch (error) {
     console.log(error.message);
 
     alert(error);
+    localStorage.setItem(IS_LOGED, 'false');
   }
-  
 }
 
 btnLogin.addEventListener('click', loginEmailPassword);
 // document.querySelector('input').value= '' ;
-
 
 async function createAccount(e) {
   e.preventDefault();
@@ -113,33 +112,34 @@ async function createAccount(e) {
     );
     console.log(userCredential.user);
     alert('You signed up');
-    email.value = "";
-    password.value = ""; 
+    localStorage.setItem(IS_LOGED, 'true');
+    email.value = '';
+    password.value = '';
   } catch (error) {
     console.log(error.message);
 
     alert(error);
+    localStorage.setItem(IS_LOGED, 'false');
   }
 }
 btnSignUp.addEventListener('click', createAccount);
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
-  if (user) {
-    console.log(user)
-    // alert('you are logged in')
-    btnLogout.classList.remove('is-hidden');
-    modalForm.classList.add('is-hidden');
-    modalTitle.classList.add('is-hidden');
-
-  } else {
-
-    alert('signed out')
-    
-  }
-});
-}
-monitorAuthState();
+    if (user) {
+      console.log(user);
+      localStorage.setItem(IS_LOGED, 'true');
+      // alert('you are logged in')
+      btnLogout.classList.remove('is-hidden');
+      modalForm.classList.add('is-hidden');
+      modalTitle.classList.add('is-hidden');
+    } else {
+      alert('signed out');
+      localStorage.setItem(IS_LOGED, 'false');
+    }
+  });
+};
+// monitorAuthState();
 
 async function logout() {
   await signOut(auth);
@@ -147,3 +147,4 @@ async function logout() {
 }
 
 btnLogout.addEventListener('click', logout);
+localStorage.getItem(IS_LOGED);

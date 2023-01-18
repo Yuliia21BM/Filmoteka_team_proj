@@ -152,6 +152,11 @@
     color: #fff;
     text-transform: uppercase;
 
+    &:disabled {
+      background-color: #8c8c8c;
+      cursor: default;
+    }
+
     &--seconadry-btn {
       color: #000;
       background-color: transparent;
@@ -231,6 +236,18 @@
       margin-left: 8px;
       gap: 15px;
     }
+  }
+}
+
+.disabled-text {
+  text-align: start;
+  font-size: 9;
+  margin-top: 5px;
+  @include tablet {
+    font-size: 10;
+  }
+  @include desktop {
+    font-size: 12;
   }
 }
 

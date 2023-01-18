@@ -5,6 +5,7 @@ import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
 import Spinner from './spinner';
 import { loadFromStorage } from './localstorage-load-films';
+import { IS_LOGED } from './config';
 
 const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
@@ -72,6 +73,8 @@ async function checkIdFbyKey(key) {
 }
 
 export function openModal(e, childClass) {
+  const isLogged = JSON.parse(localStorage.getItem(IS_LOGED)) || false;
+
   if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
@@ -167,9 +170,18 @@ export function openModal(e, childClass) {
                     }</p>
                     </div>  
                 <div class="film-modal__add-btns-wrapper">
-                  <button class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${filmId}">Add to Watched</button>
-                  <button class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn hover-modal-btn" type="button" data-id="${filmId}">Add to queue</button>
+                  <button ${
+                    isLogged ? '' : 'disabled'
+                  } class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${filmId}">Add to Watched</button>
+                  <button ${
+                    isLogged ? '' : 'disabled'
+                  } class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn hover-modal-btn" type="button" data-id="${filmId}">Add to queue</button>
                 </div>
+                ${
+                  isLogged
+                    ? ''
+                    : '<p class="disabled-text">You should be registered to add this movie to your library :)</p>'
+                }
                 </div>
         </div>`,
         basicLightboxOptions
