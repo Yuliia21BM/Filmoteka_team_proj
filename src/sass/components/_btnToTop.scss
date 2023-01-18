@@ -11,7 +11,7 @@
   width: 50px;
   height: 50px;
   bottom: 5%;
-  right: 10%;
+  right: 5%;
 
   position: fixed;
   opacity: 0.8;
@@ -29,17 +29,17 @@
   @media screen and (min-width: 1000px) and (max-width: 1279px) {
     width: 50px;
     height: 50px;
-    right: 15%;
+    right: 10%;
   }
   @media screen and (min-width: 1280px) {
     width: 50px;
     height: 50px;
-    right: 3%;
+    right: 2%;
   }
   @media screen and (min-width: 1600px) {
     width: 50px;
     height: 50px;
-    right: 10%;
+    right: 7%;
   }
   animation: changefill 2s forwards infinite ease-out 0.5s;
 
