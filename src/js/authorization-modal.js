@@ -35,6 +35,7 @@ function escClose(e) {
   }
 }
 
+
 // Import the functions you need from the SDKs you need
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -62,7 +63,8 @@ const email = document.getElementById('user-email');
 
 const password = document.getElementById('user-pas');
 const modalForm = document.querySelector('.modal-form');
-const modalTitle = document.querySelector('.modal-title');
+const modalTitle = document.querySelector('.modal-title'); 
+const modalTitleOut = document.querySelector('.modal-title-logout');
 const btnLogin = document.getElementById('btn-login');
 const btnSignUp = document.getElementById('btn-signup');
 const btnLogout = document.getElementById('btn-logout');
@@ -83,21 +85,31 @@ async function loginEmailPassword(e) {
     );
     // console.log(userCredential.user);
     // alert('You logged in');
-    refs.modal.classList.toggle('is-hidden');
+    refs.modal.classList.add('is-hidden');
     swal('Great job!!!', 'You logged in))', {
       button: ['Aww yiss!'],
       icon: 'success',
     });
-
+    
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
-    console.log(error.message);
-    swal('Smth wrong (((', {
-      icon: 'error',
-    });
-    // alert(error);
+  // console.log(error);
+    // if (error ='auth/user-not-found'){
+    //   swal('User not found (((', {
+    //     icon: 'error',
+    //   });
+    // } if (error ='auth/wrong-password'){
+    //   swal('Wrong password (((', {
+    //     icon: 'error',
+    //   });
+    // } else{
+      swal('Smth wrong (((', {
+        icon: 'error',
+      });
+    // }
+    
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -109,29 +121,38 @@ async function createAccount(e) {
   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
-  // console.log(loginEmail);
-  // console.log(loginPassword);
+  
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       loginEmail,
       loginPassword
     );
-    // console.log(userCredential.user);
-    // alert('You signed up');
+    refs.modal.classList.add('is-hidden');
     swal('You did it)))', 'Account created', {
-      // button: "Aww yiss!",
-      icon: 'success',
+    icon: 'success',
     });
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
     // console.log(error.message);
-    swal('Smth wrong (((', {
-      icon: 'error',
-    });
-    // alert(error);
+    // if (error.message ="(auth/email-already-in-use)"){
+    //   swal('Email already exists. Please, enter another e-mail', {
+    //     icon: 'warning',
+    //   });
+    // }  
+    // else if (error.message ="(auth/invalid-password)"){
+    //   swal('Pssword at least 6 characters', {
+    //     icon: 'error',
+    //   });
+    // } 
+    // else{
+      swal('Smth wrong (((', {
+        icon: 'error',
+      });
+    // }
+    
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -143,17 +164,16 @@ const monitorAuthState = async () => {
       // console.log(user);
       localStorage.setItem(IS_LOGED, 'true');
       // alert('you are logged in')
-      swal('you are logged in!!!', {
-        icon: 'info',
-      });
+      // swal('you are logged in!!!', {
+      //   icon: 'info',
+      // });
       btnLogout.classList.remove('is-hidden');
       modalForm.classList.add('is-hidden');
       modalTitle.classList.add('is-hidden');
+      modalTitleOut.classList.remove('is-hidden');
     } else {
       // alert('signed out');
-      swal("you've logged out!!!", {
-        icon: 'info',
-      });
+      
       localStorage.setItem(IS_LOGED, 'false');
     }
   });
@@ -163,6 +183,9 @@ monitorAuthState();
 async function logout() {
   await signOut(auth);
   location.reload();
+  swal("you've logged out!!!", {
+    icon: 'info',
+  });
 }
 
 btnLogout?.addEventListener('click', logout);
