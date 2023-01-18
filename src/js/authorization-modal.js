@@ -5,32 +5,34 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   connectAuthEmulator,
+  signOut,
 } from 'firebase/auth';
+import { IS_LOGED } from './config';
+
+import { iconCross } from './create-images-for-js-input';
 
 // import {getDatabase} from "firebase/database";
 
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-    backdrop: document.querySelector('.backdrop'),
-  };
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-  document.addEventListener('keydown', escClose);
+refs.closeModalBtn.appendChild(iconCross);
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+document.addEventListener('keydown', escClose);
+
+export function toggleModal() {
+  refs.modal.classList.toggle('is-hidden');
+}
+function escClose(e) {
+  if (e.key === 'Escape') {
+    refs.modal.classList.add('is-hidden');
   }
-  function escClose(e) {
-    if (e.key === 'Escape') {
-      toggleModal();
-      document.removeEventListener('keydown', escClose);
-    }
-  }
-})();
+}
 
 // Import the functions you need from the SDKs you need
 // import { getAnalytics } from "firebase/analytics";
@@ -58,9 +60,11 @@ console.log(app);
 const email = document.getElementById('user-email');
 
 const password = document.getElementById('user-pas');
-
+const modalForm = document.querySelector('.modal-form');
+const modalTitle = document.querySelector('.modal-title');
 const btnLogin = document.getElementById('btn-login');
 const btnSignUp = document.getElementById('btn-signup');
+const btnLogout = document.getElementById('btn-logout');
 
 // connectAuthEmulator(auth, "http://localhost:9099");
 
@@ -78,14 +82,19 @@ async function loginEmailPassword(e) {
     );
     console.log(userCredential.user);
     alert('You logged in');
+    localStorage.setItem(IS_LOGED, 'true');
+    email.value = '';
+    password.value = '';
   } catch (error) {
     console.log(error.message);
 
     alert(error);
+    localStorage.setItem(IS_LOGED, 'false');
   }
 }
 
 btnLogin.addEventListener('click', loginEmailPassword);
+// document.querySelector('input').value= '' ;
 
 async function createAccount(e) {
   e.preventDefault();
@@ -101,44 +110,39 @@ async function createAccount(e) {
     );
     console.log(userCredential.user);
     alert('You signed up');
+    localStorage.setItem(IS_LOGED, 'true');
+    email.value = '';
+    password.value = '';
   } catch (error) {
     console.log(error.message);
 
     alert(error);
+    localStorage.setItem(IS_LOGED, 'false');
   }
 }
 btnSignUp.addEventListener('click', createAccount);
 
-// function validation() {
+const monitorAuthState = async () => {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log(user);
+      localStorage.setItem(IS_LOGED, 'true');
+      // alert('you are logged in')
+      btnLogout.classList.remove('is-hidden');
+      modalForm.classList.add('is-hidden');
+      modalTitle.classList.add('is-hidden');
+    } else {
+      alert('signed out');
+      localStorage.setItem(IS_LOGED, 'false');
+    }
+  });
+};
+// monitorAuthState();
 
-// let namereg=/[a-zA-Z\s]+/;
-// let emailreg=/[a-zA-Z0-9]+@\./;
-// let userreg=/[a-zA-Z\s]{3,}/;
-// if(!namereg.test(name.value)){
-//   alert("ім'я має містити литери");
-//   return;
-// }
+async function logout() {
+  await signOut(auth);
+  location.reload();
+}
 
-// if(!emailreg.test(email.value)){
-//   alert("введіть правильну пошту");
-//   return;
-// }
-
-// if(!userreg.test(username.value)){
-//   alert("ім'якористувача має містити не менше трьох знаків");
-//   return
-// }
-
-// }
-
-onAuthStateChanged(auth, user => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+btnLogout.addEventListener('click', logout);
+localStorage.getItem(IS_LOGED);

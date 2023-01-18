@@ -4,22 +4,10 @@ iconCross.src = new URL(
   import.meta.url
 );
 
-
-
 let defaultPoster = document.createElement('img');
-defaultPoster.src = new URL(
-  '/src/images/default-poster.jpg',
-  import.meta.url
-);
+defaultPoster.src = new URL('/src/images/default-poster.jpg', import.meta.url);
 
 let notFoundFilm = document.createElement('img');
-notFoundFilm.src = new URL(
-  '/src/images/not-found-gif.gif',
-  import.meta.url
-);
+notFoundFilm.src = new URL('/src/images/not-found-gif.gif', import.meta.url);
 
-export {
-    iconCross,
-  defaultPoster,
-    notFoundFilm,
-};
+export { iconCross, defaultPoster, notFoundFilm };

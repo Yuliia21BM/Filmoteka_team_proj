@@ -40,7 +40,7 @@ export function showTrailerModal(trailerId, filmModal) {
   const closeModalBtn = document.querySelector('[trailer-modal-close]');
 
   function escClose(e) {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && trailerModal.visible()) {
       trailerModal.close();
       filmModal.show();
     }

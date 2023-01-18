@@ -1,16 +1,3 @@
-  
-  
-  const swiper = new Swiper(
-    '.team-swiper', {
-// Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-  },
-
-});
-
-
 (() => {
     const refs = {
       openModalBtn: document.querySelector('[data-team-modal-open]'),

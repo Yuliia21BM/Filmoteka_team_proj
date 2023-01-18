@@ -5,6 +5,8 @@ import { iconCross, defaultPoster } from './create-images-for-js-input';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
 import Spinner from './spinner';
 import { loadFromStorage } from './localstorage-load-films';
+import { IS_LOGED } from './config';
+import { toggleModal } from './authorization-modal';
 
 const spinner = new Spinner();
 const basicLightbox = require('basiclightbox');
@@ -15,12 +17,30 @@ filmCardSection.addEventListener('click', e => {
 });
 
 const checkPathname = async (pathname, activetab) => {
-  if (pathname === '/library.html' && activetab === 'Queue') {
+  if (
+    pathname === '/Filmoteka_team_proj/library.html' &&
+    activetab === 'Queue'
+  ) {
+    console.log(
+      "it's pathname check on queue & active tab:",
+      pathname,
+      activetab
+    );
+
     await loadFromStorage(QUEUE_LIST);
     return;
   }
 
-  if (pathname === '/library.html' && activetab === 'Watched') {
+  if (
+    pathname === '/Filmoteka_team_proj/library.html' &&
+    activetab === 'Watched'
+  ) {
+    console.log(
+      "it's pathname check on watched & active tab:",
+      pathname,
+      activetab
+    );
+
     await loadFromStorage(WATCHED_LIST);
   }
 };
@@ -28,10 +48,12 @@ const checkPathname = async (pathname, activetab) => {
 const refreshLibraryList = async () => {
   try {
     const pathname = window.location.pathname;
+    console.log('this is pathname in refreshLibList:', pathname);
 
     const parsedActiveTab = await JSON.parse(
       localStorage.getItem('active-tab')
     );
+    console.log('this is parsedActiveTab in refreshLibList:', parsedActiveTab);
 
     checkPathname(pathname, parsedActiveTab);
   } catch (error) {
@@ -52,6 +74,8 @@ async function checkIdFbyKey(key) {
 }
 
 export function openModal(e, childClass) {
+  const isLogged = JSON.parse(localStorage.getItem(IS_LOGED)) || false;
+
   if (!e.target.parentNode.classList.contains(childClass)) {
     return;
   }
@@ -147,9 +171,18 @@ export function openModal(e, childClass) {
                     }</p>
                     </div>  
                 <div class="film-modal__add-btns-wrapper">
-                  <button class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${filmId}">Add to Watched</button>
-                  <button class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn hover-modal-btn" type="button" data-id="${filmId}">Add to queue</button>
+                  <button ${
+                    isLogged ? '' : 'disabled'
+                  } class="film-modal__add-btns btn-add-watched hover-modal-btn trailer-btn" type="button" data-id="${filmId}">Add to Watched</button>
+                  <button ${
+                    isLogged ? '' : 'disabled'
+                  } class="film-modal__add-btns btn-add-queue film-modal__add-btns--seconadry-btn hover-modal-btn" type="button" data-id="${filmId}">Add to queue</button>
                 </div>
+                ${
+                  isLogged
+                    ? ''
+                    : '<p class="disabled-text">You should <button type="button" class="disabled-text-link">be registered</button> to add this movie to your library :)</p>'
+                }
                 </div>
         </div>`,
         basicLightboxOptions
@@ -209,8 +242,14 @@ export function openModal(e, childClass) {
         return;
       }
 
+      const disabledLink = document.querySelector('.disabled-text-link');
+      disabledLink?.addEventListener('click', () => {
+        createFilmModalMarkup.close();
+        toggleModal();
+      });
+
       function escClose(e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' && createFilmModalMarkup.visible()) {
           createFilmModalMarkup.close();
         }
       }

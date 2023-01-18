@@ -152,10 +152,19 @@
     color: #fff;
     text-transform: uppercase;
 
+    &:disabled {
+      background-color: #8c8c8c;
+      cursor: default;
+    }
+
     &--seconadry-btn {
       color: #000;
       background-color: transparent;
       border: 1px solid #000000;
+      &:disabled {
+        color: $primary-bg-color;
+        border: none;
+      }
     }
   }
 
@@ -234,6 +243,26 @@
   }
 }
 
+.disabled-text {
+  text-align: start;
+  font-size: 8;
+  margin-top: 5px;
+  @include tablet {
+    font-size: 10;
+  }
+  @include desktop {
+    font-size: 12;
+  }
+}
+
+.disabled-text-link {
+  background-color: transparent;
+  border: none;
+  color: $primary-text-color;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .triangle-right {
   margin-left: 5px;
   display: inline-block;
@@ -256,5 +285,8 @@
   &:hover {
     border-color: #ff6b01;
     box-shadow: 0 0 10px 0 #ff6b01 inset, 0 0 10px 4px #ff6b01;
+  }
+  &:disabled {
+    box-shadow: none;
   }
 }

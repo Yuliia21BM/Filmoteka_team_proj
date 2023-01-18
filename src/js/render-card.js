@@ -2,6 +2,7 @@ import { searchGenres } from './fetchApi';
 import { refs } from './refs';
 import { defaultPoster } from './create-images-for-js-input';
 import { renderSkeleton } from './skeleton';
+import { THEME } from './config';
 
 export const milisecond = 800;
 
@@ -16,10 +17,24 @@ export async function renderFilmCards(elem) {
       return createElementsMovie(film);
     })
     .join('');
-  
+
   setTimeout(() => {
     clearMarkup(refs.mainContainerEl);
     refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
+    let LS = JSON.parse(localStorage.getItem(THEME));
+    let darkTheme = (LS = LS || false);
+    console.log(darkTheme);
+    const cartTitle = document.querySelectorAll('.main-section__card-title');
+    console.log(cartTitle);
+    if (darkTheme) {
+      cartTitle.forEach(el => {
+        el.style.color = '#fff';
+      });
+    } else {
+      cartTitle.forEach(el => {
+        el.style.color = '#000';
+      });
+    }
   }, milisecond);
 }
 
@@ -121,6 +136,6 @@ export const renderNoMoviesMarkup = () => {
 
   refs.mainContainerEl.innerHTML = `<div class="no-movies-wrap">
                 ${notFoundGIF.outerHTML}
-                <p>No movies here yet</p>
+                <p class="no-movies-text" >No movies here yet</p>
             </div>`;
 };
