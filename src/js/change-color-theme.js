@@ -18,13 +18,6 @@ export function changeColorThemeMain(darkTheme) {
       el.style.color = '#000';
     });
     genreBtn.forEach(el => el.classList.remove('genres-button--dark-theme'));
-
-    // genreBtn.forEach(el => {
-    //   el.style.color = '#000';
-    // });
-    // genreBtn.forEach(el => {
-    //   el.style.borderColor = '#000';
-    // });
     paginBtn.forEach(el => {
       if (
         el.classList.contains('pagination--current') ||
@@ -47,12 +40,6 @@ export function changeColorThemeMain(darkTheme) {
       el.style.color = '#fff';
     });
     genreBtn.forEach(el => el.classList.add('genres-button--dark-theme'));
-    // genreBtn.forEach(el => {
-    //   el.style.color = '#fff';
-    // });
-    // genreBtn.forEach(el => {
-    //   el.style.borderColor = '#fff';
-    // });
     paginBtn.forEach(el => {
       if (
         el.classList.contains('pagination--current') ||
