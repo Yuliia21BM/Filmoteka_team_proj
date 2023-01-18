@@ -5,12 +5,17 @@
     closeModal: document.querySelector('[data-team-modal-close]'),
     modal: document.querySelector('[data-team-modal]'),
     body: document.querySelector('body'),
+    backdrop: document.querySelector('[team__backdrop]'),
   };
 
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
   refs.closeModal.addEventListener('click', toggleModal);
   document.addEventListener('keydown', escClose);
+  backdrop.addEventListener('click', e => {
+    if (e.target !== e.currentTurget) return;
+    toggleModal();
+  });
 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden-team');
