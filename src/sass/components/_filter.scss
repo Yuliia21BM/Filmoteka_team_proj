@@ -53,8 +53,10 @@
   }
 }
 
-.genres-button:active {
-  color: #ff6b01;
+
+.active {
+    background-color: $hover;
+      border-color: #ff6b01;
 }
 
 .genres-button-mobile {
