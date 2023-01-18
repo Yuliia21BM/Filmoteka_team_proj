@@ -27,6 +27,7 @@ refs.closeModalBtn?.addEventListener('click', toggleModal);
 document.addEventListener('keydown', escClose);
 
 export function toggleModal() {
+  monitorAuthState();
   refs.modal.classList.toggle('is-hidden');
 }
 function escClose(e) {
