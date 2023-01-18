@@ -49,7 +49,7 @@ async function getMoviesHandler(value) {
             return (error.textContent = `No matches found for your query. Enter the correct movie name.`),
                 mainSectionCards.innerHTML = " ",
                 mainSectionCards.innerHTML = `<div class="wrong-box"> <p class="not-found-text">Not Found</p></div>`,
-                document.querySelector('.wrong-box').appendChild(notFoundFilm).classList.add('film-not-found'),
+                document.querySelector('.wrong-box').prepend(notFoundFilm).classList.add('film-not-found'),
                 document.querySelector('.pagination-container').classList.add("visually-hidden");
             
              
