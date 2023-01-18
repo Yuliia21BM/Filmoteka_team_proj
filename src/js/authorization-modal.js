@@ -151,9 +151,9 @@ const monitorAuthState = async () => {
       modalTitle.classList.add('is-hidden');
     } else {
       // alert('signed out');
-      swal ("you've logged out!!!", {
-        icon: "info",
-      });
+      // swal ("you've logged out!!!", {
+      //   icon: "info",
+      // });
       localStorage.setItem(IS_LOGED, 'false');
     }
   });
