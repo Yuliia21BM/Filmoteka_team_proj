@@ -6,4 +6,3 @@ import './js/popular-film-API';
 import './js/pagination';
 import './js/authorization-modal';
 import './js/theme-main';
-import './js/is-user-logged';
