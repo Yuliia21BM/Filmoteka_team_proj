@@ -2,13 +2,15 @@
   background-color: $bg-footer;
   padding: 0;
 
+  padding-right: auto;
+  padding-left: auto;
+
   @include tablet {
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
 
-    max-width: 768px;
     font-size: 16px;
     line-height: 19px;
 
@@ -22,7 +24,6 @@
     text-align: center;
     justify-content: center;
 
-    max-width: 1280px;
     font-size: 16px;
     line-height: 19px;
 
@@ -172,9 +173,12 @@
   }
 }
 .footer__text_span {
+  display: flex;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+
+  text-decoration: none !important;
 
   color: rgba(84, 84, 84, 1);
   margin-right: 3px;
@@ -243,7 +247,7 @@
 }
 
 .footer__icon {
-  display: block;
+  display: flex;
   margin-right: 10px;
   fill: #ff6b08;
   animation: pulse 0.7s ease-in infinite alternate;
