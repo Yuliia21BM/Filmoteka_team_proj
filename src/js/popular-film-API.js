@@ -1,12 +1,8 @@
 import { getPopularFilm } from '../js/fetchApi';
 import * as pagination from './pagination';
-import { refs } from './refs';
-
 import { renderFilmCards } from './render-card';
-import { renderSkeleton } from './skeleton';
 import Spinner from './spinner';
 const spinner = new Spinner();
-
   
 const _getPopularFilm = () => {
   spinner.enable();

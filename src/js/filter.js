@@ -3,7 +3,6 @@ import { BASE_URL } from './config';
 import { renderFilmCards } from './render-card';
 import * as pagination from './pagination';
 
-
 const API_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}`;
 
 const genres = [
@@ -74,9 +73,6 @@ const genres = [
 const tagsEl = document.querySelector('.genres-list');
 const mobileBtn = document.querySelector('.genres-button-mobile');
 
-
-
-
 let selectedGenre = [];
 setGenre();
 function setGenre() {
@@ -113,10 +109,9 @@ function setGenre() {
 
 // getMovies(API_URL);
 
-
-
 function getMovies(url, page) {
   url = url + '&page=' + page;
+
   fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -130,11 +125,9 @@ function getMovies(url, page) {
         } else {
           pagination.setTotalPages(data.total_pages)
       }
-        
       }
     });
 }
-
 
 // function getMovies(url) {
 //   fetch(url)
@@ -147,8 +140,6 @@ function getMovies(url, page) {
 //       }
 //     });
 // }
-
-
 
 mobileBtn.addEventListener('click', openGenreList);
 

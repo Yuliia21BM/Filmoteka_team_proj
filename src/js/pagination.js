@@ -1,3 +1,4 @@
+import { refs } from './refs';
 
 const btn1Ref = document.querySelector('[data-index="1"]');
 const btn2Ref = document.querySelector('[data-index="2"]');
@@ -11,7 +12,6 @@ const rightArrowRef = document.querySelector('.arrow-right');
 const leftArrowRef = document.querySelector('.arrow-left');
 const prevDotsRef = document.querySelector('#previous');
 const afterDotsRef = document.querySelector('#after');
-const mainContainer = document.querySelector('.main-container');
 
 paginationRef.addEventListener('click', onPaginationClick);
 
@@ -122,7 +122,7 @@ function onPaginationClick(event) {
     }
 
     //     gallery.innerHTML = '';
-    mainContainer.scrollIntoView({ behavior: 'smooth' })
+    refs.mainContainer.scrollIntoView({ behavior: 'smooth' })
   
           //  window.scrollTo({ top: 0, behavior: 'smooth' });
         // if (inputRef.value !== '') {
@@ -153,8 +153,8 @@ function getCurrentPage() {
   if (isNaN(currentPage)) {
     currentPage = 1;
   }
-  console.log( "currentPage", currentPage )
-  return +currentPage
+  // console.log( "currentPage", currentPage )
+  return + currentPage
 }
 
 let _subscriber;
@@ -163,8 +163,8 @@ function subscribeOnPageChange(subscriber) {
   _subscriber = subscriber;
 }
 
-console.log('paginationInit');
-console.log('subscriber', _subscriber);
-console.log('CurrentPage', currentPage)
+// console.log('paginationInit');
+// console.log('subscriber', _subscriber);
+// console.log('CurrentPage', currentPage)
 export { getCurrentPage, subscribeOnPageChange, setCurrentPageto1, setTotalPages }
 

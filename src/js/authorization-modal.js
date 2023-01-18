@@ -55,7 +55,7 @@ const app = initializeApp({
   measurementId: 'G-4K0E4519N0',
 });
 const auth = getAuth(app);
-console.log(app);
+// console.log(app);
 
 const email = document.getElementById('user-email');
 
@@ -72,15 +72,15 @@ async function loginEmailPassword(e) {
   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
-  console.log(loginEmail);
-  console.log(loginPassword);
+  // console.log(loginEmail);
+  // console.log(loginPassword);
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
       loginEmail,
       loginPassword
     );
-    console.log(userCredential.user);
+    // console.log(userCredential.user);
     alert('You logged in');
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
@@ -100,21 +100,21 @@ async function createAccount(e) {
   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
-  console.log(loginEmail);
-  console.log(loginPassword);
+  // console.log(loginEmail);
+  // console.log(loginPassword);
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       loginEmail,
       loginPassword
     );
-    console.log(userCredential.user);
+    // console.log(userCredential.user);
     alert('You signed up');
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
 
     alert(error);
     localStorage.setItem(IS_LOGED, 'false');
@@ -125,7 +125,7 @@ btnSignUp.addEventListener('click', createAccount);
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user);
+      // console.log(user);
       localStorage.setItem(IS_LOGED, 'true');
       // alert('you are logged in')
       btnLogout.classList.remove('is-hidden');

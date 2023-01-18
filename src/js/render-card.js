@@ -23,15 +23,15 @@ export async function renderFilmCards(elem) {
     refs.mainContainerEl.insertAdjacentHTML('beforeend', allCards);
     let LS = JSON.parse(localStorage.getItem(THEME));
     let darkTheme = (LS = LS || false);
-    console.log(darkTheme);
-    const cartTitle = document.querySelectorAll('.main-section__card-title');
-    console.log(cartTitle);
+
+    const cardTitle = document.querySelectorAll('.main-section__card-title');
+    
     if (darkTheme) {
-      cartTitle.forEach(el => {
+      cardTitle.forEach(el => {
         el.style.color = '#fff';
       });
     } else {
-      cartTitle.forEach(el => {
+      cardTitle.forEach(el => {
         el.style.color = '#000';
       });
     }
