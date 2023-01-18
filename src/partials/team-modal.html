@@ -1,7 +1,10 @@
-<div class="team__backdrop is-hidden-team container" data-team-modal>
-    <div class="team__modal">
+<div class="team__backdrop is-hidden-team container" id="team__backdrop" data-team-modal>
 
-        <button type="button" class="team__modal-close-btn" data-team-modal-close>
+    <a href="#team__backdrop" class="team__area" data-team-modal-close></a>
+    
+    <div class="team__modal">
+    
+        <button type="button" class="team__modal-close-btn" data-team-modal-close-btn>
             <img class="team__close-img" src="./images/close_btn.png"/>
         </button>
 
@@ -11,7 +14,7 @@
               </svg>
               by GoIT Students</h3>
         
-        <section class="team-swiper swiper-container ">
+        <section class="team-swiper swiper-container">
             <ul class="team__container swiper-wrapper">
 
                 <li class="team__item swiper-slide" >
@@ -21,7 +24,7 @@
                             alt="Юлія Михайлюк"
                         />
                         <h2 class="team__name">Юлія Михайлюк</h2>
-                        <p class="team__text">Team Lead нашої команди. Розробила функцію рендеру карток і додавання в контейнер, свайпер фільмів, а також надавала  підтримку усім розробникам проєкту</p>
+                        <p class="team__text">Team Lead нашої команди. Розробила свайпер фільмів, перемикання темної та світлої теми, а також надавала  підтримку усім розробникам проєкту</p>
                 </li>
 
                  <li class="team__item swiper-slide">
@@ -31,7 +34,7 @@
                             alt="Дмитро Таранюк"
                         />
                         <h2 class="team__name">Дмитро Таранюк</h2>
-                        <p class="team__text">Scrum Master даного проєкту. Організатор роботи команди та розробник спіннеру, Fetch запитів, кнопки Scroll to Top</p>
+                        <p class="team__text">Scrum Master даного проєкту. Організатор роботи команди та розробник спіннеру, всіх запитів в themoviedb без витягування даних, кнопки Scroll to Top</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -41,7 +44,7 @@
                             alt="Андрій Чудля"
                         />
                         <h2 class="team__name">Андрій Чудля</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник пагінації сторінок даного проєкту</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник пагінації проєкту (відображення відповідної частини фільмів) </p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -71,7 +74,7 @@
                             alt="Олег Товпеко"
                         />
                         <h2 class="team__name">Олег Товпеко</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник кнопки addToWatch i addtoqueue (додавання в localStorage), змінювання addToWatch на remove from watched із queue</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -81,7 +84,7 @@
                             alt="Роман Балаклеєць"
                         />
                         <h2 class="team__name">Роман Балаклеєць</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник закриття по ESC модалки</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник закриття по ESC модальних вікон, шаблону картки одного фільму, контейнера</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -91,7 +94,7 @@
                             alt="Сергій_Черенков"
                         />
                         <h2 class="team__name">Сергій Черенков</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник модального вікна з інформацією про фільм, запиту на отримання інформації про обраний фільм</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник модального вікна з повною інформацією про фільм, запиту на отримання інформації про обраний фільм</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -101,7 +104,7 @@
                             alt="Юлія Мещанінова"
                         />
                         <h2 class="team__name">Юлія Мещанінова</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник  запиту на популярні фільми, переходу на популярні фільми при натисканні на лого </p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник  запиту на популярні фільми, переходу на популярні фільми при натисканні на лого + скелетони</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -111,7 +114,7 @@
                             alt="Ярослав Пелих"
                         />
                         <h2 class="team__name">Ярослав Пелих</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник header my library, запиту на заповнення бібліотеки queque</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник хедеру ‘моя бібліотека’ + завантаження  Queue при натисканні на ‘моя бібліотека’ + при натисканні на watch чи Queue показувати відповідні фільми</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -131,7 +134,7 @@
                             alt="Філіп"
                         />
                         <h2 class="team__name">Філіп Бєлан</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник фільтру по жанра на головній сторінці, фільтрації по рейтингу </p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник кнопок з жанрами на головній сторінці, фільтрації по рейтингу (року)</p>
                 </li>
 
                 <li class="team__item swiper-slide">
@@ -141,7 +144,7 @@
                             alt="Alex"
                         />
                         <h2 class="team__name">Олександр Іонін</h2>
-                        <p class="team__text">Майбутній FullStack Developer та розробник модального вікна, працював з Firebase на проєкті</p>
+                        <p class="team__text">Майбутній FullStack Developer та розробник модального вікна авторизації, працював з Firebase на проєкті</p>
                 </li>
             </ul>
             <div class="swiper-button-next"></div>
