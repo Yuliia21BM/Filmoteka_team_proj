@@ -334,14 +334,15 @@
   }
 }
 
-.randomizer-btn-wrapper{
+.randomizer-btn-wrapper {
   display: flex;
   align-items: center;
   position: absolute;
-  transform: translateX(-50%,-50%);
+  transform: translateX(-50%, -50%);
   top: 65px;
+  margin: 0 6px 0 6px;
   &:hover .film-randomizer-btn,
-  &:focus .film-randomizer-btn{
+  &:focus .film-randomizer-btn {
     animation: 1s linear 0s normal none infinite running rotate;
   }
 
@@ -352,12 +353,12 @@
   color: #fff;
   text-transform: uppercase;
 
- @include tablet{
+  @include tablet {
     top: 60px;
- }
+  }
 }
 
-.film-randomizer-btn{
+.film-randomizer-btn {
   border: 0;
   background-color: transparent;
   border-radius: 50%;
@@ -368,13 +369,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  @include desktop{
+  @include desktop {
     width: 60px;
     height: 60px;
   }
-
 }
-
 
 @keyframes rotate {
   0% {
