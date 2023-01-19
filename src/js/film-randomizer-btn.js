@@ -15,25 +15,24 @@ randomBtnWrapper.addEventListener('click', (e) => {
         
         
 
-        const openRandofFilmModal = () => {
+        const openRandomFilmModal = () => {
             const randomId = getRandomNumber(latestFilm.id, 1);
 
             e.target.parentNode.dataset.filmId = randomId;
             
             searchMovieById(randomId).then(randomFilm => {
 
-                console.log(Boolean(randomFilm));
                 if (!randomFilm) {
-                    openRandofFilmModal();
+                    openRandomFilmModal();
+                } else {
+                    openModal(e, 'randomizer-btn-wrapper')
+                    e.target.parentNode.dataset.filmId = ""
+                    spinner.disable();
                 }
-                openModal(e, 'randomizer-btn-wrapper')
-                e.target.parentNode.dataset.filmId = ""
-                spinner.disable();
-                
             })
         }
         
-        openRandofFilmModal();
+        openRandomFilmModal();
 
     })
 
