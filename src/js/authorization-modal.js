@@ -167,7 +167,7 @@ const monitorAuthState = async () => {
       // swal('you are logged in!!!', {
       //   icon: 'info',
       // });
-      btnLogout.classList.remove('is-hidden');
+      btnLogout?.classList.remove('is-hidden');
       modalForm.classList.add('is-hidden');
       modalTitle.classList.add('is-hidden');
       modalTitleOut.classList.remove('is-hidden');

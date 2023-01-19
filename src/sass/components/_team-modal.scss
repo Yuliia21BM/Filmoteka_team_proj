@@ -6,7 +6,7 @@
   transition: opacity $animation-time $animation-cubic,
     visibility $animation-time;
 
-  &.is-hidden-team.team__modal {
+  &.is-hidden-team .team__modal {
     transform: translate(-50%, -50%) scale(0);
   }
 
