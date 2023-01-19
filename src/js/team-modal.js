@@ -12,7 +12,7 @@
   refs.closeModalBtn.addEventListener('click', toggleModal);
   refs.closeModal.addEventListener('click', toggleModal);
   document.addEventListener('keydown', escClose);
-  backdrop.addEventListener('click', e => {
+  refs.backdrop?.addEventListener('click', e => {
     if (e.target !== e.currentTurget) return;
     toggleModal();
   });
