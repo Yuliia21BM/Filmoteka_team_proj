@@ -35,7 +35,6 @@ function escClose(e) {
   }
 }
 
-
 // Import the functions you need from the SDKs you need
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -63,7 +62,7 @@ const email = document.getElementById('user-email');
 
 const password = document.getElementById('user-pas');
 const modalForm = document.querySelector('.modal-form');
-const modalTitle = document.querySelector('.modal-title'); 
+const modalTitle = document.querySelector('.modal-title');
 const modalTitleOut = document.querySelector('.modal-title-logout');
 const btnLogin = document.getElementById('btn-login');
 const btnSignUp = document.getElementById('btn-signup');
@@ -90,12 +89,12 @@ async function loginEmailPassword(e) {
       button: ['Aww yiss!'],
       icon: 'success',
     });
-    
+
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
     password.value = '';
   } catch (error) {
-  // console.log(error);
+    // console.log(error);
     // if (error ='auth/user-not-found'){
     //   swal('User not found (((', {
     //     icon: 'error',
@@ -105,11 +104,11 @@ async function loginEmailPassword(e) {
     //     icon: 'error',
     //   });
     // } else{
-      swal('Smth wrong (((', {
-        icon: 'error',
-      });
+    swal('Smth wrong (((', {
+      icon: 'error',
+    });
     // }
-    
+
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -121,7 +120,7 @@ async function createAccount(e) {
   e.preventDefault();
   const loginEmail = email.value;
   const loginPassword = password.value;
-  
+
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -130,7 +129,7 @@ async function createAccount(e) {
     );
     refs.modal.classList.add('is-hidden');
     swal('You did it)))', 'Account created', {
-    icon: 'success',
+      icon: 'success',
     });
     localStorage.setItem(IS_LOGED, 'true');
     email.value = '';
@@ -141,18 +140,18 @@ async function createAccount(e) {
     //   swal('Email already exists. Please, enter another e-mail', {
     //     icon: 'warning',
     //   });
-    // }  
+    // }
     // else if (error.message ="(auth/invalid-password)"){
     //   swal('Pssword at least 6 characters', {
     //     icon: 'error',
     //   });
-    // } 
-    // else{
-      swal('Smth wrong (((', {
-        icon: 'error',
-      });
     // }
-    
+    // else{
+    swal('Smth wrong (((', {
+      icon: 'error',
+    });
+    // }
+
     localStorage.setItem(IS_LOGED, 'false');
   }
 }
@@ -167,13 +166,13 @@ const monitorAuthState = async () => {
       // swal('you are logged in!!!', {
       //   icon: 'info',
       // });
-      btnLogout.classList.remove('is-hidden');
-      modalForm.classList.add('is-hidden');
-      modalTitle.classList.add('is-hidden');
-      modalTitleOut.classList.remove('is-hidden');
+      btnLogout?.classList.remove('is-hidden');
+      modalForm?.classList.add('is-hidden');
+      modalTitle?.classList.add('is-hidden');
+      modalTitleOut?.classList.remove('is-hidden');
     } else {
       // alert('signed out');
-      
+
       localStorage.setItem(IS_LOGED, 'false');
     }
   });
