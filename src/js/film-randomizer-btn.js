@@ -17,13 +17,15 @@ randomBtnWrapper.addEventListener('click', e => {
       e.target.parentNode.dataset.filmId = randomId;
 
       searchMovieById(randomId).then(randomFilm => {
-        // console.log(Boolean(randomFilm));
+
         if (!randomFilm) {
           openRandofFilmModal();
+        } else {
+            openModal(e, 'randomizer-btn-wrapper');
+            e.target.parentNode.dataset.filmId = '';
+            spinner.disable();
         }
-        openModal(e, 'randomizer-btn-wrapper');
-        e.target.parentNode.dataset.filmId = '';
-        spinner.disable();
+
       });
     };
 
