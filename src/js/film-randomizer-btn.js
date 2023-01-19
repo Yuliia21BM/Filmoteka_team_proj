@@ -20,6 +20,8 @@ randomBtnWrapper.addEventListener('click', e => {
 
         if (!randomFilm) {
           openRandofFilmModal();
+          } else if (randomFilm.adult){
+          openRandofFilmModal();
         } else {
             openModal(e, 'randomizer-btn-wrapper');
             e.target.parentNode.dataset.filmId = '';
