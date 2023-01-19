@@ -335,20 +335,53 @@
 }
 
 .randomizer-btn-wrapper{
+  display: flex;
+  align-items: center;
   position: absolute;
-  right: 0;
-  top: -25px;
-}
+  transform: translateX(-50%,-50%);
+  top: 65px;
+  &:hover .film-randomizer-btn,
+  &:focus .film-randomizer-btn{
+    animation: 1s linear 0s normal none infinite running rotate;
+  }
 
-.film-randomizer-btn{
-  background-color: #9a0808;
-  border-radius: 5px;
-  border: 0;
-  padding: 4px;
-  
   font-weight: 500;
   font-size: 10px;
   line-height: 1.33;
+  letter-spacing: 3;
   color: #fff;
   text-transform: uppercase;
+
+ @include tablet{
+    top: 60px;
+ }
+}
+
+.film-randomizer-btn{
+  border: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-image: url('/src/images/wheel-of-fortune.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include desktop{
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
