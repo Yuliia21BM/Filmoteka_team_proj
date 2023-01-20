@@ -17,43 +17,24 @@ refs.mainContainerEl.addEventListener('click', e => {
 });
 
 const checkPathname = async (pathname, activetab) => {
-  if (
-    pathname === '/Filmoteka_team_proj/library.html' &&
-    activetab === 'Queue'
-  ) {
-    // console.log(
-    //   "it's pathname check on queue & active tab:",
-    //   pathname,
-    //   activetab
-    // );
-
+  if (pathname.includes('library.html') && activetab === 'Queue') {
     await loadFromStorage(QUEUE_LIST);
+
     return;
   }
 
-  if (
-    pathname === '/Filmoteka_team_proj/library.html' &&
-    activetab === 'Watched'
-  ) {
-    // console.log(
-    //   "it's pathname check on watched & active tab:",
-    //   pathname,
-    //   activetab
-    // );
-
+  if (pathname.includes('index.html') && activetab === 'Watched') {
     await loadFromStorage(WATCHED_LIST);
   }
 };
 
 const refreshLibraryList = async () => {
   try {
-    const pathname = window.location.pathname;
-    // console.log('this is pathname in refreshLibList:', pathname);
+    const pathname = window.location.pathname.toString();
 
     const parsedActiveTab = await JSON.parse(
       localStorage.getItem('active-tab')
     );
-    // console.log('this is parsedActiveTab in refreshLibList:', parsedActiveTab);
     checkPathname(pathname, parsedActiveTab);
   } catch (error) {
     console.log(error.message);
@@ -65,7 +46,7 @@ async function checkIdFbyKey(key) {
   const res = !keyList || keyList == [] ? false : true;
   // console.log(res);
   if (res) {
-  // console.log(keyList);
+    // console.log(keyList);
     return keyList;
   } else {
     return false;
