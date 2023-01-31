@@ -1,5 +1,6 @@
 import { searchMovieById } from './fetchApi';
 import { QUEUE_LIST, WATCHED_LIST } from './config';
+import { defaultPoster } from './create-images-for-js-input';
 
 export async function addWatch(e) {
   const id = e.currentTarget.dataset.id;
@@ -69,9 +70,7 @@ async function getCardsData(id) {
       id: data.id,
       title: `${data.title ? data.title : 'Unknown'}`,
       poster_path: `${
-        data.poster_path
-          ? POSTER_URL + data.poster_path
-          : '../images/default-poster.jpg'
+        data.poster_path ? POSTER_URL + data.poster_path : defaultPoster.src
       }`,
       genres: `${data.genres ? getGanre(data.genres) : 'Unknown'}`,
       vote_average: `${data.vote_average ? data.vote_average.toFixed(1) : '0'}`,
