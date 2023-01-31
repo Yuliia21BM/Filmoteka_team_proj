@@ -25,7 +25,7 @@ export async function renderFilmCards(elem) {
     let darkTheme = (LS = LS || false);
 
     const cardTitle = document.querySelectorAll('.main-section__card-title');
-    
+
     if (darkTheme) {
       cardTitle.forEach(el => {
         el.style.color = '#fff';
@@ -78,28 +78,13 @@ export function createElementsMovie(data) {
   const markupFromStorage = () => `
   <li class="main-section__card-conteiner">
   <div class="main-section__card main-section__popup" data-film-id="${data.id}">
-        <img src="${
-          data.poster_path ? POSTER_URL + data.poster_path : defaultPoster.src
-        }" alt="${
-    data.title ? data.title : 'Unknown'
-  }" class="main-section__image" loading="lazy">
+        <img src="${data.poster_path}" alt="${data.title}" class="main-section__image" loading="lazy">
   </div>
-      <div class="main-section__card main-section__cards" data-film-id="${
-        data.id
-      }">
-					<h2 class="main-section__card-title">${
-            data.title ? data.title : 'Unknown title'
-          }</h2>
-                   
-					<p class="main-section__description">${data.genres ? genreFilm : 'Unknown'} | ${
-    data.release_date ? data.release_date.slice(0, 4) : 'n/a'
-  }
+      <div class="main-section__card main-section__cards" data-film-id="${data.id}">
+					<h2 class="main-section__card-title">${data.title}</h2>
+					<p class="main-section__description">${data.genres} | ${data.release_date}
 				
-                <span class="main-section__card-rating">${
-                  data.vote_average
-                    ? Number(data.vote_average).toFixed(1)
-                    : '0.0'
-                }</span>
+                <span class="main-section__card-rating">${data.vote_average}</span>
                 </p>
       </div>             
     </div>`;
